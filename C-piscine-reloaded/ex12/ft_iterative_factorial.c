@@ -20,7 +20,7 @@ int	ft_iterative_factorial(int nb)
 	if (nb < 0)
 		result = 0;
 	if (nb == 0)
-		result = 0;
+		result = 1;
 	while (i < nb)
 	{
 		result *= (nb - i);
@@ -29,13 +29,13 @@ int	ft_iterative_factorial(int nb)
 	return (result);
 }
 
-/*#include <stdio.h>
+#include <stdio.h>
 int	main()
 {
-	int	nb = 0;
+	int	nb = 90;
 	long r;
 
 	r = ft_iterative_factorial(nb);
 	printf("Resultado %ld", r);
 	return 0;
-}*/
+}
