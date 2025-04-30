@@ -13,7 +13,7 @@
 int	ft_iterative_factorial(int nb)
 {
 	int	i;
-	long	result;
+	int	result;
 
 	result = 1;
 	i = 0;
@@ -22,7 +22,7 @@ int	ft_iterative_factorial(int nb)
 		result *= (nb - i);
 		i++;
 	}
-	return result;	
+	return (result);
 }
 
 /*#include <stdio.h>
