@@ -29,7 +29,7 @@ int	ft_iterative_factorial(int nb)
 	return (result);
 }
 
-#include <stdio.h>
+/*#include <stdio.h>
 int	main()
 {
 	int	nb = 90;
@@ -38,4 +38,4 @@ int	main()
 	r = ft_iterative_factorial(nb);
 	printf("Resultado %ld", r);
 	return 0;
-}
+}*/

@@ -24,7 +24,7 @@ int	ft_recursive_factorial(int nb)
 	return (result);
 }
 
-#include <stdio.h>
+/*#include <stdio.h>
 int	main()
 {
 	int nb = 7;
@@ -33,4 +33,4 @@ int	main()
 	r = ft_recursive_factorial(nb);
 	printf("Resultado %d", r);
 	return (0);	
-}
+}*/
