@@ -1,31 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_div_mod.c                                       :+:      :+:    :+:   */
+/*   ft_iterative_factorial.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aluther- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/30 14:05:28 by aluther-          #+#    #+#             */
-/*   Updated: 2025/04/30 14:46:18 by aluther-         ###   ########.fr       */
+/*   Created: 2025/04/30 15:14:30 by aluther-          #+#    #+#             */
+/*   Updated: 2025/04/30 15:34:44 by aluther-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_div_mod(int a, int b, int *div, int *mod)
+int	ft_iterative_factorial(int nb)
 {
-	*div = a / b;
-	*mod = a % b;
+	int	i;
+	int	result;
+
+	result = 1;
+	i = 0;
+	while (i < nb)
+	{
+		result *= (nb - i);
+		i++;
+	}
+	return result;	
 }
 
-/*#include <stdio.h>
-int main()
+#include <stdio.h>
+int	main()
 {
-	int a = 10;
-	int b = 5;
-	int div;
-	int mod;
-	
-	ft_div_mod(a, b, &div, &mod);
-	printf("Divisor %d\n", div);
-	printf("residuo %d\n", mod);
+	int	nb =6;
+	int r;
+
+	r = ft_iterative_factorial(nb);
+	printf("Resultado %d", r);
 	return 0;
-}*/
+}
