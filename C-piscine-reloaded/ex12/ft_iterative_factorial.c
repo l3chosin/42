@@ -6,14 +6,14 @@
 /*   By: aluther- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 15:14:30 by aluther-          #+#    #+#             */
-/*   Updated: 2025/04/30 15:34:44 by aluther-         ###   ########.fr       */
+/*   Updated: 2025/04/30 15:42:29 by aluther-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_iterative_factorial(int nb)
 {
 	int	i;
-	int	result;
+	long	result;
 
 	result = 1;
 	i = 0;
@@ -28,10 +28,10 @@ int	ft_iterative_factorial(int nb)
 #include <stdio.h>
 int	main()
 {
-	int	nb =6;
-	int r;
+	int	nb = 0;
+	long r;
 
 	r = ft_iterative_factorial(nb);
-	printf("Resultado %d", r);
+	printf("Resultado %ld", r);
 	return 0;
 }
