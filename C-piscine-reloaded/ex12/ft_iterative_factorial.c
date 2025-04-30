@@ -6,7 +6,7 @@
 /*   By: aluther- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 15:14:30 by aluther-          #+#    #+#             */
-/*   Updated: 2025/04/30 15:42:29 by aluther-         ###   ########.fr       */
+/*   Updated: 2025/04/30 15:44:33 by aluther-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	ft_iterative_factorial(int nb)
 	return result;	
 }
 
-#include <stdio.h>
+/*#include <stdio.h>
 int	main()
 {
 	int	nb = 0;
@@ -34,4 +34,4 @@ int	main()
 	r = ft_iterative_factorial(nb);
 	printf("Resultado %ld", r);
 	return 0;
-}
+}*/
