@@ -1,35 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_print_params.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aluther- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/01 15:06:33 by aluther-          #+#    #+#             */
-/*   Updated: 2025/05/01 17:34:19 by aluther-         ###   ########.fr       */
+/*   Created: 2025/05/01 18:31:32 by aluther-          #+#    #+#             */
+/*   Updated: 2025/05/01 18:45:58 by aluther-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strcmp(char *s1, char *s2)
-{
-	int	i;
+#include <unistd.h>
 
-	i = 0;
-	while (s1[i] != '\0' && s2[i] != '\0')
-	{
-		if (s1[i] != s2[i])
-			return (s1[i] - s2[i]);
-		i++;
-	}
-	return (s1[i] - s2[i]);
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
 }
 
-/*#include <stdio.h>
-int     main()
+int	main(int argc, char *argv[])
 {
-        char s1[] = "Hola";
-        char s2[] = "Hola";
-        int result = ft_strcmp(s1, s2);
-        printf("Resultado %d", result);
-        return 0;
-}*/
+	int	i;
+	int	j;
+
+	if (argc > 0)
+	{
+		j = 1;
+		while (j < argc)
+		{
+			i = 0;
+			while (argv[j][i] != '\0')
+			{
+				ft_putchar(argv[j][i]);
+				i++;
+			}
+			ft_putchar('\n');
+			j++;
+		}
+	}
+	return (0);
+}
