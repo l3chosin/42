@@ -12,7 +12,7 @@
 
 int	ft_sqrt(int nb)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (nb < 0)
@@ -26,7 +26,6 @@ int	ft_sqrt(int nb)
 		i++;
 	}
 	return (0);
-
 }
 
 /*#include <stdio.h>
