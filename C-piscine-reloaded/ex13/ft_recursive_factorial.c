@@ -6,22 +6,18 @@
 /*   By: aluther- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 15:55:29 by aluther-          #+#    #+#             */
-/*   Updated: 2025/04/30 16:46:39 by aluther-         ###   ########.fr       */
+/*   Updated: 2025/05/01 13:30:41 by aluther-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_recursive_factorial(int nb)
 {
-	int	result;
-
-	if (nb == 0)
-		result = 1;
 	if (nb < 0)
-		result = 0;
-	result = nb;
-	if (nb - 1 > 0)
-		result *= ft_recursive_factorial(nb - 1);
-	return (result);
+		return (0);
+	if (nb == 0)
+		return (1);
+	
+	return (nb * ft_recursive_factorial(nb - 1));
 }
 
 /*#include <stdio.h>
