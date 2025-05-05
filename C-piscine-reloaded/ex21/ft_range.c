@@ -11,13 +11,15 @@
 /* ************************************************************************** */
 
 #include <stdlib.h>
-int		*ft_range(int min, int max)
+
+int	*ft_range(int min, int max)
 {
-	int i;
+	int		i;
+	int		*arr;
 
 	if (min >= max)
 		return (NULL);
-	int *arr = (int *)malloc((max - min) * sizeof(int));
+	arr = (int *)malloc((max - min) * sizeof(int));
 	if (arr == NULL)
 		return (NULL);
 	i = 0;
@@ -31,11 +33,11 @@ int		*ft_range(int min, int max)
 	arr = NULL;
 }
 
-#include <stdio.h>
+/*#include <stdio.h>
 int	main()
 {
 	int min = 0;
-	int max = 30;
+	int max = 10;
 	int i = 0;
 	int *result = ft_range(min, max);
 	while (i < (max - min))
@@ -44,4 +46,4 @@ int	main()
 		i++;
 	}
 	return 0;
-}
+}*/
