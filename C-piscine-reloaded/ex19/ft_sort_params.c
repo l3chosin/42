@@ -16,6 +16,15 @@ void	ft_putchar(char c)
 	write(1, &c, 1);
 }
 
+void	ft_swap(int *a, int *b)
+{
+	int	temp;
+
+	temp = *a;
+	*a = *b;
+	*b = temp;
+}
+
 int	ft_strcmp(char *s1, char *s2)
 {
 	int	i;
@@ -32,14 +41,6 @@ int	ft_strcmp(char *s1, char *s2)
 
 int	main(int argc, char *argv[])
 {
-	int i;
-	int j;
-	int temp;
-	int result;
-	j = 1;
-	while (j <= argc)
-		{
 
-		}
 	return(0);
 }
