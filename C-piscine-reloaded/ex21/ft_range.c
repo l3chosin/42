@@ -17,7 +17,7 @@ int		*ft_range(int min, int max)
 
 	if (min >= max)
 		return (NULL);
-	int	*arr = (int *)malloc((max - min) * sizeof(int));
+	int *arr = (int *)malloc((max - min) * sizeof(int));
 	if (arr == NULL)
 		return (NULL);
 	i = 0;
@@ -27,9 +27,11 @@ int		*ft_range(int min, int max)
 		i++;
 	}
 	return (arr);
+	free(arr);
+	arr = NULL;
 }
 
-/*#include <stdio.h>
+#include <stdio.h>
 int	main()
 {
 	int min = 0;
@@ -42,4 +44,4 @@ int	main()
 		i++;
 	}
 	return 0;
-}*/
+}
