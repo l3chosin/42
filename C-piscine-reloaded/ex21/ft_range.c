@@ -9,3 +9,37 @@
 /*   Updated: 2025/05/05 18:31:47 by aluther-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stdlib.h>
+int		*ft_range(int min, int max)
+{
+	int i;
+
+	if (min >= max)
+		return (NULL);
+	int	*arr = (int *)malloc((max - min) * sizeof(int));
+	if (arr == NULL)
+		return (NULL);
+	i = 0;
+	while (i < (max - min))
+	{
+		arr[i] = min + i;
+		i++;
+	}
+	return (arr);
+}
+
+/*#include <stdio.h>
+int	main()
+{
+	int min = 0;
+	int max = 30;
+	int i = 0;
+	int *result = ft_range(min, max);
+	while (i < (max - min))
+	{
+		printf("%d ", result[i]);
+		i++;
+	}
+	return 0;
+}*/
