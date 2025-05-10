@@ -20,8 +20,11 @@ void	display(char *filename)
 
 	file = open(filename, O_RDONLY);
 	if (file < 0)
+	{
+		write(2, "Error: Cannot open file.\n", 25);
 		return ;
-	while (read(file, &character, 1))
+	}
+	while (read(file, &character, 1) > 0)
 		write(1, &character, 1);
 	close(file);
 }

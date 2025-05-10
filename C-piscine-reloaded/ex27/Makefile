@@ -22,4 +22,4 @@ clean:
 fclean: clean
 	/bin/rm -f $(NAME)
 
-re: fclean re
+re: fclean all
