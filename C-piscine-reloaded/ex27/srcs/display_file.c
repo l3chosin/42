@@ -6,7 +6,7 @@
 /*   By: aluther- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 20:18:52 by aluther-          #+#    #+#             */
-/*   Updated: 2025/05/10 20:18:54 by aluther-         ###   ########.fr       */
+/*   Updated: 2025/05/10 20:45:19 by aluther-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,22 @@
 
 void	display(char *filename)
 {
-	int		file;
+	int	file;
+	int	read_status;
 	char	character;
 
 	file = open(filename, O_RDONLY);
 	if (file < 0)
-	{
-		write(2, "Error: Cannot open file.\n", 25);
 		return ;
-	}
-	while (read(file, &character, 1) > 0)
+	while (1)
+	{
+		read_status = read(file, &character, 1);
+		if (read_status <= 0)
+			break ;
 		write(1, &character, 1);
+	}
+	if (read_status < 0)
+		write(2, "Cannot read file.\n", 18);
 	close(file);
 }
 
