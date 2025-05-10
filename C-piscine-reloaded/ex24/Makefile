@@ -1,21 +1,18 @@
-CC = gcc
-CFLAGS = -Wall -Wextra -Werror -I$(INC_DIR)
-SRC_DIR = srcs
-INC_DIR = includes
-SRC = $(wildcard $(SRC_DIR)/*.c)
-INC = $(wildcard $(INC_DIR)/*.h)
-TARGET_DIR = ex24
-TARGET = $(TARGET_DIR)/libft.a
+CC	=	gcc
+CFLAGS	=	-Wall -Wextra -Werror -I$(INC_DIR)
+SRC_DIR	=	srcs
+INC_DIR	=	includes
+SRC	=	srcs/ft_putchar.c srcs/ft_putstr.c srcs/ft_strcmp.c srcs/ft_strlen.c srcs/ft_swap.c
+TARGET	=	libft.a
+OBJ	=	$(SRC:.c=.o)
 
 all:	$(TARGET)
-
-OBJ = $(SRC:.c=.o)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(TARGET):	$(OBJ)
-	ar rcs $@ $^
+	ar	rcs	$@	$^
 
 clean:
 	rm	-f $(OBJ)
