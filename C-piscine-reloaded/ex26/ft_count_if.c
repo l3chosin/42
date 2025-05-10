@@ -9,3 +9,19 @@
 /*   Updated: 2025/05/10 19:03:32 by aluther-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+int	ft_count_if(char **tab, int (*f)(char*))
+{
+	int	i;
+	int	counter;
+
+	i = 0;
+	counter = 0;
+	while (tab[i])
+	{
+		if (f(tab[i]) == 1)
+			counter++;
+		i++;
+	}
+	return (counter);
+}
