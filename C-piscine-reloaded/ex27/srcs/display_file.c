@@ -15,8 +15,8 @@
 
 void	display(char *filename)
 {
-	int	file;
-	int	read_status;
+	int		file;
+	int		read_status;
 	char	character;
 
 	file = open(filename, O_RDONLY);
