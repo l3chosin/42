@@ -21,7 +21,10 @@ void	display(char *filename)
 
 	file = open(filename, O_RDONLY);
 	if (file < 0)
-		return ;
+	{
+		write(2, "Cannot read file. \n", 18);
+		return;
+	}
 	while (1)
 	{
 		read_status = read(file, &character, 1);
