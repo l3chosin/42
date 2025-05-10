@@ -7,17 +7,20 @@ INC = $(wildcard $(INC_DIR)/*.h)
 TARGET_DIR = ex24
 TARGET = $(TARGET_DIR)/libft.a
 
-all: $(TARGET)
+all:	$(TARGET)
+
 OBJ = $(SRC:.c=.o)
+
 %.o: %.c
- $(CC) $(CFLAGS) -c $< -o $@
- $(TARGET):	$(OBJ)
-     ar rcs $@ $^
+	$(CC) $(CFLAGS) -c $< -o $@
+
+$(TARGET):	$(OBJ)
+	ar rcs $@ $^
 
 clean:
-     rm	-f $(OBJ)
+	rm	-f $(OBJ)
 
 fclean: clean
-         rm -f $(TARGET)
+	rm -f $(TARGET)
 
-re: fclean all
+re:	fclean all
