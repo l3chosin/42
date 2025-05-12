@@ -17,7 +17,7 @@ int ft_isdigit(int c)
     return (0);
 }
 
-#include <stdio.h>
+/*#include <stdio.h>
 
 int main()
 {
@@ -75,4 +75,4 @@ int main()
             printf("Hell yeah, it's a digit");
         }
     return (0);
-}
+    }*/
