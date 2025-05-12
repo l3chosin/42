@@ -23,7 +23,9 @@ int ft_atoi(const char *str)
     while (str[i] != '\0')
     {
         if (!((str[i] >= '0' && str[i] <= '9')||(str[i] == '-')||(str[i]=='+')))
-            return (0);
+            {
+                return (result * sign);
+            }
         if ((str[i] == '-') && (str[i+1] >= '0') && (str[i+1] <= '9'))
             {
                 sign = sign * -1;
@@ -42,13 +44,13 @@ int ft_atoi(const char *str)
     return (result * sign);
 }
 
-#include <stdio.h>
+/*#include <stdio.h>
 int main()
 {
     int f;
-    char str[] = "jajajekisde";
+    char str[] = "test";
 
     f = ft_atoi(str);
     printf("Conversion to integer: %d", f);
     return (0);
-}
+}*/
