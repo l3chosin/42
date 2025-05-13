@@ -23,7 +23,7 @@ int main()
 {
     int c;
 
-    c = 'A';         //IMPUT HERE PLEASE
+    c = 'a';         //IMPUT HERE PLEASE
     int result = ft_isdigit(c);
 
     if (result == 0)
