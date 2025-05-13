@@ -10,7 +10,22 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isascii(inc c)
+int ft_isascii(int c)
 {
-	
+	if (c >= 0 && c <= 127)
+		return (1);
+	return (0);
 }
+
+/*#include <stdio.h>
+int	main ()
+{
+	int c = '\0';    // IMPUT HERE
+	int result = ft_isascii(c);
+
+	if (result == 0)
+		printf ("Oh no, is not ASCII ;( \n RETURNED VALUE %d", result);
+	if (result == 1)
+		printf(":D OMG WE FOUND AN ASCII \n RETURNED VALUE %d", result);
+	return 0;
+	}*/
