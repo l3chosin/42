@@ -6,15 +6,15 @@
 /*   By: aluther- <aluther-@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 11:19:16 by aluther-          #+#    #+#             */
-/*   Updated: 2025/05/13 11:19:18 by aluther-         ###   ########.fr       */
+/*   Updated: 2025/05/13 22:56:55 by aluther-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isprint (int a)
+int	ft_isprint(int a)
 {
-    if ((a >= 33) && (a <= 126))
-        return (1);
-    return (0);
+	if ((a >= 33) && (a <= 126))
+		return (1);
+	return (0);
 }
 
 /*#include <stdio.h>

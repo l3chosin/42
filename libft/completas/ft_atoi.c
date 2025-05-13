@@ -6,10 +6,9 @@
 /*   By: aluther- <aluther-@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 11:32:15 by aluther-          #+#    #+#             */
-/*   Updated: 2025/05/12 12:23:11 by aluther-         ###   ########.fr       */
+/*   Updated: 2025/05/13 22:53:01 by aluther-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 int	ft_atoi(const char *str)
 {

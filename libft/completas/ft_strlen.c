@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strlen.c                                           :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aluther- <aluther-@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 08:45:21 by aluther-          #+#    #+#             */
-/*   Updated: 2025/05/12 08:45:26 by aluther-         ###   ########.fr       */
+/*   Updated: 2025/05/13 22:58:18 by aluther-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_strlen(char *tab)
+int	ft_strlen(char *tab)
 {
-    int counter;
-    int i;
+	int	counter;
+	int	i;
 
-    counter = 0;
-    i = 0;
-    while(tab[i] != '\0')
-    {
-        counter++;
-        i++;
-    }
-    return (counter);
+	counter = 0;
+	i = 0;
+	while (tab[i] != '\0')
+	{
+		counter++;
+		i++;
+	}
+	return (counter);
 }
 
 /*#include <stdio.h>

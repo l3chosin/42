@@ -6,15 +6,15 @@
 /*   By: aluther- <aluther-@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 09:45:25 by aluther-          #+#    #+#             */
-/*   Updated: 2025/05/12 09:45:28 by aluther-         ###   ########.fr       */
+/*   Updated: 2025/05/13 22:56:02 by aluther-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isdigit(int c)
+int	ft_isdigit(int c)
 {
-    if (c >= 48 && c <= 57)
-        return (1);
-    return (0);
+	if (c >= 48 && c <= 57)
+		return (1);
+	return (0);
 }
 
 /*#include <stdio.h>
