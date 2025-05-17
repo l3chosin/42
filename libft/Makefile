@@ -1,0 +1,32 @@
+CC = cc
+CFLAGS = -Wall -Wextra -Werror
+AR = ar
+ARFLAGS = rcs
+
+SRC_DIR = .
+INC_DIR = .
+OBJ_DIR = obj
+LIB_NAME = libft.a
+
+SRC = ft_atoi.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c ft_strlcpy.c ft_strlen.c ft_strncmp.c ft_strchr.c
+
+OBJ = $(SRC:%.c=$(OBJ_DIR)/%.o)
+
+all: $(LIB_NAME)
+
+$(LIB_NAME): $(OBJ)
+	$(AR) $(ARFLAGS) $@ $^
+
+$(OBJ_DIR)/%.o: %.c
+	@mkdir -p $(OBJ_DIR)
+	$(CC) $(CFLAGS)	-I$(INC_DIR) -c $< -o $@
+
+clean:
+	rm -rf $(OBJ_DIR)
+
+fclean: clean
+	rm -f $(LIB_NAME)
+
+re: fclean all
+
+.PHONY: all clean fclean re

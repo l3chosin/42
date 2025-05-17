@@ -9,3 +9,19 @@
 /*   Updated: 2025/05/13 14:39:41 by aluther-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef LIBFT_H
+# define LIBFT_H
+
+int	ft_atoi(const char *str);
+int	ft_isalnum(int c);
+int	ft_isalpha(int c);
+int	ft_isascii(int c);
+int	ft_isdigit(int c);
+int	ft_isprint(int a);
+int	ft_strlcpy(char *dst, char *src, int size);
+int	ft_strlen(char *tab);
+int	ft_strncmp(char *s1, char *s2, int n);
+char	ft_strchr(*ft_strchr(char *str, int c);
+
+#endif
