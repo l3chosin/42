@@ -39,15 +39,15 @@ int	main()
 	ref = strncmp(s1, s2, n);
 	if (final_result == 0)
 		printf("Los primeros %d caracteres de las dos str son iguales.
-	       	Valor retornado %d. 
+	       	Valor retornado %d.
 		Valor de comparacion con strlcmp %d\n", n, final_result, ref);
 	if(final_result > 0)
-		printf("Los primeros %d carateres de las dos funciones son diferentes. 
-		Valor retornado %d. 
+		printf("Los primeros %d carateres de las dos funciones son diferentes.
+		Valor retornado %d.
 		Valor de comparacion con strlcmp %d\n", n, final_result, ref);
 	if(final_result < 0)
-		printf("Los primeros %d caracteres de las dos funciones son diferentes. 
-		Valor retornado %d. 
+		printf("Los primeros %d caracteres de las dos funciones son diferentes.
+		Valor retornado %d.
 		Valor de comparacion con strlcmp %d\n", n, final_result, ref);
 	return (0);
 }*/
