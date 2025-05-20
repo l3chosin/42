@@ -30,7 +30,7 @@ char *ft_strrchr(char *str, int c)
 
 #include <stdio.h>
 
-int main()
+/*int main()
 {
     char str[] = "Gordas tatasss";
     int c = 'a';
@@ -44,4 +44,4 @@ int main()
         printf("No se ha encontrado el caracter\n");
 
     return 0;
-}
+    }*/
