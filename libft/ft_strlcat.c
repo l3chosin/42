@@ -10,7 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-char	ft_strlcat(char *dst, char *src, int size)
+#include "libft.h"
+
+int	ft_strlcat(char *dst, char *src, int size)
 {
 	int	i;
 	int	j;
@@ -21,10 +23,8 @@ char	ft_strlcat(char *dst, char *src, int size)
 	dst_size = 0;
 	i = 0;
 	j = 0;
-	while (src[src_size] != '\0')
-		src_size++;
-	while (dst[dst_size] != '\0')
-		dst_size++;
+	dst_size = ft_strlen(dst);
+	src_size = ft_strlen(src);
 	if (size > dst_size)
 	{
 		while (i < dst_size)
@@ -40,7 +40,7 @@ char	ft_strlcat(char *dst, char *src, int size)
 	return (src_size + dst_size);
 }
 
-/*#include<stdio.h>
+#include<stdio.h>
 
 int	main()
 {
@@ -53,5 +53,4 @@ int	main()
 	printf("Cadena resultante %s\n", dst);
 	printf("Valor de retorno %d\n", return_value);
 	return(0);
-
-}*/
+}
