@@ -25,5 +25,6 @@ int	ft_strlcpy(char *dst, char *src, int size);
 int	ft_strlen(char *tab);
 int	ft_strncmp(char *s1, char *s2, int n);
 char    ft_strchr(char *str, int c);
+char *ft_strrchr(char *str, int c);
 
 #endif

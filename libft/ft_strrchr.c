@@ -28,9 +28,9 @@ char *ft_strrchr(char *str, int c)
     return (0);
 }
 
-#include <stdio.h>
+/*#include <stdio.h>
 
-/*int main()
+int main()
 {
     char str[] = "Gordas tatasss";
     int c = 'a';
