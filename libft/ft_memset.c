@@ -1,36 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aluther- <aluther-@student.42barcelona.co  +#+  +:+       +#+        */
+/*   By: aluther- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/21 14:55:20 by aluther-          #+#    #+#             */
-/*   Updated: 2025/05/21 16:45:56 by aluther-         ###   ########.fr       */
+/*   Created: 2025/05/21 16:02:28 by aluther-          #+#    #+#             */
+/*   Updated: 2025/05/21 16:45:14 by aluther-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_bzero(void *str, size_t c)
+void	ft_memset(void *str, int value, int n)
 {
 	int				i;
 	unsigned char	*ptr;
 
 	ptr = (unsigned char *)str;
 	i = 0;
-	while (i < c)
+	while (i < n)
 	{
-		ptr[i] = '\0';
+		ptr[i] = (unsigned char)value;
 		i++;
 	}
 }
 
-/*#include<stdio.h>
-int main()
+/*#include <stdio.h>
+
+int main(void)
 {
-    char str[] = "Hola gordiiiiii";
-    int c = 5;
-    printf("Cadena original: %s\n", str);
-    ft_bzero(str, c);
-    printf("Cadena tras borrado: %s\n", str);
+    char str[20] = "Hola, mundo!";
+    int value = '*';
+    int n = 15;
+
+    printf("Antes de ft_memset: %s\n", str);
+    ft_memset(str, value, n);
+    printf("Después de ft_memset: %s\n", str);
+
     return 0;
-    }*/
+}*/
