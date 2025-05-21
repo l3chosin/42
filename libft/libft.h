@@ -14,6 +14,7 @@
 # define LIBFT_H
 
 int		ft_atoi(const char *str);
+void	ft_bzero(char *str, int c);
 int		ft_isalnum(int c);
 int		ft_isalpha(int c);
 int		ft_isascii(int c);
@@ -24,7 +25,9 @@ int		ft_strlcat(char *dst, char *src, int size);
 int		ft_strlcpy(char *dst, char *src, int size);
 int		ft_strlen(char *tab);
 int		ft_strncmp(char *s1, char *s2, int n);
-char	ft_strchr(char *str, int c);
+char	ft_strnstr(char *haystack, char *needle, int size);
 char	*ft_strrchr(char *str, int c);
+int		ft_tolower(int c);
+int		ft_toupper(int c)
 
 #endif
