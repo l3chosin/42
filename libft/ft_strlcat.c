@@ -6,7 +6,7 @@
 /*   By: aluther- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 11:49:30 by aluther-          #+#    #+#             */
-/*   Updated: 2025/05/20 14:59:41 by aluther-         ###   ########.fr       */
+/*   Updated: 2025/05/21 12:43:56 by aluther-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	ft_strlcat(char *dst, char *src, int size)
 	return (src_size + dst_size);
 }
 
-#include<stdio.h>
+/*#include<stdio.h>
 
 int	main()
 {
@@ -53,4 +53,4 @@ int	main()
 	printf("Cadena resultante %s\n", dst);
 	printf("Valor de retorno %d\n", return_value);
 	return(0);
-}
+}*/
