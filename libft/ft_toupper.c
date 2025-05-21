@@ -16,3 +16,18 @@ int	ft_toupper(int c)
 		c -= 32;
 	return (c);
 }
+
+/*#include<stdio.h>
+int	main()
+{
+	char c1 = 'A';
+	char c2 = 'b';
+	char c3 = 'w';
+	char c4 = '5';
+
+	printf("La letra %c en minuscula es %c\n", c1, ft_toupper(c1));
+	printf("La letra %c en minuscula es %c\n", c2, ft_toupper(c2));
+	printf("La letra %c en minuscula es %c\n", c3, ft_toupper(c3));
+	printf("La letra %c en minuscula es %c\n", c4, ft_toupper(c4));
+  return 0;
+  }*/
