@@ -1,1 +1,1 @@
-void *ft_memchr(const void *ptr, int value, size_t num)
+void *ft_memchr(void *ptr, int value, size_t num)
