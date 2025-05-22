@@ -14,7 +14,7 @@ OBJ = $(SRC:%.c=$(OBJ_DIR)/%.o)
 
 all: $(LIB_NAME)
 
-$(LIB_NAME): $(OBJ)void	*ft_memchr(const void *str, int ch, int n)
+$(LIB_NAME): $(OBJ)
 	$(AR) $(ARFLAGS) $@ $^
 
 $(OBJ_DIR)/%.o: %.c
