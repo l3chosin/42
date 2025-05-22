@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   memchr.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aluther- <aluther-@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/22 12:14:53 by aluther-          #+#    #+#             */
-/*   Updated: 2025/05/22 16:07:41 by aluther-         ###   ########.fr       */
+/*   Created: 2025/05/22 16:27:49 by aluther-          #+#    #+#             */
+/*   Updated: 2025/05/22 16:29:38 by aluther-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	*ft_memchr(const void *str, int ch, int n)
 {
-	int		i;
+	int				i;
 	unsigned char	*ptr;
 
 	ptr = (unsigned char *)str;

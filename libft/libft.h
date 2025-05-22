@@ -20,6 +20,7 @@ int		ft_isalpha(int c);
 int		ft_isascii(int c);
 int		ft_isdigit(int c);
 int		ft_isprint(int a);
+void	*ft_memchr(const void *str, int ch, int n)
 void	ft_memset(void *str, int value, int n);
 char	ft_strchr(char *str, int c);
 int		ft_strlcat(char *dst, char *src, int size);
