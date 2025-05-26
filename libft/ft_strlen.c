@@ -10,19 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *tab)
+int	ft_strlen(const char *tab)
 {
-	int	counter;
-	int	i;
+	int i;
 
-	counter = 0;
 	i = 0;
-	while (tab[i] != '\0')
-	{
-		counter++;
+	while (tab[i])
 		i++;
-	}
-	return (counter);
+	return (i);
 }
 
 /*#include <stdio.h>
