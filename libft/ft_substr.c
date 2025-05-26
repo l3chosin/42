@@ -1,42 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aluther- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/21 16:02:28 by aluther-          #+#    #+#             */
-/*   Updated: 2025/05/21 16:45:14 by aluther-         ###   ########.fr       */
+/*   Created: 2025/05/26 14:47:21 by aluther-          #+#    #+#             */
+/*   Updated: 2025/05/26 15:31:50 by aluther-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include <stdlib.h>
 
-void	ft_memset(void *str, int value, size_t n)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t			i;
-	unsigned char	*ptr;
+	unsigned int	i;
+	unsigned int	j;
+	char			*ptr;
 
-	ptr = (unsigned char *)str;
 	i = 0;
-	while (i < n)
+	ptr = malloc(len - start);
+	if (ptr == NULL)
+		return (NULL);
+	i = start;
+	j = 0;
+	while (i < len)
 	{
-		ptr[i] = (unsigned char)value;
+		ptr[j] = s[i];
 		i++;
+		j++;
 	}
+	return (ptr);
 }
 
 /*#include <stdio.h>
-
-int main(void)
+int	main()
 {
-    char str[20] = "Hola, mundo!";
-    int value = '*';
-    int n = 15;
+	char const s[] = "Hola mundo";
+	char *p;
 
-    printf("Antes de ft_memset: %s\n", str);
-    ft_memset(str, value, n);
-    printf("Después de ft_memset: %s\n", str);
-
-    return 0;
+	p = ft_substr(s, 3, 11);
+	printf("Resultado de la substring: %s", p);
+	return 0;
 }*/

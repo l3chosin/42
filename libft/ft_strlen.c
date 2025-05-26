@@ -12,7 +12,7 @@
 
 int	ft_strlen(const char *tab)
 {
-	int i;
+	int		i;
 
 	i = 0;
 	while (tab[i])
