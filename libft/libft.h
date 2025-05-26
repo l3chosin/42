@@ -30,6 +30,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n);
 void	ft_memset(void *str, int value, int n);
 char	ft_strchr(char *str, int c);
 char	*ft_strdup(const char *s);
+char	*ft_strjoin(char const *s1, char const *s2);
 int		ft_strlcat(char *dst, char *src, size_t size);
 int		ft_strlcpy(char *dst, char *src, int size);
 int		ft_strlen(const char *tab);
