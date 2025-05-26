@@ -17,6 +17,7 @@
 
 int		ft_atoi(const char *str);
 void	ft_bzero(void *str, int c);
+void	*ft_calloc(size_t num, size_t size);
 int		ft_isalnum(int c);
 int		ft_isalpha(int c);
 int		ft_isascii(int c);
