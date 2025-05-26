@@ -10,7 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strrchr(char *str, int c)
+#include <stddef.h>
+
+char	*ft_strrchr(const char *str, int c)
 {
 	int		i;
 	int		j;
@@ -24,8 +26,8 @@ char	*ft_strrchr(char *str, int c)
 		i++;
 	}
 	if (j != -1)
-		return (&str[j]);
-	return (0);
+		return ((char *)str);
+	return (NULL);
 }
 
 /*#include <stdio.h>

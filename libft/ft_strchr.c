@@ -10,7 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strchr(char *str, int c)
+#include <stddef.h>
+
+char	*ft_strchr(const char *str, int c)
 {
 	int	i;
 
@@ -18,10 +20,10 @@ char	*ft_strchr(char *str, int c)
 	while (str[i])
 	{
 		if (str[i] == c)
-			return (&str[i]);
+			return ((char *)str);
 		i++;
 	}
-	return (0);
+	return (NULL);
 }
 
 /*#include<stdio.h>
