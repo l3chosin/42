@@ -36,6 +36,7 @@ char	*ft_strjoin(char const *s1, char const *s2);
 int		ft_strlcat(char *dst, char *src, size_t size);
 int		ft_strlcpy(char *dst, char *src, int size);
 int		ft_strlen(const char *tab);
+char	*ft_strmapi(const char *s, char (*f)(unsigned int, char));
 int		ft_strncmp(char *s1, char *s2, int n);
 char	ft_strnstr(char *haystack, char *needle, int size);
 char	*ft_strrchr(char *str, int c);
