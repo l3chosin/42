@@ -17,6 +17,7 @@ ft_isalpha.c\
 ft_isascii.c\
 ft_isdigit.c\
 ft_isprint.c\
+ft_itoa.c\
 ft_memchr.c\
 ft_memcmp.c\
 ft_memcpy.c\
