@@ -123,7 +123,7 @@ char	**ft_split(const char *s, char c)
 
 int main(void)
 {
-    char    str[] = "Hola,esto,es,una,prueba";
+    char    str[] = "Hola,,,esto,,es,,,,,una,,prueba";
     char    delimiter = ',';
     char    **result;
     int     i;
