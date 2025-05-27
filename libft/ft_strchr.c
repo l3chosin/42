@@ -32,13 +32,13 @@ char	*ft_strchr(const char *str, int c)
 int	main()
 {
 	char str[] = "Gordas t3t4s";
-	int c = 'g';
+	int c = 'a';
 	char *result = ft_strchr(str, c);
 
 	if(result == NULL)
 			printf("No se ha encontrado coincidencias");
 	else
-			printf("Coincidencia encontrada:
-			 '%c' (resto: \"%s\")\n", *result, result);
+		printf("Coincidencia "
+		"encontrada:'%c' (resto: \"%s\")\n", *result, result);
 	return 0;
-}*/
+	}*/

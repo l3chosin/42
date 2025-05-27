@@ -123,23 +123,18 @@ int main(void)
     char    **result;
     int     i;
 
-    // Llamar a ft_split
     result = ft_split(str, delimiter);
     if (!result)
     {
         printf("Error: No se pudo dividir la cadena.\n");
         return (1);
     }
-
-    // Imprimir las palabras obtenidas
     i = 0;
     while (result[i])
     {
         printf("Palabra %d: %s\n", i + 1, result[i]);
         i++;
     }
-
-    // Liberar memoria asignada por ft_split
     i = 0;
     while (result[i])
     {

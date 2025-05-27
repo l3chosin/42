@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
 	unsigned int	i;
@@ -25,11 +27,10 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 }
 
 /*#include <stdio.h>
-
 void    to_lower(unsigned int i, char *c)
 {
-    (void)i; // Ignoramos el índice porque no es necesario aquí
-    *c = ft_tolower(*c); // Aplicamos ft_tolower al contenido de c
+    (void)i;
+    *c = ft_tolower(*c);
 }
 
 int main(void)

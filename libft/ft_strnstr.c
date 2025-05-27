@@ -41,14 +41,15 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t size)
 int main()
 {
     char haystack[] = "Holasoy jose";
-    char needle[] = "y jose";
-    int size = 10;
+    char needle[] = "jose";
+    int size = 12;
 
-    char p = ft_strnstr(haystack, needle, size);
+    char *p = ft_strnstr(haystack, needle, size);
 
     if(p == 0)
         printf("Coincidencia no encontrada");
     else
         printf("Coincidendia encontrada");
     return (0);
-    }*/
+    }
+*/

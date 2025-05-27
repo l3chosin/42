@@ -43,9 +43,8 @@ int main()
     result = ft_strrchr(str, c);
 
     if (result)
-        printf("Ultima aparicion
-	 	de caracter encontrada en %p,
-		 caracter: %c\n", (void*)result, *result);
+        printf("Ultima aparicion de caracter "
+        "encontrada en %p, caracter: %c\n", (void*)result, *result);
     else
         printf("No se ha encontrado el caracter\n");
 

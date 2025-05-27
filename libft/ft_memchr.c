@@ -32,15 +32,15 @@ void	*ft_memchr(void *str, int ch, int n)
 int main()
 {
     char str[] = "Hola mundo!";
-    int ch = 'M';
+    int ch = 'm';
     int n = 6;
     char *ptr;
 
     ptr = ft_memchr(str, ch, n);
 
     if (ptr != 0)
-        printf("El carácter '%c' encontrado
-en la posición: %ld\n", ch, ptr - str);
+        printf("El carácter '%c' encontrado "
+        "en la posición: %ld\n", ch, ptr - str);
     else
         printf("El carácter '%c' no se encuentra en la cadena.\n", ch);
     return 0;

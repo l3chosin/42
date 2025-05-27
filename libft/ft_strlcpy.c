@@ -43,7 +43,7 @@ int main()
     int size = 12;
     rtn = ft_strlcpy(dst, src, size);
 
-    printf("Valor en dst tras copia %s\n", dst);
+    printf("Valor en dst tras copia: %s\n", dst);
     printf("Buffer asignado %d\n", size);
     printf("Valor retornado %d\n", rtn);
 
