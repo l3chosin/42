@@ -18,10 +18,10 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	unsigned char			*d;
 	const unsigned char		*s;
 
+	if (!dest && !src)
+		return (NULL);
 	d = (unsigned char *)dest;
 	s = (const unsigned char *)src;
-	if (d == s || n == 0)
-		return (dest);
 	if (d < s)
 	{
 		i = 0;
@@ -31,25 +31,22 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 			i++;
 		}
 	}
-	i = n;
-	while (i > 0)
+	else
 	{
-		d[i - 1] = s[i - 1];
-		i--;
+		while (n--)
+			d[n] = s[n];
 	}
 	return (dest);
 }
 
 /*#include <stdio.h>
-
 int	main()
 {
 	char dest[45];
 	char src[] = "Hola mundo, soy paco.";
 	size_t n = 30;
-	
+
 	ft_memmove(dest, src, n);
 	printf("Resultado en destino: %s\n", dest);
 	return 0;
-
-}*/
+	}*/

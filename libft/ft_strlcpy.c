@@ -10,10 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlcpy(char *dst, char *src, int size)
+#include <stddef.h>
+
+size_t	ft_strlcpy(char *dst, char *src, size_t size)
 {
-	int	i;
-	int	src_size;
+	size_t	i;
+	size_t	src_size;
 
 	src_size = 0;
 	while (src[src_size] != '\0')

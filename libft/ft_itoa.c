@@ -16,21 +16,22 @@ static int	ft_len_calculator(int n)
 {
 	int	len;
 
-	len = 1;
-	while (!(n >= 0 && n <= 9))
+	len = 0;
+	if (n <= 0)
+		len++;
+	while (n != 0)
 	{
 		n /= 10;
 		len++;
 	}
-	if (n < 0)
-		len++;
 	return (len);
 }
 
 char	*ft_itoa(int n)
 {
-	char	*number;
-	int		l;
+	char			*number;
+	int				l;
+	unsigned int	num;
 
 	l = ft_len_calculator(n);
 	number = (char *)malloc((l + 1) * sizeof(char));
@@ -40,12 +41,14 @@ char	*ft_itoa(int n)
 	if (n < 0)
 	{
 		number[0] = '-';
-		n = -n;
+		num = -n;
 	}
-	while (l-- > (number[0] == '-'))
+	else
+		num = n;
+	while (l-- > (n < 0))
 	{
-		number[l] = (n % 10) + '0';
-		n /= 10;
+		number[l] = (num % 10) + '0';
+		num /= 10;
 	}
 	return (number);
 }

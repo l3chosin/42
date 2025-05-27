@@ -16,17 +16,22 @@ static int	word_count(const char *s, char c)
 {
 	int	i;
 	int	words;
+	int	in_word;
 
 	if (!s)
 		return (0);
 	i = 0;
 	words = 0;
-	if (s[0] != c)
-		words++;
+	in_word = 0;
 	while (s[i])
 	{
-		if (s[i] == c && s[i + 1] && s[i + 1] != c)
+		if (s[i] != c && !in_word)
+		{
 			words++;
+			in_word = 1;
+		}
+		else if (s[i] == c)
+			in_word = 0;
 		i++;
 	}
 	return (words);
@@ -96,7 +101,6 @@ char	**ft_split(const char *s, char c)
 {
 	int		words;
 	char	**array;
-	int		i;
 
 	if (!s)
 		return (NULL);
@@ -105,16 +109,7 @@ char	**ft_split(const char *s, char c)
 	if (!array)
 		return (NULL);
 	if (!fill_word(array, s, c, words))
-	{
-		i = 0;
-		while (i < words)
-		{
-			free(array[i]);
-			i++;
-		}
-		free(array);
 		return (NULL);
-	}
 	return (array);
 }
 

@@ -11,29 +11,45 @@
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+static char	*empty_str(void)
 {
-	unsigned int	i;
-	unsigned int	j;
-	char			*ptr;
+	char	*ptr;
 
-	i = 0;
-	ptr = malloc((len - start) * (sizeof (char)));
-	if (ptr == NULL)
+	ptr = malloc(1);
+	if (!ptr)
 		return (NULL);
-	i = start;
-	j = 0;
-	while (i < len)
-	{
-		ptr[j] = s[i];
-		i++;
-		j++;
-	}
+	ptr[0] = '\0';
 	return (ptr);
 }
 
-/*#include <stdio.h>
+char	*ft_substr(char const *s, unsigned int start, size_t len)
+{
+	size_t	i;
+	size_t	j;
+	size_t	s_len;
+	char	*ptr;
+
+	if (!s)
+		return (NULL);
+	s_len = ft_strlen(s);
+	if (start >= s_len)
+		return (empty_str());
+	if (len > s_len - start)
+		len = s_len - start;
+	ptr = malloc(len + 1);
+	if (!ptr)
+		return (NULL);
+	i = start;
+	j = 0;
+	while (j < len && s[i])
+		ptr[j++] = s[i++];
+	ptr[j] = '\0';
+	return (ptr);
+}
+/*
+#include <stdio.h>
 int	main()
 {
 	char const s[] = "Hola mundo";
@@ -42,4 +58,5 @@ int	main()
 	p = ft_substr(s, 3, 11);
 	printf("Resultado de la substring: %s", p);
 	return 0;
-}*/
+}
+*/
