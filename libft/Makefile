@@ -7,7 +7,6 @@ ARFLAGS = rcs
 SRC_DIR = .
 INC_DIR = .
 OBJ_DIR = obj
-LIB_NAME = libft.a
 
 SRC = ft_atoi.c\
 ft_bzero.c\
@@ -23,9 +22,14 @@ ft_memcmp.c\
 ft_memcpy.c\
 ft_memmove.c\
 ft_memset.c\
+ft_putchar_fd.c\
+ft_putendl_fd.c\
+ft_putnbr_fd.c\
+ft_putstr_fd.c\
 ft_split.c\
 ft_strchr.c\
 ft_strdup.c\
+ft_striteri.c\
 ft_strjoin.c\
 ft_strlcat.c\
 ft_strlcpy.c\
@@ -41,9 +45,9 @@ ft_toupper.c
 
 OBJ = $(SRC:%.c=$(OBJ_DIR)/%.o)
 
-all: $(LIB_NAME)
+all: $(NAME)
 
-$(LIB_NAME): $(OBJ)
+$(NAME): $(OBJ)
 	$(AR) $(ARFLAGS) $@ $^
 
 $(OBJ_DIR)/%.o: %.c
@@ -54,7 +58,7 @@ clean:
 	rm -rf $(OBJ_DIR)
 
 fclean: clean
-	rm -f $(LIB_NAME)
+	rm -f $(NAME)
 
 re: fclean all
 
