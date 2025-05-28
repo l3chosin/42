@@ -1,8 +1,9 @@
 NAME = libft.a
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -MMD -MP
 AR = ar
 ARFLAGS = rcs
+DEPS = $(OBJ:.o=.d)
 
 SRC_DIR = .
 INC_DIR = .
@@ -49,6 +50,8 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	$(AR) $(ARFLAGS) $@ $^
+
+-include $(DEPS)
 
 $(OBJ_DIR)/%.o: %.c
 	@mkdir -p $(OBJ_DIR)
