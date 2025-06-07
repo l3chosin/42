@@ -21,7 +21,7 @@ int	ft_hexlen(unsigned long ptr)
 		ptr /= 16;
 		l++;
 	}
-	return (l);
+	return (l + 2);
 }
 
 char	*ft_nbrtohex(unsigned long p)
@@ -36,8 +36,10 @@ char	*ft_nbrtohex(unsigned long p)
 	final = (char *)malloc((len + 1) * sizeof(char));
 	if (final == NULL)
 		return (NULL);
+	final[0] = '0';
+	final [1] = 'x';
 	final[len] = '\0';
-	while (len > 0)
+	while (len > 2)
 	{
 		len--;
 		j = p % 16;
@@ -46,3 +48,14 @@ char	*ft_nbrtohex(unsigned long p)
 	}
 	return (final);
 }
+
+/*#include <stdio.h>
+
+int main()
+{
+    char *res;
+
+    res = ft_nbrtohex(25000);
+    printf("Resultado: %s", res);
+    return 0;
+    }*/
