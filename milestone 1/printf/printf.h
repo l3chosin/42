@@ -13,6 +13,8 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdarg.h>
+#include <stdint.h>
+#include <stdio.h>
 
 int	ft_putnbr(long n);
 int	ft_putpositivenbr(unsigned int n);
