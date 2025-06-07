@@ -13,7 +13,7 @@
 
 int	ft_hexlen(unsigned long ptr)
 {
-	int l;
+	int	l;
 
 	l = 1;
 	while (ptr >= 16)
@@ -24,12 +24,12 @@ int	ft_hexlen(unsigned long ptr)
 	return (l);
 }
 
-char *ft_nbrtohex(unsigned long p)
+char	*ft_nbrtohex(unsigned long p)
 {
-	char *hex;
-	char *final;
-	int j;
-	int len;
+	char	*hex;
+	char	*final;
+	int		j;
+	int		len;
 
 	hex = "0123456789ABCDEF";
 	len = ft_hexlen(p);
@@ -46,4 +46,3 @@ char *ft_nbrtohex(unsigned long p)
 	}
 	return (final);
 }
-
