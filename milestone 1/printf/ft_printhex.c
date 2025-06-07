@@ -31,7 +31,7 @@ char	*ft_nbrtohex(unsigned long p)
 	int		j;
 	int		len;
 
-	hex = "0123456789ABCDEF";
+	hex = "0123456789abcdef";
 	len = ft_hexlen(p);
 	final = (char *)malloc((len + 1) * sizeof(char));
 	if (final == NULL)
