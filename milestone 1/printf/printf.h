@@ -1,31 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   printf.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aluther- <aluther-@student.42barcelona.co  +#+  +:+       +#+        */
+/*   By: aluther- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/12 08:45:21 by aluther-          #+#    #+#             */
-/*   Updated: 2025/05/13 22:58:18 by aluther-         ###   ########.fr       */
+/*   Created: 2025/06/07 10:18:00 by aluther-          #+#    #+#             */
+/*   Updated: 2025/06/07 10:18:02 by aluther-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(const char *tab)
-{
-	int		i;
+#include <unistd.h>
+#include <stdlib.h>
+#include <stdarg.h>
 
-	i = 0;
-	while (tab[i])
-		i++;
-	return (i);
-}
-
-/*#include <stdio.h>
-int main()
-{
-   char tab[] = "";
-
-   int result = ft_strlen(tab);
-   printf("Longitud de la string %d", result);
-   return 0;
-   }*/
+int	ft_putnbr(long n);
+int	ft_putpositivenbr(unsigned int n);
+int	ft_putchar(char c);
+int	ft_putstr(char *str);
