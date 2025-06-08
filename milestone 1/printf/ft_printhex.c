@@ -34,6 +34,8 @@ int	ft_ptrtohex(unsigned long p)
 	int		og_len;
 
 	hex = "0123456789abcdef";
+	if (p == 0)
+		return (ft_putstr("(nil)"));
 	len = ft_hexlen(p) + 2;
 	og_len = len;
 	final = (char *)malloc((len + 1) * sizeof(char));

@@ -25,5 +25,5 @@ int		ft_nbrtohex(unsigned long p);
 int		ft_uppernbrtohex(unsigned long p);
 int		ft_hexlen(unsigned long ptr);
 char	*ft_strtoupper(char *str);
-
+int	ft_printf(char const *format, ...);
 #endif

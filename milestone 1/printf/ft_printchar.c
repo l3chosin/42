@@ -26,7 +26,10 @@ int	ft_putstr(char *str)
 	i = 0;
 	len = 0;
 	if (!str)
-		return (0);
+	{
+		ft_putstr("(null)");
+		return (6);
+	}
 	while (str[i])
 	{
 		ft_putchar(str[i]);
