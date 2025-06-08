@@ -9,6 +9,7 @@
 /*   Updated: 2025/06/07 10:27:42 by aluther-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "printf.h"
 
 int	ft_hexlen(unsigned long ptr)
@@ -24,7 +25,7 @@ int	ft_hexlen(unsigned long ptr)
 	return (l + 2);
 }
 
-char	*ft_nbrtohex(unsigned long p)
+int	ft_nbrtohex(unsigned long p)
 {
 	char	*hex;
 	char	*final;
@@ -35,7 +36,7 @@ char	*ft_nbrtohex(unsigned long p)
 	len = ft_hexlen(p);
 	final = (char *)malloc((len + 1) * sizeof(char));
 	if (final == NULL)
-		return (NULL);
+		return (0);
 	final[0] = '0';
 	final [1] = 'x';
 	final[len] = '\0';
@@ -46,9 +47,36 @@ char	*ft_nbrtohex(unsigned long p)
 		p /= 16;
 		final[len] = hex[j];
 	}
-	return (final);
+	ft_putstr(final);
+	return (len + 2);
 }
 
+int	ft_uppernbrtohex(unsigned long p)
+{
+	char	*hex;
+	char	*final;
+	int		j;
+	int		len;
+
+	hex = "0123456789abcdef";
+	len = ft_hexlen(p);
+	final = (char *)malloc((len + 1) * sizeof(char));
+	if (final == NULL)
+		return (0);
+	final[0] = '0';
+	final [1] = 'x';
+	final[len] = '\0';
+	while (len > 2)
+	{
+		len--;
+		j = p % 16;
+		p /= 16;
+		final[len] = hex[j];
+	}
+	ft_strtoupper(final);
+	ft_putstr(final);
+	return (len + 2);
+}
 /*#include <stdio.h>
 
 int main()

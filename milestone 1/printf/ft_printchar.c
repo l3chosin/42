@@ -14,7 +14,7 @@
 
 int	ft_putchar(char c)
 {
-	write(1, c, 1);
+	write(1, &c, 1);
 	return (1);
 }
 
@@ -32,4 +32,17 @@ int	ft_putstr(char *str)
 		len++;
 	}
 	return (len);
+}
+
+char *ft_strtoupper(char *str)
+{
+    int i = 0;
+
+    while (str[i])
+    {
+        if (str[i] > 96 && str[i] < 123)
+            str[i] -= 32;
+        i++;
+    }
+    return (str);
 }

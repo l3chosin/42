@@ -13,10 +13,12 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdarg.h>
-#include <stdint.h>
-#include <stdio.h>
 
 int	ft_putnbr(long n);
 int	ft_putpositivenbr(unsigned int n);
 int	ft_putchar(char c);
 int	ft_putstr(char *str);
+int ft_nbrtohex(unsigned long p);
+int	ft_uppernbrtohex(unsigned long p);
+int	ft_hexlen(unsigned long ptr);
+char	*ft_strtoupper(char *str);
