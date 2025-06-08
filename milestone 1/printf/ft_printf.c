@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "libftprintf.h"
 
 void	ft_printspecifier(const char *format, va_list args, int i, int *len)
 {

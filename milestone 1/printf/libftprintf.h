@@ -10,9 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdlib.h>
-#include <stdarg.h>
+#ifndef LIBFTPRINTF_H
+# define LIBFTPRINTF_H
+# include <unistd.h>
+# include <stdlib.h>
+# include <stdarg.h>
 
 int		ft_putnbr(long n);
 int		ft_putpositivenbr(unsigned int n);
@@ -23,3 +25,5 @@ int		ft_nbrtohex(unsigned long p);
 int		ft_uppernbrtohex(unsigned long p);
 int		ft_hexlen(unsigned long ptr);
 char	*ft_strtoupper(char *str);
+
+#endif
