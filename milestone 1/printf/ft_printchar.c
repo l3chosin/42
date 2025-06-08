@@ -34,15 +34,16 @@ int	ft_putstr(char *str)
 	return (len);
 }
 
-char *ft_strtoupper(char *str)
+char	*ft_strtoupper(char *str)
 {
-    int i = 0;
+	int	i;
 
-    while (str[i])
-    {
-        if (str[i] > 96 && str[i] < 123)
-            str[i] -= 32;
-        i++;
-    }
-    return (str);
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] > 96 && str[i] < 123)
+			str[i] -= 32;
+		i++;
+	}
+	return (str);
 }

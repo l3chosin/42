@@ -7,7 +7,7 @@ SRC_DIR = .
 INC_DIR = .
 OBJ_DIR = obj
 
-SRC = 
+SRC = ft_
 
 
 OBJ = $(SRC:%.c=$(OBJ_DIR)/%.o)

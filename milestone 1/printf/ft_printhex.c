@@ -22,18 +22,20 @@ int	ft_hexlen(unsigned long ptr)
 		ptr /= 16;
 		l++;
 	}
-	return (l + 2);
+	return (l);
 }
 
-int	ft_nbrtohex(unsigned long p)
+int	ft_ptrtohex(unsigned long p)
 {
 	char	*hex;
 	char	*final;
 	int		j;
 	int		len;
+	int		og_len;
 
 	hex = "0123456789abcdef";
-	len = ft_hexlen(p);
+	len = ft_hexlen(p) + 2;
+	og_len = len;
 	final = (char *)malloc((len + 1) * sizeof(char));
 	if (final == NULL)
 		return (0);
@@ -48,7 +50,7 @@ int	ft_nbrtohex(unsigned long p)
 		final[len] = hex[j];
 	}
 	ft_putstr(final);
-	return (len + 2);
+	return (og_len);
 }
 
 int	ft_uppernbrtohex(unsigned long p)
@@ -57,16 +59,16 @@ int	ft_uppernbrtohex(unsigned long p)
 	char	*final;
 	int		j;
 	int		len;
+	int		og_len;
 
 	hex = "0123456789abcdef";
 	len = ft_hexlen(p);
+	og_len = len;
 	final = (char *)malloc((len + 1) * sizeof(char));
 	if (final == NULL)
 		return (0);
-	final[0] = '0';
-	final [1] = 'x';
 	final[len] = '\0';
-	while (len > 2)
+	while (len >= 0)
 	{
 		len--;
 		j = p % 16;
@@ -75,15 +77,31 @@ int	ft_uppernbrtohex(unsigned long p)
 	}
 	ft_strtoupper(final);
 	ft_putstr(final);
-	return (len + 2);
+	return (og_len);
 }
-/*#include <stdio.h>
 
-int main()
+int	ft_nbrtohex(unsigned long p)
 {
-    char *res;
+	char	*hex;
+	char	*final;
+	int		j;
+	int		len;
+	int		og_len;
 
-    res = ft_nbrtohex(25000);
-    printf("Resultado: %s", res);
-    return 0;
-    }*/
+	hex = "0123456789abcdef";
+	len = ft_hexlen(p);
+	og_len = len;
+	final = (char *)malloc((len + 1) * sizeof(char));
+	if (final == NULL)
+		return (0);
+	final[len] = '\0';
+	while (len >= 0)
+	{
+		len--;
+		j = p % 16;
+		p /= 16;
+		final[len] = hex[j];
+	}
+	ft_putstr(final);
+	return (og_len);
+}
