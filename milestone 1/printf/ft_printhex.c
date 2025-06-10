@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_hexlen(unsigned long ptr)
 {
@@ -29,31 +29,27 @@ int	ft_ptrtohex(unsigned long p)
 {
 	char	*hex;
 	char	*final;
-	int		j;
 	int		len;
-	int		og_len;
 
 	hex = "0123456789abcdef";
 	if (p == 0)
 		return (ft_putstr("(nil)"));
 	len = ft_hexlen(p) + 2;
-	og_len = len;
 	final = (char *)malloc((len + 1) * sizeof(char));
-	if (final == NULL)
+	if (!final)
 		return (0);
 	final[0] = '0';
 	final [1] = 'x';
 	final[len] = '\0';
-	while (len > 2)
+	while (p)
 	{
 		len--;
-		j = p % 16;
+		final[len] = hex[p % 16];
 		p /= 16;
-		final[len] = hex[j];
 	}
 	ft_putstr(final);
 	free(final);
-	return (og_len);
+	return (ft_hexlen(p) + 2);
 }
 
 int	ft_uppernbrtohex(unsigned long p)

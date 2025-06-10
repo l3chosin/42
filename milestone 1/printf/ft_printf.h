@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdarg.h>
@@ -25,5 +25,5 @@ int		ft_nbrtohex(unsigned long p);
 int		ft_uppernbrtohex(unsigned long p);
 int		ft_hexlen(unsigned long ptr);
 char	*ft_strtoupper(char *str);
-int	ft_printf(char const *format, ...);
+int		ft_printf(char const *format, ...);
 #endif
