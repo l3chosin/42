@@ -25,34 +25,36 @@ int	ft_hexlen(unsigned long ptr)
 	return (l);
 }
 
-int	ft_ptrtohex(unsigned long p)
+int	ft_ptrtohex(uintptr_t p)
 {
 	char	*hex;
 	char	*final;
 	int		len;
+	int		p_len;
 
 	hex = "0123456789abcdef";
 	if (p == 0)
 		return (ft_putstr("(nil)"));
 	len = ft_hexlen(p) + 2;
+	p_len = len;
 	final = (char *)malloc((len + 1) * sizeof(char));
 	if (!final)
-		return (0);
+		return (-1);
 	final[0] = '0';
 	final [1] = 'x';
-	final[len] = '\0';
 	while (p)
 	{
 		len--;
 		final[len] = hex[p % 16];
 		p /= 16;
 	}
+	final[p_len] = '\0';
 	ft_putstr(final);
 	free(final);
-	return (ft_hexlen(p) + 2);
+	return (p_len);
 }
 
-int	ft_uppernbrtohex(unsigned long p)
+int	ft_uppernbrtohex(unsigned int p)
 {
 	char	*hex;
 	char	*final;
@@ -80,7 +82,7 @@ int	ft_uppernbrtohex(unsigned long p)
 	return (og_len);
 }
 
-int	ft_nbrtohex(unsigned long p)
+int	ft_nbrtohex(unsigned int p)
 {
 	char	*hex;
 	char	*final;

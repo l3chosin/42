@@ -15,14 +15,15 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdarg.h>
+# include <stdint.h>
 
 int		ft_putnbr(long n);
 int		ft_putpositivenbr(unsigned int n);
 int		ft_putchar(char c);
 int		ft_putstr(char *str);
-int		ft_ptrtohex(unsigned long p);
-int		ft_nbrtohex(unsigned long p);
-int		ft_uppernbrtohex(unsigned long p);
+int		ft_ptrtohex(uintptr_t p);
+int		ft_nbrtohex(unsigned int p);
+int		ft_uppernbrtohex(unsigned int p);
 int		ft_hexlen(unsigned long ptr);
 char	*ft_strtoupper(char *str);
 int		ft_printf(char const *format, ...);
