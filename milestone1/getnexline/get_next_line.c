@@ -14,24 +14,25 @@
 
 static char	*read_and_join(int fd, char *stash)
 {
-	char	buffer[BUFFER_SIZE + 1];
+	char	*buffer;
 	ssize_t	bytes;
 	char	*tmp;
 
-	if (!stash || !ft_strchr(stash, '\n'))
+	buffer = malloc(BUFFER_SIZE + 1);
+	if (!buffer)
+		return (NULL);
+	bytes = 1;
+	while (!ft_strchr(stash, '\n') && bytes > 0)
 	{
-		bytes = 1;
-		while (!ft_strchr(stash, '\n') && bytes > 0)
-		{
-			bytes = read(fd, buffer, BUFFER_SIZE);
-			if (bytes < 0)
-				return (NULL);
-			buffer[bytes] = '\0';
-			tmp = ft_strjoin(stash, buffer);
-			free(stash);
-			stash = tmp;
-		}
+		bytes = read(fd, buffer, BUFFER_SIZE);
+		if (bytes < 0)
+			return (free(buffer), free(stash), NULL);
+		buffer[bytes] = '\0';
+		tmp = ft_strjoin(stash, buffer);
+		free(stash);
+		stash = tmp;
 	}
+	free(buffer);
 	return (stash);
 }
 
@@ -73,6 +74,14 @@ static char	*update_stash(char *stash)
 	return (new_stash);
 }
 
+static char	*free_and_null(char **ptr)
+{
+	if (*ptr)
+		free(*ptr);
+	*ptr = NULL;
+	return (NULL);
+}
+
 char	*get_next_line(int fd)
 {
 	static char	*stash;
@@ -81,8 +90,8 @@ char	*get_next_line(int fd)
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	stash = read_and_join(fd, stash);
-	if (!stash)
-		return (NULL);
+	if (!stash || stash[0] == '\0')
+		return (free_and_null(&stash));
 	line = extract_line(stash);
 	stash = update_stash(stash);
 	return (line);
