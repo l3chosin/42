@@ -1,0 +1,5 @@
+Primera línea del archivo
+Segunda línea con texto más largo para probar el buffer
+
+Cuarta línea después de una línea vacía
+Última línea sin salto de línea final

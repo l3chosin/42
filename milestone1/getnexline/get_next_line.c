@@ -12,9 +12,78 @@
 
 #include "get_next_line.h"
 
-int main()
+static char	*read_and_join(int fd, char *stash)
 {
-	int fd = open("test", O_WRONLY);
+	char	buffer[BUFFER_SIZE + 1];
+	ssize_t	bytes;
+	char	*tmp;
 
-	return (0);
+	if (!stash || !ft_strchr(stash, '\n'))
+	{
+		bytes = 1;
+		while (!ft_strchr(stash, '\n') && bytes > 0)
+		{
+			bytes = read(fd, buffer, BUFFER_SIZE);
+			if (bytes < 0)
+				return (NULL);
+			buffer[bytes] = '\0';
+			tmp = ft_strjoin(stash, buffer);
+			free(stash);
+			stash = tmp;
+		}
+	}
+	return (stash);
+}
+
+static char	*extract_line(char *stash)
+{
+	int	i;
+
+	if (!stash || stash[0] == '\0')
+		return (NULL);
+	i = 0;
+	while (stash[i] && stash[i] != '\n')
+		i++;
+	if (stash[i] == '\n')
+		i++;
+	return (ft_substr(stash, 0, i));
+}
+
+static char	*update_stash(char *stash)
+{
+	int		i;
+	char	*new_stash;
+
+	i = 0;
+	while (stash[i] && stash[i] != '\n')
+		i++;
+	if (!stash[i])
+	{
+		free(stash);
+		return (NULL);
+	}
+	i++;
+	if (!stash[i])
+	{
+		free(stash);
+		return (NULL);
+	}
+	new_stash = ft_strdup(stash + i);
+	free(stash);
+	return (new_stash);
+}
+
+char	*get_next_line(int fd)
+{
+	static char	*stash;
+	char		*line;
+
+	if (fd < 0 || BUFFER_SIZE <= 0)
+		return (NULL);
+	stash = read_and_join(fd, stash);
+	if (!stash)
+		return (NULL);
+	line = extract_line(stash);
+	stash = update_stash(stash);
+	return (line);
 }
