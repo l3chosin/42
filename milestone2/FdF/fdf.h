@@ -14,6 +14,6 @@
 # define FDF_H
 
 # include "./mlx42/include/MLX42/MLX42.h"
-
+# include <stdlib.h>
 
 #endif

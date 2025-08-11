@@ -1,5 +1,5 @@
 CC = gcc
-FLAGS =
+FLAGS = -Wall -Wextra -Werror
 NAME = FDF
 
 SRC_LIB = libft
@@ -14,7 +14,7 @@ SRC = fdf.c
 OBJ = $(SRC:.c=.o)
 
 $(NAME): $(OBJ) $(LIBFT) $(MLX_LIB)
-	$(CC) $(FLAGS) $(OBJ) $(LIBS) -lmlx42 -lglfw -lm -ldl -lpthread -o $(NAME)
+	$(CC) $(FLAGS) $(OBJ) $(LIBFT) $(MLX_LIB) -lglfw -lm -ldl -lpthread -o $(NAME)
 
 %.o: %.c
 	$(CC) $(FLAGS) $(INCS) -c $< -o $@
@@ -23,7 +23,7 @@ $(LIBFT):
 	make -C $(SRC_LIB)
 
 $(MLX_LIB):
-	make -C $(SRC_MLX)
+	make -C $(SRC_MLX)/linux
 
 clean:
 	rm -f $(OBJ)
