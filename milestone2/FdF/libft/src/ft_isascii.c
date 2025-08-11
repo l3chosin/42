@@ -1,19 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.h                                              :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aluther- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/07 18:59:02 by aluther-          #+#    #+#             */
-/*   Updated: 2025/08/07 18:59:07 by aluther-         ###   ########.fr       */
+/*   Created: 2025/05/13 14:24:57 by aluther-          #+#    #+#             */
+/*   Updated: 2025/05/13 22:55:16 by aluther-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
-# define FDF_H
+int	ft_isascii(int c)
+{
+	if (c >= 0 && c <= 127)
+		return (1);
+	return (0);
+}
 
-# include "./mlx42/include/MLX42/MLX42.h"
+/*#include <stdio.h>
+int	main ()
+{
+	int c = '\0';    // IMPUT HERE
+	int result = ft_isascii(c);
 
-
-#endif
+	if (result == 0)
+		printf ("Oh no, is not ASCII ;( \n RETURNED VALUE %d", result);
+	if (result == 1)
+		printf(":D OMG WE FOUND AN ASCII \n RETURNED VALUE %d", result);
+	return 0;
+	}*/

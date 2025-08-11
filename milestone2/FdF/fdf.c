@@ -2,10 +2,14 @@
 
 int	main()
 {
-	void *mlx;
+	void	*mlx;
 
-	mlx = mlx_init();
-	if (mlx == (void *)0)
-		return (0);
+	mlx = mlx_init(1920, 1080, "Ekisde", true);
+	if (!mlx)
+	{
+		return 1;
+	}
+	mlx_loop(mlx);
+
 	return 0;
 }

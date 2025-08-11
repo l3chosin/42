@@ -1,19 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.h                                              :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aluther- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: aluther- <aluther-@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/07 18:59:02 by aluther-          #+#    #+#             */
-/*   Updated: 2025/08/07 18:59:07 by aluther-         ###   ########.fr       */
+/*   Created: 2025/05/12 08:45:21 by aluther-          #+#    #+#             */
+/*   Updated: 2025/05/13 22:58:18 by aluther-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
-# define FDF_H
+int	ft_strlen(const char *tab)
+{
+	int		i;
 
-# include "./mlx42/include/MLX42/MLX42.h"
+	i = 0;
+	while (tab[i])
+		i++;
+	return (i);
+}
 
+/*#include <stdio.h>
+int main()
+{
+   char tab[] = "";
 
-#endif
+   int result = ft_strlen(tab);
+   printf("Longitud de la string %d", result);
+   return 0;
+   }*/

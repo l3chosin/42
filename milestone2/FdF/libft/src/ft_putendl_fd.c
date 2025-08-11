@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.h                                              :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aluther- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/07 18:59:02 by aluther-          #+#    #+#             */
-/*   Updated: 2025/08/07 18:59:07 by aluther-         ###   ########.fr       */
+/*   Created: 2025/05/27 20:36:36 by aluther-          #+#    #+#             */
+/*   Updated: 2025/05/27 20:36:38 by aluther-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
-# define FDF_H
+#include "libft.h"
+#include <unistd.h>
 
-# include "./mlx42/include/MLX42/MLX42.h"
-
-
-#endif
+void	ft_putendl_fd(char *s, int fd)
+{
+	ft_putstr_fd(s, fd);
+	write(fd, "\n", 1);
+}
