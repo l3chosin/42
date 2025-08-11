@@ -1,15 +1,15 @@
 #include "fdf.h"
 
-int	main()
+int	main(void)
 {
 	mlx_t*	mlx;
 
 	mlx = mlx_init(1920, 1080, "Ekisde", true);
 	if (!mlx)
 	{
-		return EXIT_FAILURE;
+		return (EXIT_FAILURE);
 	}
 	mlx_loop(mlx);
 	mlx_terminate(mlx);
-	return EXIT_SUCCESS;
+	return (EXIT_SUCCESS);
 }
