@@ -11,3 +11,32 @@
 /* ************************************************************************** */
 
 #include "fdf.h"
+
+void    column_row_counter(int fd, int *column, int *row)
+{
+    int i;
+    char *line;
+
+    *column = 0;
+    *row = 0;
+
+    line = get_next_line(fd);
+    if(!line)
+        return;
+    i = 0;
+    while(line[i] != '\n' && line[i] != '\0')
+    {
+        if(line[i] == ' ')
+            (*column)++;
+        i++;
+    }
+    (*column)++;
+    (*row)++;
+    free(line);
+    while((line = get_next_line(fd)) != NULL)
+    {
+        (*row)++;
+        free(line);
+    }
+    return;
+}
