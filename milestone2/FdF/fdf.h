@@ -16,5 +16,10 @@
 # include "./mlx42/include/MLX42/MLX42.h"
 # include "./libft/libft.h"
 # include <stdlib.h>
+# include <unistd.h>
+# include <fcntl.h>
+
+void	column_row_counter(int fd, int *column, int *row);
+int	read_map(int argc, char *argv[], int *column, int *row);
 
 #endif

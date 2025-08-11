@@ -1,5 +1,5 @@
 CC = gcc
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -fPIC
 NAME = FDF
 
 SRC_LIB = libft
@@ -20,7 +20,7 @@ $(NAME): $(OBJ) $(LIBFT) $(MLX_LIB)
 	$(CC) $(FLAGS) $(INCS) -c $< -o $@
 
 $(LIBFT):
-	make -C $(SRC_LIB)
+	make -C $(SRC_LIB) CFLAGS="$(FLAGS)"
 
 $(MLX_LIB):
 	make -C $(SRC_MLX)/linux
