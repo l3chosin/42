@@ -28,11 +28,12 @@ $(MLX_LIB):
 clean:
 	rm -f $(OBJ)
 	make -C $(SRC_LIB) clean
-	make -C $(SRC_MLX) clean
+	make -C $(SRC_MLX) clean || true
 
 fclean: clean
 	rm -f $(NAME)
-	make -C $(SRC_LIB) fclean
+	make -C libft fclean
+	rm -f $(MLX_LIB)
 
 re: fclean $(NAME)
 

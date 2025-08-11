@@ -45,7 +45,7 @@ clean:
 	rm -rf $(OBJ_DIR)
 
 fclean: clean
-	rm -f $(NAME)
+	rm -f libft.a
 
 re: fclean all
 
