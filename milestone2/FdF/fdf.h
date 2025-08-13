@@ -22,14 +22,19 @@
 
 typedef struct s_node
 {
-	float			x;
-	float			y;
-	float			z;
+	int			x;
+	int			y;
+	int			z;
 	unsigned int	color;
 }	t_node;
 
 void	column_row_counter(int fd, int *column, int *row);
 int		read_map(int argc, char *argv[], int *column, int *row);
-t_node	*array_creator(int column, char row);
+t_node	*array_creator(int column, int row);
+void	free_split(char **array);
+
+/* Test functions */
+int	column_row_tester(int argc, char *argv[]);
+void test_array(t_node *map_array, int column, int row);
 
 #endif

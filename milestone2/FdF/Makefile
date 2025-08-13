@@ -10,7 +10,7 @@ MLX_LIB = $(SRC_MLX)/linux/libmlx42.a
 LIBS = -L$(SRC_LIB) -L$(SRC_MLX)/linux
 INCS = -I$(SRC_LIB) -I$(SRC_MLX) -I.
 
-SRC = fdf.c read_map.c
+SRC = fdf.c read_map.c test_functions.c
 OBJ = $(SRC:.c=.o)
 
 $(NAME): $(OBJ) $(LIBFT) $(MLX_LIB)

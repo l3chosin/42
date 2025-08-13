@@ -14,12 +14,13 @@
 
 int	main(int argc, char *argv[])
 {
-	int column;
-	int row;
-	int result;
+	int		column;
+	int		row;
+	t_node	*map_array;
 
 	read_map(argc, argv, &column, &row);
-	array_creator(column, row);
+	map_array = array_creator(column, row);
 
+	free(map_array);
 	return (0);
 }
