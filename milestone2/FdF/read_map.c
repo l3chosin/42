@@ -30,7 +30,7 @@ void	column_row_counter(int fd, int *column, int *row)
 {
 	char	*line;
 	char	**tokens;
-	int	count;
+	int		count;
 
 	*column = 0;
 	*row = 0;
