@@ -14,8 +14,9 @@ void	column_row_counter(int fd, int *column, int *row)
 	i = 0;
 	while (line[i] != '\n' && line[i] != '\0')
 	{
-		if (line[i] == ' ')
+		if (line[i] == ' ' && line[i+1] != ' ')
 			(*column)++;
+
 		i++;
 	}
 	(*column)++;

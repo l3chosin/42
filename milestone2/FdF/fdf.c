@@ -13,7 +13,7 @@
 #include "fdf.h"
 #include "libft/libft.h"
 
-int	main(int argc, char *argv[])
+int	column_row_tester(int argc, char *argv[])
 {
 	int	column;
 	int	row;
@@ -31,4 +31,10 @@ int	main(int argc, char *argv[])
     printf("Filas: %d\n", row);
     printf("Total de elementos: %d\n", column * row);
     return (0);
+}
+
+int	main(int argc, char *argv[])
+{
+	column_row_tester(argc, argv);
+	return (0);
 }
