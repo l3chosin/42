@@ -22,15 +22,18 @@ static char	*read_and_join(int fd, char *stash)
 	if (!buffer)
 		return (NULL);
 	bytes = 1;
-	while (!ft_strchr(stash, '\n') && bytes > 0)
+	while (!stash || (!ft_strchr(stash, '\n') && bytes > 0))
 	{
 		bytes = read(fd, buffer, BUFFER_SIZE);
 		if (bytes < 0)
-			return (free(buffer), free(stash), NULL);
+			return(free(buffer), free(stash), NULL);
 		buffer[bytes] = '\0';
 		tmp = ft_strjoin(stash, buffer);
-		free(stash);
+		if (stash)
+			free(stash);
 		stash = tmp;
+		if (!stash)
+			return (free(buffer), NULL);
 	}
 	free(buffer);
 	return (stash);

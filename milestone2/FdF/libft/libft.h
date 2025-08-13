@@ -20,6 +20,7 @@
 # include <stddef.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <fcntl.h>
 
 int		ft_atoi(const char *str);
 void	ft_bzero(void *ptr, size_t n);
