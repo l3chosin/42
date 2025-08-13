@@ -52,7 +52,7 @@ int	read_map(int argc, char *argv[], int *column, int *row)
 	return (0);
 }
 
-int	column_row_tester(int argc, char *argv[])
+/*int	column_row_tester(int argc, char *argv[])
 {
 	int	column;
 	int	row;
@@ -70,4 +70,13 @@ int	column_row_tester(int argc, char *argv[])
     ft_printf("Filas: %d\n", row);
     ft_printf("Total de elementos: %d\n", column * row);
     return (0);
+}*/
+
+t_node	*array_creator(int column, int row)
+{
+	t_node *map_array;
+
+	map_array = malloc(column * row * sizeof(t_node));
+
+	return (0);
 }

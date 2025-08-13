@@ -20,8 +20,16 @@
 # include <fcntl.h>
 # include <stdio.h>
 
+typedef struct s_node
+{
+	float			x;
+	float			y;
+	float			z;
+	unsigned int	color;
+}	t_node;
+
 void	column_row_counter(int fd, int *column, int *row);
-int	read_map(int argc, char *argv[], int *column, int *row);
-int	column_row_tester(int argc, char *argv[]);
+int		read_map(int argc, char *argv[], int *column, int *row);
+t_node	*array_creator(int column, char row);
 
 #endif

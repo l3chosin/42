@@ -14,6 +14,12 @@
 
 int	main(int argc, char *argv[])
 {
-	column_row_tester(argc, argv);
+	int column;
+	int row;
+	int result;
+
+	read_map(argc, argv, &column, &row);
+	array_creator(column, row);
+
 	return (0);
 }
