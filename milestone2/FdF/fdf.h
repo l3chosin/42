@@ -22,5 +22,6 @@
 
 void	column_row_counter(int fd, int *column, int *row);
 int	read_map(int argc, char *argv[], int *column, int *row);
+int	column_row_tester(int argc, char *argv[]);
 
 #endif

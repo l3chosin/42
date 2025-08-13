@@ -1,5 +1,4 @@
 #include "fdf.h"
-#include "libft/libft.h"
 
 void	column_row_counter(int fd, int *column, int *row)
 {
@@ -14,7 +13,7 @@ void	column_row_counter(int fd, int *column, int *row)
 	i = 0;
 	while (line[i] != '\n' && line[i] != '\0')
 	{
-		if (line[i] == ' ' && line[i+1] != ' ')
+		if (line[i] == ' ' && line[i+1] != ' ' && line[i+1] != '\n')
 			(*column)++;
 
 		i++;
@@ -51,4 +50,24 @@ int	read_map(int argc, char *argv[], int *column, int *row)
 	column_row_counter(fd, column, row);
 	close(fd);
 	return (0);
+}
+
+int	column_row_tester(int argc, char *argv[])
+{
+	int	column;
+	int	row;
+	int result;
+
+	ft_printf("=== Probador de lectura de mapas ===\n");
+	result = read_map(argc, argv, &column, &row);
+	if (result == -1)
+	{
+		ft_printf("Error al leer el mapa.\n");
+		return(1);
+	}
+	ft_printf("\n=== Resultados ===\n");
+    ft_printf("Columnas: %d\n", column);
+    ft_printf("Filas: %d\n", row);
+    ft_printf("Total de elementos: %d\n", column * row);
+    return (0);
 }
