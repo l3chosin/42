@@ -14,43 +14,31 @@
 
 void	test_array(t_node *map_array, int column, int row)
 {
+	int fila;
+	int col;
+	int i;
+
 	if (!map_array)
 	{
-		printf("Error: el array no se ha creado.\n");
+		ft_printf("Error: el array no se ha creado.\n");
 		return ;
 	}
-	printf("Test del array de %d filas x %d columnas:\n", row, column);
-	for (int fila = 0; fila < row; fila++)
+	ft_printf("Test del array de %d filas x %d columnas:\n", row, column);
+	fila = 0;
+	while (fila < row)
 	{
-		for (int col = 0; col < column; col++)
+		col = 0;
+		while (col < column)
 		{
-			int i = fila * column + col;
-			printf("Nodo [%d,%d]: x=%d, y=%d, z=%d, color=0x%X\n",
+			i = fila * column + col;
+			ft_printf("Nodo [%d,%d]: x=%d, y=%d, z=%d, color=0x%X\n",
 				fila, col,
 				map_array[i].x,
 				map_array[i].y,
 				map_array[i].z,
 				map_array[i].color);
+			col++;
 		}
+		fila++;
 	}
-}
-
-int	column_row_tester(int argc, char *argv[])
-{
-	int	column;
-	int	row;
-	int	result;
-
-	ft_printf("=== Probador de lectura de mapas ===\n");
-	result = read_map(argc, argv, &column, &row);
-	if (result == -1)
-	{
-		ft_printf("Error al leer el mapa.\n");
-		return (1);
-	}
-	ft_printf("\n=== Resultados ===\n");
-	ft_printf("Columnas: %d\n", column);
-	ft_printf("Filas: %d\n", row);
-	ft_printf("Total de elementos: %d\n", column * row);
-	return (0);
 }

@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "fdf.h"
+#include "libft/libft.h"
 
 void	free_split(char **array)
 {
@@ -27,38 +28,50 @@ void	free_split(char **array)
 	free(array);
 }
 
-void	column_row_counter(int fd, int *column, int *row)
+int	validate_columns(char *line, int expected)
+{
+	char	**tokens;
+	int		count;
+
+	tokens = ft_split(line, ' ');
+	count = 0;
+	while (tokens[count])
+		count++;
+	free_split(tokens);
+	if (expected > 0 && count != expected)
+		return (0);
+	return (count);
+}
+
+int	column_row_counter(int fd, int *column, int *row)
 {
 	char	*line;
-	char	**tokens;
 	int		count;
 
 	*column = 0;
 	*row = 0;
 	line = get_next_line(fd);
-	if (line != NULL)
+	while (line)
 	{
-		tokens = ft_split(line, ' ');
-		count = 0;
-		while (tokens[count])
-			count++;
-		*column = count;
-		*row = 1;
-		free_split(tokens);
-		free(line);
-	}
-	line = get_next_line(fd);
-	while (line != NULL)
-	{
+		count = validate_columns(line, *column);
+		if (count == 0)
+		{
+			ft_printf("Error: el mapa tiene diferentes columnas\n");
+			return (0);
+		}
+		if (*column == 0)
+			*column = count;
 		(*row)++;
 		free(line);
 		line = get_next_line(fd);
 	}
+	return (1);
 }
 
 int	read_map(int argc, char *argv[], int *column, int *row)
 {
 	int		fd;
+	int		check;
 
 	if (argc != 2)
 	{
@@ -73,8 +86,10 @@ int	read_map(int argc, char *argv[], int *column, int *row)
 	}
 	*column = 0;
 	*row = 0;
-	column_row_counter(fd, column, row);
+	check = column_row_counter(fd, column, row);
 	close(fd);
+	if (!check)
+		return (-1);
 	return (0);
 }
 
