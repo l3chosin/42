@@ -14,15 +14,12 @@
 
 void	test_array(t_node *map_array, int column, int row)
 {
-	int fila;
-	int col;
-	int i;
+	int	fila;
+	int	col;
+	int	i;
 
 	if (!map_array)
-	{
 		ft_printf("Error: el array no se ha creado.\n");
-		return ;
-	}
 	ft_printf("Test del array de %d filas x %d columnas:\n", row, column);
 	fila = 0;
 	while (fila < row)
@@ -31,8 +28,7 @@ void	test_array(t_node *map_array, int column, int row)
 		while (col < column)
 		{
 			i = fila * column + col;
-			ft_printf("Nodo [%d,%d]: x=%d, y=%d, z=%d, color=0x%X\n",
-				fila, col,
+			ft_printf("Nodo [%d,%d]: x=%d, y=%d, z=%d, color=0x%X\n", fila, col,
 				map_array[i].x,
 				map_array[i].y,
 				map_array[i].z,

@@ -34,10 +34,6 @@ t_node	*array_creator(int column, int row);
 void	free_split(char **array);
 void	map_data_assign(int fd, t_node *map_array, int column, int row);
 int		validate_columns(char *line, int expected);
-void	test_array(t_node *map_array, int column, int row);
-
-
-
 /* Test functions */
 void	test_array(t_node *map_array, int column, int row);
 
