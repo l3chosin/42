@@ -22,9 +22,9 @@
 
 typedef struct s_node
 {
-	int			x;
-	int			y;
-	int			z;
+	int				x;
+	int				y;
+	int				z;
 	unsigned int	color;
 }	t_node;
 
@@ -35,7 +35,7 @@ void	free_split(char **array);
 void	map_data_assign(int fd, t_node *map_array, int column, int row);
 
 /* Test functions */
-int	column_row_tester(int argc, char *argv[]);
-void test_array(t_node *map_array, int column, int row);
+int		column_row_tester(int argc, char *argv[]);
+void	test_array(t_node *map_array, int column, int row);
 
 #endif

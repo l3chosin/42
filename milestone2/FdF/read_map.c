@@ -14,10 +14,11 @@
 
 void	free_split(char **array)
 {
-	int i = 0;
+	int	i;
 
+	i = 0;
 	if (!array)
-		return;
+		return ;
 	while (array[i])
 	{
 		free(array[i]);
@@ -46,10 +47,12 @@ void	column_row_counter(int fd, int *column, int *row)
 		free_split(tokens);
 		free(line);
 	}
-	while ((line = get_next_line(fd)) != NULL)
+	line = get_next_line(fd);
+	while (line != NULL)
 	{
 		(*row)++;
 		free(line);
+		line = get_next_line(fd);
 	}
 }
 
