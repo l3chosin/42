@@ -12,6 +12,9 @@
 
 #include "fdf.h"
 #include "libft/libft.h"
+#include "mlx42/include/MLX42/MLX42.h"
+#include <stdbool.h>
+#include <stdlib.h>
 
 int	make_the_array(int argc, char *argv[])
 {
@@ -41,8 +44,19 @@ int	make_the_array(int argc, char *argv[])
 	return (0);
 }
 
+int	start_window(char *argv[])
+{
+	mlx_t	*mlx;
+
+	mlx = mlx_init(1920, 1080, argv[1], true);
+	mlx_loop(mlx);
+	mlx_terminate(mlx);
+	return (EXIT_SUCCESS);
+}
+
 int	main(int argc, char *argv[])
 {
 	make_the_array(argc, argv);
+	start_window(argv);
 	return (0);
 }
