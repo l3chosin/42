@@ -34,7 +34,9 @@ t_node	*array_creator(int column, int row);
 void	free_split(char **array);
 void	map_data_assign(int fd, t_node *map_array, int column, int row);
 int		validate_columns(char *line, int expected);
-int	start_window(char *argv[]);
+int		start_window(t_node *map_array, int size, char *argv[]);
+void	draw_pixels(t_node *map_array, int size, mlx_image_t *img);
+t_node	*make_the_array(int argc, char *argv[], int *column, int *row);
 /* Test functions */
 void	test_array(t_node *map_array, int column, int row);
 
