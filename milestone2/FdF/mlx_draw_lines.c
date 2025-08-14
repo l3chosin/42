@@ -11,15 +11,27 @@
 /* ************************************************************************** */
 
 #include "fdf.h"
+#include "mlx42/include/MLX42/MLX42.h"
 
 void	draw_pixels(t_node *map_array, int size, mlx_image_t *img)
 {
-	int i;
+	int	i;
+	int j;
+	int	scale;
+	int	displace;
 
 	i = 0;
+	scale = 5;
+	displace = 100;
 	while (i < size)
 	{
-		mlx_put_pixel(img, map_array[i].x , map_array[i].y , map_array[i].color);
+		mlx_put_pixel(img, map_array[i].x * scale + displace , map_array[i].y * scale + displace , map_array[i].color);
+		j = 0;
+		while(j < map_array[i].x * scale + displace)
+		{
+			mlx_put_pixel(img, map_array[j].x, map_array[j].y, map_array[j].color);
+			j++;
+		}
 		i++;
 	}
 }

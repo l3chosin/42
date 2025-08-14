@@ -37,7 +37,6 @@ t_node	*make_the_array(int argc, char *argv[], int *column, int *row)
 	}
 	map_data_assign(fd, map_array, *column, *row);
 	close(fd);
-	test_array(map_array, *column, *row);
 	return (map_array);
 }
 
