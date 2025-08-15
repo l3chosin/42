@@ -67,31 +67,6 @@ int	column_row_counter(int fd, int *column, int *row)
 	return (0);
 }
 
-int	read_map(int argc, char *argv[], int *column, int *row)
-{
-	int		fd;
-	int		check;
-
-	if (argc != 2)
-	{
-		ft_printf("Error! tienes %d argumentos. Necesitas 2!", argc);
-		return (-1);
-	}
-	fd = open(argv[1], O_RDONLY);
-	if (fd == -1)
-	{
-		ft_printf("Error: No se pudo abrir el archivo %s\n", argv[1]);
-		return (-1);
-	}
-	*column = 0;
-	*row = 0;
-	check = column_row_counter(fd, column, row);
-	close(fd);
-	if (!check)
-		return (-1);
-	return (0);
-}
-
 t_node	*array_creator(int column, int row)
 {
 	t_node	*map_array;

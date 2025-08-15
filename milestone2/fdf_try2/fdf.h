@@ -28,4 +28,6 @@ typedef struct s_node
 	unsigned int	color;
 }	t_node;
 
+int	open_map(int argc, char *argv[]);
+
 #endif
