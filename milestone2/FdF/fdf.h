@@ -28,6 +28,15 @@ typedef struct s_node
 	unsigned int	color;
 }	t_node;
 
-int	open_map(int argc, char *argv[]);
+int		col_counter(char *line);
+int		row_counter(int fd, int col_expected);
+int		open_map(int argc, char *argv[]);
+int		read_map_create_array(int argc, char *argv[], t_node **map_array);
+void	free_split(char **array);
+void	data_assign(t_node *map_array, int col, int row, char *argv[]);
+char	**data_tokenizer(char *line);
+char	**token_tokenizer(char *token);
+int		token_calculator(char **tokens);
+void 	print_map_array(t_node *map_array, int col, int row);
 
 #endif

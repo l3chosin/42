@@ -11,3 +11,11 @@
 /* ************************************************************************** */
 
 #include "fdf.h"
+
+int	main(int argc, char *argv[])
+{
+	t_node *map;
+
+	read_map_create_array(argc, argv, &map);
+	return (0);
+}

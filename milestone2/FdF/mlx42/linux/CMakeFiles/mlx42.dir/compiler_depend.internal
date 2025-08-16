@@ -115,7 +115,7 @@ CMakeFiles/mlx42.dir/mlx_frag_shader.c.o
  /usr/include/x86_64-linux-gnu/bits/string_fortified.h
  /home/are/Escritorio/GitHub/milestone2/FdF/mlx42/include/glad/glad.h
  /home/are/Escritorio/GitHub/milestone2/FdF/mlx42/include/KHR/khrplatform.h
- /home/are/Escritorio/GitHub/milestone2/FdF/mlx42/linux/_deps/glfw-src/include/GLFW/glfw3.h
+ /usr/include/GLFW/glfw3.h
  /usr/include/stdlib.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
@@ -169,7 +169,7 @@ CMakeFiles/mlx42.dir/mlx_vert_shader.c.o
  /usr/include/x86_64-linux-gnu/bits/string_fortified.h
  /home/are/Escritorio/GitHub/milestone2/FdF/mlx42/include/glad/glad.h
  /home/are/Escritorio/GitHub/milestone2/FdF/mlx42/include/KHR/khrplatform.h
- /home/are/Escritorio/GitHub/milestone2/FdF/mlx42/linux/_deps/glfw-src/include/GLFW/glfw3.h
+ /usr/include/GLFW/glfw3.h
  /usr/include/stdlib.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
@@ -224,7 +224,7 @@ CMakeFiles/mlx42.dir/src/font/mlx_font.c.o
  /usr/include/x86_64-linux-gnu/bits/string_fortified.h
  /home/are/Escritorio/GitHub/milestone2/FdF/mlx42/include/glad/glad.h
  /home/are/Escritorio/GitHub/milestone2/FdF/mlx42/include/KHR/khrplatform.h
- /home/are/Escritorio/GitHub/milestone2/FdF/mlx42/linux/_deps/glfw-src/include/GLFW/glfw3.h
+ /usr/include/GLFW/glfw3.h
  /usr/include/stdlib.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
@@ -278,7 +278,7 @@ CMakeFiles/mlx42.dir/src/mlx_cursor.c.o
  /usr/include/x86_64-linux-gnu/bits/string_fortified.h
  /home/are/Escritorio/GitHub/milestone2/FdF/mlx42/include/glad/glad.h
  /home/are/Escritorio/GitHub/milestone2/FdF/mlx42/include/KHR/khrplatform.h
- /home/are/Escritorio/GitHub/milestone2/FdF/mlx42/linux/_deps/glfw-src/include/GLFW/glfw3.h
+ /usr/include/GLFW/glfw3.h
  /usr/include/stdlib.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
@@ -332,7 +332,7 @@ CMakeFiles/mlx42.dir/src/mlx_exit.c.o
  /usr/include/x86_64-linux-gnu/bits/string_fortified.h
  /home/are/Escritorio/GitHub/milestone2/FdF/mlx42/include/glad/glad.h
  /home/are/Escritorio/GitHub/milestone2/FdF/mlx42/include/KHR/khrplatform.h
- /home/are/Escritorio/GitHub/milestone2/FdF/mlx42/linux/_deps/glfw-src/include/GLFW/glfw3.h
+ /usr/include/GLFW/glfw3.h
  /usr/include/stdlib.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
@@ -386,7 +386,7 @@ CMakeFiles/mlx42.dir/src/mlx_images.c.o
  /usr/include/x86_64-linux-gnu/bits/string_fortified.h
  /home/are/Escritorio/GitHub/milestone2/FdF/mlx42/include/glad/glad.h
  /home/are/Escritorio/GitHub/milestone2/FdF/mlx42/include/KHR/khrplatform.h
- /home/are/Escritorio/GitHub/milestone2/FdF/mlx42/linux/_deps/glfw-src/include/GLFW/glfw3.h
+ /usr/include/GLFW/glfw3.h
  /usr/include/stdlib.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
@@ -440,7 +440,7 @@ CMakeFiles/mlx42.dir/src/mlx_init.c.o
  /usr/include/x86_64-linux-gnu/bits/string_fortified.h
  /home/are/Escritorio/GitHub/milestone2/FdF/mlx42/include/glad/glad.h
  /home/are/Escritorio/GitHub/milestone2/FdF/mlx42/include/KHR/khrplatform.h
- /home/are/Escritorio/GitHub/milestone2/FdF/mlx42/linux/_deps/glfw-src/include/GLFW/glfw3.h
+ /usr/include/GLFW/glfw3.h
  /usr/include/stdlib.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
@@ -494,7 +494,7 @@ CMakeFiles/mlx42.dir/src/mlx_keys.c.o
  /usr/include/x86_64-linux-gnu/bits/string_fortified.h
  /home/are/Escritorio/GitHub/milestone2/FdF/mlx42/include/glad/glad.h
  /home/are/Escritorio/GitHub/milestone2/FdF/mlx42/include/KHR/khrplatform.h
- /home/are/Escritorio/GitHub/milestone2/FdF/mlx42/linux/_deps/glfw-src/include/GLFW/glfw3.h
+ /usr/include/GLFW/glfw3.h
  /usr/include/stdlib.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
@@ -548,7 +548,7 @@ CMakeFiles/mlx42.dir/src/mlx_loop.c.o
  /usr/include/x86_64-linux-gnu/bits/string_fortified.h
  /home/are/Escritorio/GitHub/milestone2/FdF/mlx42/include/glad/glad.h
  /home/are/Escritorio/GitHub/milestone2/FdF/mlx42/include/KHR/khrplatform.h
- /home/are/Escritorio/GitHub/milestone2/FdF/mlx42/linux/_deps/glfw-src/include/GLFW/glfw3.h
+ /usr/include/GLFW/glfw3.h
  /usr/include/stdlib.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
@@ -602,7 +602,7 @@ CMakeFiles/mlx42.dir/src/mlx_monitor.c.o
  /usr/include/x86_64-linux-gnu/bits/string_fortified.h
  /home/are/Escritorio/GitHub/milestone2/FdF/mlx42/include/glad/glad.h
  /home/are/Escritorio/GitHub/milestone2/FdF/mlx42/include/KHR/khrplatform.h
- /home/are/Escritorio/GitHub/milestone2/FdF/mlx42/linux/_deps/glfw-src/include/GLFW/glfw3.h
+ /usr/include/GLFW/glfw3.h
  /usr/include/stdlib.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
@@ -656,7 +656,7 @@ CMakeFiles/mlx42.dir/src/mlx_mouse.c.o
  /usr/include/x86_64-linux-gnu/bits/string_fortified.h
  /home/are/Escritorio/GitHub/milestone2/FdF/mlx42/include/glad/glad.h
  /home/are/Escritorio/GitHub/milestone2/FdF/mlx42/include/KHR/khrplatform.h
- /home/are/Escritorio/GitHub/milestone2/FdF/mlx42/linux/_deps/glfw-src/include/GLFW/glfw3.h
+ /usr/include/GLFW/glfw3.h
  /usr/include/stdlib.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
@@ -710,7 +710,7 @@ CMakeFiles/mlx42.dir/src/mlx_put_pixel.c.o
  /usr/include/x86_64-linux-gnu/bits/string_fortified.h
  /home/are/Escritorio/GitHub/milestone2/FdF/mlx42/include/glad/glad.h
  /home/are/Escritorio/GitHub/milestone2/FdF/mlx42/include/KHR/khrplatform.h
- /home/are/Escritorio/GitHub/milestone2/FdF/mlx42/linux/_deps/glfw-src/include/GLFW/glfw3.h
+ /usr/include/GLFW/glfw3.h
  /usr/include/stdlib.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
@@ -764,7 +764,7 @@ CMakeFiles/mlx42.dir/src/mlx_window.c.o
  /usr/include/x86_64-linux-gnu/bits/string_fortified.h
  /home/are/Escritorio/GitHub/milestone2/FdF/mlx42/include/glad/glad.h
  /home/are/Escritorio/GitHub/milestone2/FdF/mlx42/include/KHR/khrplatform.h
- /home/are/Escritorio/GitHub/milestone2/FdF/mlx42/linux/_deps/glfw-src/include/GLFW/glfw3.h
+ /usr/include/GLFW/glfw3.h
  /usr/include/stdlib.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
@@ -818,7 +818,7 @@ CMakeFiles/mlx42.dir/src/textures/mlx_png.c.o
  /usr/include/x86_64-linux-gnu/bits/string_fortified.h
  /home/are/Escritorio/GitHub/milestone2/FdF/mlx42/include/glad/glad.h
  /home/are/Escritorio/GitHub/milestone2/FdF/mlx42/include/KHR/khrplatform.h
- /home/are/Escritorio/GitHub/milestone2/FdF/mlx42/linux/_deps/glfw-src/include/GLFW/glfw3.h
+ /usr/include/GLFW/glfw3.h
  /usr/include/stdlib.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
@@ -872,7 +872,7 @@ CMakeFiles/mlx42.dir/src/textures/mlx_texture.c.o
  /usr/include/x86_64-linux-gnu/bits/string_fortified.h
  /home/are/Escritorio/GitHub/milestone2/FdF/mlx42/include/glad/glad.h
  /home/are/Escritorio/GitHub/milestone2/FdF/mlx42/include/KHR/khrplatform.h
- /home/are/Escritorio/GitHub/milestone2/FdF/mlx42/linux/_deps/glfw-src/include/GLFW/glfw3.h
+ /usr/include/GLFW/glfw3.h
  /usr/include/stdlib.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
@@ -926,7 +926,7 @@ CMakeFiles/mlx42.dir/src/textures/mlx_xpm42.c.o
  /usr/include/x86_64-linux-gnu/bits/string_fortified.h
  /home/are/Escritorio/GitHub/milestone2/FdF/mlx42/include/glad/glad.h
  /home/are/Escritorio/GitHub/milestone2/FdF/mlx42/include/KHR/khrplatform.h
- /home/are/Escritorio/GitHub/milestone2/FdF/mlx42/linux/_deps/glfw-src/include/GLFW/glfw3.h
+ /usr/include/GLFW/glfw3.h
  /usr/include/stdlib.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
@@ -980,7 +980,7 @@ CMakeFiles/mlx42.dir/src/utils/mlx_compare.c.o
  /usr/include/x86_64-linux-gnu/bits/string_fortified.h
  /home/are/Escritorio/GitHub/milestone2/FdF/mlx42/include/glad/glad.h
  /home/are/Escritorio/GitHub/milestone2/FdF/mlx42/include/KHR/khrplatform.h
- /home/are/Escritorio/GitHub/milestone2/FdF/mlx42/linux/_deps/glfw-src/include/GLFW/glfw3.h
+ /usr/include/GLFW/glfw3.h
  /usr/include/stdlib.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
@@ -1034,7 +1034,7 @@ CMakeFiles/mlx42.dir/src/utils/mlx_error.c.o
  /usr/include/x86_64-linux-gnu/bits/string_fortified.h
  /home/are/Escritorio/GitHub/milestone2/FdF/mlx42/include/glad/glad.h
  /home/are/Escritorio/GitHub/milestone2/FdF/mlx42/include/KHR/khrplatform.h
- /home/are/Escritorio/GitHub/milestone2/FdF/mlx42/linux/_deps/glfw-src/include/GLFW/glfw3.h
+ /usr/include/GLFW/glfw3.h
  /usr/include/stdlib.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
@@ -1088,7 +1088,7 @@ CMakeFiles/mlx42.dir/src/utils/mlx_list.c.o
  /usr/include/x86_64-linux-gnu/bits/string_fortified.h
  /home/are/Escritorio/GitHub/milestone2/FdF/mlx42/include/glad/glad.h
  /home/are/Escritorio/GitHub/milestone2/FdF/mlx42/include/KHR/khrplatform.h
- /home/are/Escritorio/GitHub/milestone2/FdF/mlx42/linux/_deps/glfw-src/include/GLFW/glfw3.h
+ /usr/include/GLFW/glfw3.h
  /usr/include/stdlib.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
@@ -1142,7 +1142,7 @@ CMakeFiles/mlx42.dir/src/utils/mlx_utils.c.o
  /usr/include/x86_64-linux-gnu/bits/string_fortified.h
  /home/are/Escritorio/GitHub/milestone2/FdF/mlx42/include/glad/glad.h
  /home/are/Escritorio/GitHub/milestone2/FdF/mlx42/include/KHR/khrplatform.h
- /home/are/Escritorio/GitHub/milestone2/FdF/mlx42/linux/_deps/glfw-src/include/GLFW/glfw3.h
+ /usr/include/GLFW/glfw3.h
  /usr/include/stdlib.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h

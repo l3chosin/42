@@ -112,7 +112,7 @@ CMakeFiles/mlx42.dir/mlx_frag_shader.c.o: mlx_frag_shader.c \
   /usr/include/x86_64-linux-gnu/bits/string_fortified.h \
   ../include/glad/glad.h \
   ../include/KHR/khrplatform.h \
-  _deps/glfw-src/include/GLFW/glfw3.h \
+  /usr/include/GLFW/glfw3.h \
   /usr/include/stdlib.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
@@ -165,7 +165,7 @@ CMakeFiles/mlx42.dir/mlx_vert_shader.c.o: mlx_vert_shader.c \
   /usr/include/x86_64-linux-gnu/bits/string_fortified.h \
   ../include/glad/glad.h \
   ../include/KHR/khrplatform.h \
-  _deps/glfw-src/include/GLFW/glfw3.h \
+  /usr/include/GLFW/glfw3.h \
   /usr/include/stdlib.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
@@ -219,7 +219,7 @@ CMakeFiles/mlx42.dir/src/font/mlx_font.c.o: ../src/font/mlx_font.c \
   /usr/include/x86_64-linux-gnu/bits/string_fortified.h \
   ../include/glad/glad.h \
   ../include/KHR/khrplatform.h \
-  _deps/glfw-src/include/GLFW/glfw3.h \
+  /usr/include/GLFW/glfw3.h \
   /usr/include/stdlib.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
@@ -272,7 +272,7 @@ CMakeFiles/mlx42.dir/src/mlx_cursor.c.o: ../src/mlx_cursor.c \
   /usr/include/x86_64-linux-gnu/bits/string_fortified.h \
   ../include/glad/glad.h \
   ../include/KHR/khrplatform.h \
-  _deps/glfw-src/include/GLFW/glfw3.h \
+  /usr/include/GLFW/glfw3.h \
   /usr/include/stdlib.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
@@ -325,7 +325,7 @@ CMakeFiles/mlx42.dir/src/mlx_exit.c.o: ../src/mlx_exit.c \
   /usr/include/x86_64-linux-gnu/bits/string_fortified.h \
   ../include/glad/glad.h \
   ../include/KHR/khrplatform.h \
-  _deps/glfw-src/include/GLFW/glfw3.h \
+  /usr/include/GLFW/glfw3.h \
   /usr/include/stdlib.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
@@ -378,7 +378,7 @@ CMakeFiles/mlx42.dir/src/mlx_images.c.o: ../src/mlx_images.c \
   /usr/include/x86_64-linux-gnu/bits/string_fortified.h \
   ../include/glad/glad.h \
   ../include/KHR/khrplatform.h \
-  _deps/glfw-src/include/GLFW/glfw3.h \
+  /usr/include/GLFW/glfw3.h \
   /usr/include/stdlib.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
@@ -431,7 +431,7 @@ CMakeFiles/mlx42.dir/src/mlx_init.c.o: ../src/mlx_init.c \
   /usr/include/x86_64-linux-gnu/bits/string_fortified.h \
   ../include/glad/glad.h \
   ../include/KHR/khrplatform.h \
-  _deps/glfw-src/include/GLFW/glfw3.h \
+  /usr/include/GLFW/glfw3.h \
   /usr/include/stdlib.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
@@ -484,7 +484,7 @@ CMakeFiles/mlx42.dir/src/mlx_keys.c.o: ../src/mlx_keys.c \
   /usr/include/x86_64-linux-gnu/bits/string_fortified.h \
   ../include/glad/glad.h \
   ../include/KHR/khrplatform.h \
-  _deps/glfw-src/include/GLFW/glfw3.h \
+  /usr/include/GLFW/glfw3.h \
   /usr/include/stdlib.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
@@ -537,7 +537,7 @@ CMakeFiles/mlx42.dir/src/mlx_loop.c.o: ../src/mlx_loop.c \
   /usr/include/x86_64-linux-gnu/bits/string_fortified.h \
   ../include/glad/glad.h \
   ../include/KHR/khrplatform.h \
-  _deps/glfw-src/include/GLFW/glfw3.h \
+  /usr/include/GLFW/glfw3.h \
   /usr/include/stdlib.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
@@ -590,7 +590,7 @@ CMakeFiles/mlx42.dir/src/mlx_monitor.c.o: ../src/mlx_monitor.c \
   /usr/include/x86_64-linux-gnu/bits/string_fortified.h \
   ../include/glad/glad.h \
   ../include/KHR/khrplatform.h \
-  _deps/glfw-src/include/GLFW/glfw3.h \
+  /usr/include/GLFW/glfw3.h \
   /usr/include/stdlib.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
@@ -643,7 +643,7 @@ CMakeFiles/mlx42.dir/src/mlx_mouse.c.o: ../src/mlx_mouse.c \
   /usr/include/x86_64-linux-gnu/bits/string_fortified.h \
   ../include/glad/glad.h \
   ../include/KHR/khrplatform.h \
-  _deps/glfw-src/include/GLFW/glfw3.h \
+  /usr/include/GLFW/glfw3.h \
   /usr/include/stdlib.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
@@ -696,7 +696,7 @@ CMakeFiles/mlx42.dir/src/mlx_put_pixel.c.o: ../src/mlx_put_pixel.c \
   /usr/include/x86_64-linux-gnu/bits/string_fortified.h \
   ../include/glad/glad.h \
   ../include/KHR/khrplatform.h \
-  _deps/glfw-src/include/GLFW/glfw3.h \
+  /usr/include/GLFW/glfw3.h \
   /usr/include/stdlib.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
@@ -749,7 +749,7 @@ CMakeFiles/mlx42.dir/src/mlx_window.c.o: ../src/mlx_window.c \
   /usr/include/x86_64-linux-gnu/bits/string_fortified.h \
   ../include/glad/glad.h \
   ../include/KHR/khrplatform.h \
-  _deps/glfw-src/include/GLFW/glfw3.h \
+  /usr/include/GLFW/glfw3.h \
   /usr/include/stdlib.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
@@ -802,7 +802,7 @@ CMakeFiles/mlx42.dir/src/textures/mlx_png.c.o: ../src/textures/mlx_png.c \
   /usr/include/x86_64-linux-gnu/bits/string_fortified.h \
   ../include/glad/glad.h \
   ../include/KHR/khrplatform.h \
-  _deps/glfw-src/include/GLFW/glfw3.h \
+  /usr/include/GLFW/glfw3.h \
   /usr/include/stdlib.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
@@ -855,7 +855,7 @@ CMakeFiles/mlx42.dir/src/textures/mlx_texture.c.o: ../src/textures/mlx_texture.c
   /usr/include/x86_64-linux-gnu/bits/string_fortified.h \
   ../include/glad/glad.h \
   ../include/KHR/khrplatform.h \
-  _deps/glfw-src/include/GLFW/glfw3.h \
+  /usr/include/GLFW/glfw3.h \
   /usr/include/stdlib.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
@@ -908,7 +908,7 @@ CMakeFiles/mlx42.dir/src/textures/mlx_xpm42.c.o: ../src/textures/mlx_xpm42.c \
   /usr/include/x86_64-linux-gnu/bits/string_fortified.h \
   ../include/glad/glad.h \
   ../include/KHR/khrplatform.h \
-  _deps/glfw-src/include/GLFW/glfw3.h \
+  /usr/include/GLFW/glfw3.h \
   /usr/include/stdlib.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
@@ -961,7 +961,7 @@ CMakeFiles/mlx42.dir/src/utils/mlx_compare.c.o: ../src/utils/mlx_compare.c \
   /usr/include/x86_64-linux-gnu/bits/string_fortified.h \
   ../include/glad/glad.h \
   ../include/KHR/khrplatform.h \
-  _deps/glfw-src/include/GLFW/glfw3.h \
+  /usr/include/GLFW/glfw3.h \
   /usr/include/stdlib.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
@@ -1014,7 +1014,7 @@ CMakeFiles/mlx42.dir/src/utils/mlx_error.c.o: ../src/utils/mlx_error.c \
   /usr/include/x86_64-linux-gnu/bits/string_fortified.h \
   ../include/glad/glad.h \
   ../include/KHR/khrplatform.h \
-  _deps/glfw-src/include/GLFW/glfw3.h \
+  /usr/include/GLFW/glfw3.h \
   /usr/include/stdlib.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
@@ -1067,7 +1067,7 @@ CMakeFiles/mlx42.dir/src/utils/mlx_list.c.o: ../src/utils/mlx_list.c \
   /usr/include/x86_64-linux-gnu/bits/string_fortified.h \
   ../include/glad/glad.h \
   ../include/KHR/khrplatform.h \
-  _deps/glfw-src/include/GLFW/glfw3.h \
+  /usr/include/GLFW/glfw3.h \
   /usr/include/stdlib.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
@@ -1120,7 +1120,7 @@ CMakeFiles/mlx42.dir/src/utils/mlx_utils.c.o: ../src/utils/mlx_utils.c \
   /usr/include/x86_64-linux-gnu/bits/string_fortified.h \
   ../include/glad/glad.h \
   ../include/KHR/khrplatform.h \
-  _deps/glfw-src/include/GLFW/glfw3.h \
+  /usr/include/GLFW/glfw3.h \
   /usr/include/stdlib.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
@@ -1238,8 +1238,6 @@ CMakeFiles/mlx42.dir/src/utils/mlx_utils.c.o: ../src/utils/mlx_utils.c \
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h:
 
-_deps/glfw-src/include/GLFW/glfw3.h:
-
 ../src/mlx_keys.c:
 
 /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h:
@@ -1280,10 +1278,6 @@ _deps/glfw-src/include/GLFW/glfw3.h:
 
 ../include/lodepng/lodepng.h:
 
-/usr/include/x86_64-linux-gnu/bits/stdio2.h:
-
-/usr/include/limits.h:
-
 /usr/include/x86_64-linux-gnu/gnu/stubs.h:
 
 mlx_frag_shader.c:
@@ -1293,6 +1287,12 @@ mlx_frag_shader.c:
 mlx_vert_shader.c:
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/stdbool.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:
+
+/usr/include/limits.h:
+
+/usr/include/GLFW/glfw3.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/__FILE.h:
 
