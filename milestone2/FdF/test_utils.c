@@ -1,6 +1,6 @@
 #include "fdf.h"
 
-void print_map_array(t_node *map_array, int col, int row)
+void	print_map_array(t_node *map_array, int col, int row)
 {
     int x, y;
 
@@ -10,7 +10,7 @@ void print_map_array(t_node *map_array, int col, int row)
         x = 0;
         while (x < col)
         {
-            ft_printf("Node[%d,%d]: z = %d, color = 0x%06X\n",
+            printf("Node[%d,%d]: z = %d, color = 0x%06X\n",
                    x, y,
                    map_array[y * col + x].z,
                    map_array[y * col + x].color);

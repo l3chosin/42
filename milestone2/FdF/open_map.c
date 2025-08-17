@@ -30,15 +30,18 @@ void	free_split(char **array)
 int	col_counter(char *line)
 {
 	char	**tokens;
+	char	*trimmed;
 	int		columns;
 	int		i;
 
-	tokens = ft_split(line, ' ');
-	if (!tokens)
-		return (0);
 	columns = 0;
+	if (!line)
+		return (0);
+	trimmed = ft_strtrim(line, " \n");
+	tokens = ft_split(trimmed, ' ');
+	free(trimmed);
 	i = 0;
-	while (tokens[i] != NULL)
+	while (tokens[i])
 	{
 		columns++;
 		i++;
@@ -54,14 +57,20 @@ int	row_counter(int fd, int col_expected)
 	char	*line;
 
 	rows = 0;
+	check_col = 0;
 	line = get_next_line(fd);
 	while (line != NULL)
 	{
-		rows++;
 		check_col = col_counter(line);
-		free(line);
 		if (check_col != col_expected)
-			return (ft_printf("Error! Mapa invalido"), -1);
+		{
+			rows++;
+			ft_printf("Error! En linea %d: se esperaban %d col, pero hay %d\n",
+				rows, col_expected, check_col);
+			free(line);
+			return (-1);
+		}
+		free(line);
 		line = get_next_line(fd);
 	}
 	return (rows);
@@ -87,24 +96,16 @@ int	open_map(int argc, char *argv[])
 
 int	read_map_create_array(int argc, char *argv[], t_node **map_array)
 {
-	int		fd;
-	int		col;
-	int		row;
-	char	*line;
-
+	int	fd;
+	int	col;
+	int	row;
 
 	fd = open_map(argc, argv);
 	if (fd == -1)
-		return (ft_printf("La apertura del archivo ha fallado\n"), 1);
-	line = get_next_line(fd);
-	if (!line)
-		return (ft_printf("La lectura del archivo ha fallado\n"), close(fd), 1);
-	col = col_counter(line);
-	free(line);
-	row = row_counter(fd, col);
+		return (1);
+	if (validate_map(fd, &col, &row) == -1)
+		return (close(fd), 1);
 	close(fd);
-	if (row == -1)
-		return (ft_printf("Error, columnas desiguales\n"), 1);
 	*map_array = malloc(col * row * sizeof(t_node));
 	if (!*map_array)
 		return (ft_printf("Error: malloc falló\n"), 1);

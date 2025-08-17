@@ -14,7 +14,7 @@
 
 char	**data_tokenizer(char *line)
 {
-	char **tokens;
+	char	**tokens;
 
 	if (!line)
 		return (NULL);
@@ -26,7 +26,7 @@ char	**data_tokenizer(char *line)
 
 char	**token_tokenizer(char *token)
 {
-	char **values;
+	char	**values;
 
 	if (!token)
 		return (NULL);
@@ -36,9 +36,9 @@ char	**token_tokenizer(char *token)
 	return (values);
 }
 
-int		token_calculator(char **tokens)
+int	token_calculator(char **tokens)
 {
-	int token_n;
+	int	token_n;
 
 	if (!tokens)
 		return (0);

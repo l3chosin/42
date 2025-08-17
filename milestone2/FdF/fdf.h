@@ -28,15 +28,27 @@ typedef struct s_node
 	unsigned int	color;
 }	t_node;
 
-int		col_counter(char *line);
-int		row_counter(int fd, int col_expected);
-int		open_map(int argc, char *argv[]);
-int		read_map_create_array(int argc, char *argv[], t_node **map_array);
-void	free_split(char **array);
-void	data_assign(t_node *map_array, int col, int row, char *argv[]);
-char	**data_tokenizer(char *line);
-char	**token_tokenizer(char *token);
-int		token_calculator(char **tokens);
-void 	print_map_array(t_node *map_array, int col, int row);
+unsigned int	hex_to_uint(const char *hex);
+void			fill_row_nodes(t_node *map_array,
+					char **tokens, int col, int y);
+void			data_assign(t_node *map_array, int col, int row, char *argv[]);
+
+void			free_split(char **array);
+int				col_counter(char *line);
+int				row_counter(int fd, int col_expected);
+int				open_map(int argc, char *argv[]);
+int				read_map_create_array(int argc, char *argv[],
+					t_node **map_array);
+
+char			**data_tokenizer(char *line);
+char			**token_tokenizer(char *token);
+int				token_calculator(char **tokens);
+
+int				reset_fd(char *filename, int fd);
+
+int				validate_line(char *line, int expected_col, int row);
+int				validate_map(int fd, int *out_col, int *out_row);
+
+void			print_map_array(t_node *map_array, int col, int row);
 
 #endif
