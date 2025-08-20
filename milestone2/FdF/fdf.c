@@ -17,5 +17,6 @@ int	main(int argc, char *argv[])
 	t_node	*map;
 
 	read_map_create_array(argc, argv, &map);
+	open_window(1920, 1080, argv);
 	return (0);
 }

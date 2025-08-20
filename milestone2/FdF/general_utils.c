@@ -23,3 +23,11 @@ int	reset_fd(char *filename, int fd)
 	}
 	return (fd);
 }
+
+void open_window(int width, int heigth, char *argv[])
+{
+	mlx_t	*mlx;
+
+	mlx = mlx_init(width, heigth, ft_strchr(argv[1], '/'), true);
+	mlx_loop(mlx);
+}
