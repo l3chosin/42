@@ -49,8 +49,7 @@ int				reset_fd(char *filename, int fd);
 int				validate_line(char *line, int expected_col, int row);
 int				validate_map(int fd, int *out_col, int *out_row);
 
-void 			open_window(int width, int heigth, char *argv[]);
-
+void			open_and_draw(int width, int height, char *argv[], t_node **map);
 /* Funciones de prueba, borrar antes de entregar */
 void			print_map_array(t_node *map_array, int col, int row);
 
