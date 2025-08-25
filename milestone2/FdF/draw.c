@@ -14,7 +14,22 @@
 
 mlx_image_t	*draw_map(mlx_image_t *img, int col, int row, t_node *map_array)
 {
+	int	i;
+	int	total;
+	int	scale;
 
+	scale = scale_calculator(col, row);
+	total = row * col;
+	i = 0;
+	while (i < total)
+	{
+		mlx_put_pixel(img, map_array[i].x * scale + 480,
+			map_array[i].y * scale + 270,
+			map_array[i].color);
+
+		i++;
+	}
+	return (img);
 }
 
 
@@ -22,17 +37,16 @@ void	open_window(int col, int row, t_node *map_array)
 {
 	mlx_t		*mlx;
 	mlx_image_t	*img;
-	int			scale;
 
-	scale = 1;
-	mlx = mlx_init(1920, 1080, "FdF", true);
+	mlx = mlx_init(1920 + 480, 1080 + 270, "FdF", true);
 	if (!mlx)
 	{
 		ft_printf("No se puedo inicializar MLX42\n");
 		exit(EXIT_FAILURE);
 	}
-	img = mlx_new_image(mlx, col * scale, row * scale);
+	img = mlx_new_image(mlx, 1920 + 480, 1080 + 270);
 	img = draw_map(img, col, row, map_array);
+	mlx_image_to_window(mlx, img, 0, 0);
 	mlx_loop(mlx);
 	mlx_terminate(mlx);
 }

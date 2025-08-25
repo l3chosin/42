@@ -45,6 +45,7 @@ char			**token_tokenizer(char *token);
 int				token_calculator(char **tokens);
 
 int				reset_fd(char *filename, int fd);
+int				scale_calculator(int col, int row);
 
 int				validate_line(char *line, int expected_col, int row);
 int				validate_map(int fd, int *out_col, int *out_row);
