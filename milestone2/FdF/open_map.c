@@ -101,13 +101,13 @@ int	read_map_create_array(int argc, char *argv[], t_node **map_array, int *col)
 
 	fd = open_map(argc, argv);
 	if (fd == -1)
-		return (1);
+		return (-1);
 	if (validate_map(fd, col, &row) == -1)
-		return (close(fd), 1);
+		return (close(fd), -1);
 	close(fd);
 	*map_array = malloc((*col) * row * sizeof(t_node));
 	if (!*map_array)
-		return (ft_printf("Error: malloc falló\n"), 1);
+		return (ft_printf("Error: malloc falló\n"), -1);
 	data_assign(*map_array, *col, row, argv);
 	return (row);
 }

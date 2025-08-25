@@ -49,7 +49,8 @@ int				reset_fd(char *filename, int fd);
 int				validate_line(char *line, int expected_col, int row);
 int				validate_map(int fd, int *out_col, int *out_row);
 
-void			open_window(int width, int heigth);
+mlx_image_t		*draw_map(mlx_image_t *img, int col, int row, t_node *map_array);
+void			open_window(int col, int row, t_node *map_array);
 
 /* Funciones de prueba, borrar antes de entregar */
 void			print_map_array(t_node *map_array, int col, int row);
