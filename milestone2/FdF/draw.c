@@ -12,10 +12,16 @@
 
 #include "fdf.h"
 
-void	open_window(int width, int heigth, char *argv[])
+void	open_window(int width, int heigth)
 {
 	mlx_t	*mlx;
 
-	mlx = mlx_init(width, heigth, ft_strchr(argv[1], '/'), true);
+	mlx = mlx_init(width, heigth, "FdF", true);
+	if (!mlx)
+	{
+		ft_printf("No se puedo inicializar MLX42\n");
+		exit(EXIT_FAILURE);
+	}
 	mlx_loop(mlx);
+	mlx_terminate(mlx);
 }

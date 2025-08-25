@@ -1,7 +1,7 @@
-/home/are/Escritorio/github/milestone2/FdF/mlx42/linux/CMakeFiles/mlx42.dir
-/home/are/Escritorio/github/milestone2/FdF/mlx42/linux/CMakeFiles/edit_cache.dir
-/home/are/Escritorio/github/milestone2/FdF/mlx42/linux/CMakeFiles/rebuild_cache.dir
-/home/are/Escritorio/github/milestone2/FdF/mlx42/linux/CMakeFiles/list_install_components.dir
-/home/are/Escritorio/github/milestone2/FdF/mlx42/linux/CMakeFiles/install.dir
-/home/are/Escritorio/github/milestone2/FdF/mlx42/linux/CMakeFiles/install/local.dir
-/home/are/Escritorio/github/milestone2/FdF/mlx42/linux/CMakeFiles/install/strip.dir
+/home/aluther-/Desktop/GitHub/milestone2/FdF/mlx42/linux/CMakeFiles/mlx42.dir
+/home/aluther-/Desktop/GitHub/milestone2/FdF/mlx42/linux/CMakeFiles/edit_cache.dir
+/home/aluther-/Desktop/GitHub/milestone2/FdF/mlx42/linux/CMakeFiles/rebuild_cache.dir
+/home/aluther-/Desktop/GitHub/milestone2/FdF/mlx42/linux/CMakeFiles/list_install_components.dir
+/home/aluther-/Desktop/GitHub/milestone2/FdF/mlx42/linux/CMakeFiles/install.dir
+/home/aluther-/Desktop/GitHub/milestone2/FdF/mlx42/linux/CMakeFiles/install/local.dir
+/home/aluther-/Desktop/GitHub/milestone2/FdF/mlx42/linux/CMakeFiles/install/strip.dir

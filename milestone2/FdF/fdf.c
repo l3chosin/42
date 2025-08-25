@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "fdf.h"
-#include "libft/libft.h"
 
 int	main(int argc, char *argv[])
 {
@@ -21,6 +20,9 @@ int	main(int argc, char *argv[])
 
 	col = 0;
 	row = read_map_create_array(argc, argv, &map, &col);
-	ft_printf("Valor de col %d \n Valor de row %d\n", col, row);
+	if (col == 0)
+		return (ft_printf("This shit ain't good\n"), 1);
+	ft_printf("Columnas: %d \nFilas: %d\n", col, row);
+	open_window(1920, 1080);
 	return (0);
 }
