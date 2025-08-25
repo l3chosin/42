@@ -11,12 +11,16 @@
 /* ************************************************************************** */
 
 #include "fdf.h"
+#include "libft/libft.h"
 
 int	main(int argc, char *argv[])
 {
 	t_node	*map;
+	int		col;
+	int		row;
 
-	read_map_create_array(argc, argv, &map);
-	open_and_draw(1920, 1080, argv, &map);
+	col = 0;
+	row = read_map_create_array(argc, argv, &map, &col);
+	ft_printf("Valor de col %d \n Valor de row %d\n", col, row);
 	return (0);
 }

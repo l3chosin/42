@@ -38,7 +38,7 @@ int				col_counter(char *line);
 int				row_counter(int fd, int col_expected);
 int				open_map(int argc, char *argv[]);
 int				read_map_create_array(int argc, char *argv[],
-					t_node **map_array);
+					t_node **map_array, int *col);
 
 char			**data_tokenizer(char *line);
 char			**token_tokenizer(char *token);
@@ -49,7 +49,7 @@ int				reset_fd(char *filename, int fd);
 int				validate_line(char *line, int expected_col, int row);
 int				validate_map(int fd, int *out_col, int *out_row);
 
-void			open_and_draw(int width, int height, char *argv[], t_node **map);
+void			open_window(int width, int heigth, char *argv[]);
 /* Funciones de prueba, borrar antes de entregar */
 void			print_map_array(t_node *map_array, int col, int row);
 
