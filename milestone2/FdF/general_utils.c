@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "fdf.h"
-#include <math.h>
 
 int	reset_fd(char *filename, int fd)
 {
