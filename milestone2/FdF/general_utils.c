@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "fdf.h"
+#include <math.h>
 
 int	reset_fd(char *filename, int fd)
 {
@@ -39,4 +40,20 @@ int	scale_calculator(int col, int row)
 		scale_tmp = scale_h;
 	scale = scale_tmp + 0.5;
 	return (scale);
+}
+
+void	iso_converter(t_node *map_array, int total)
+{
+	int	i;
+
+	i = 0;
+	while (i < total)
+	{
+		map_array[i].px = (map_array[i].x - map_array[i].y)
+			* cos(M_PI / 6);
+		map_array[i].py = (map_array[i].x + map_array[i].y) * sin(M_PI / 6)
+			- map_array[i].z;
+		i++;
+	}
+
 }

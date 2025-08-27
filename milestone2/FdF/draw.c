@@ -18,13 +18,13 @@ mlx_image_t	*draw_map(mlx_image_t *img, int col, int row, t_node *map_array)
 	int	total;
 	int	scale;
 
-	scale = scale_calculator(col, row);
+	scale = 10;
 	total = row * col;
 	i = 0;
 	while (i < total)
 	{
-		mlx_put_pixel(img, map_array[i].x * scale + 480,
-			map_array[i].y * scale + 270,
+		mlx_put_pixel(img, (map_array[i].px) * scale + 100,
+			(map_array[i].py) * scale + 100,
 			map_array[i].color);
 
 		i++;

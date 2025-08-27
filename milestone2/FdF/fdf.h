@@ -19,12 +19,15 @@
 # include <unistd.h>
 # include <fcntl.h>
 # include <stdio.h>
+# include <math.h>
 
 typedef struct s_node
 {
 	int				x;
 	int				y;
 	int				z;
+	double			px;
+	double			py;
 	unsigned int	color;
 }	t_node;
 
@@ -46,6 +49,7 @@ int				token_calculator(char **tokens);
 
 int				reset_fd(char *filename, int fd);
 int				scale_calculator(int col, int row);
+void			iso_converter(t_node *map_array, int total);
 
 int				validate_line(char *line, int expected_col, int row);
 int				validate_map(int fd, int *out_col, int *out_row);

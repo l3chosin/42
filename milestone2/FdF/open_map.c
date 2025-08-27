@@ -109,5 +109,6 @@ int	read_map_create_array(int argc, char *argv[], t_node **map_array, int *col)
 	if (!*map_array)
 		return (ft_printf("Error: malloc falló\n"), -1);
 	data_assign(*map_array, *col, row, argv);
+	iso_converter(*map_array, (*col) * row);
 	return (row);
 }

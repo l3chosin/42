@@ -1,5 +1,5 @@
 CC = gcc
-FLAGS = -Wall -Wextra -Werror -g -fPIC
+FLAGS = -g -fPIC
 NAME = FDF
 
 SRC_LIB = libft
@@ -11,12 +11,18 @@ LIBS = -L$(SRC_LIB) -L$(SRC_MLX)/linux
 INCS = -I$(SRC_LIB) -I$(SRC_MLX) -I.
 
 SRC = fdf.c open_map.c data_assign.c token_utils.c test_utils.c general_utils.c validate_utils.c draw.c
-OBJ = $(SRC:.c=.o)
+OBJ_DIR = obj
+OBJ = $(SRC:%.c=$(OBJ_DIR)/%.o)
+
+all: $(OBJ_DIR) $(NAME)
+
+$(OBJ_DIR):
+	mkdir -p $(OBJ_DIR)
 
 $(NAME): $(OBJ) $(LIBFT) $(MLX_LIB)
 	$(CC) $(FLAGS) $(OBJ) $(LIBFT) $(MLX_LIB) -lglfw -lm -ldl -lpthread -o $(NAME)
 
-%.o: %.c
+$(OBJ_DIR)/%.o: %.c
 	$(CC) $(FLAGS) $(INCS) -c $< -o $@
 
 $(LIBFT):

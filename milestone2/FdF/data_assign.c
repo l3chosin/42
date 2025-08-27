@@ -60,7 +60,7 @@ void	fill_row_nodes(t_node *map_array, char **tokens, int col, int y)
 			if (color_str[0] == '0' && (color_str[1] == 'x'
 					|| color_str[1] == 'X'))
 				color_str += 2;
-			map_array[y * col + x].color = hex_to_uint(color_str);
+			map_array[y * col + x].color = 0xFFFFFF;
 		}
 		else
 			map_array[y * col + x].color = 0xFFFFFF;
