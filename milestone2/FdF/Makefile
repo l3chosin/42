@@ -10,19 +10,16 @@ MLX_LIB = $(SRC_MLX)/linux/libmlx42.a
 LIBS = -L$(SRC_LIB) -L$(SRC_MLX)/linux
 INCS = -I$(SRC_LIB) -I$(SRC_MLX) -I.
 
-SRC = fdf.c open_map.c data_assign.c token_utils.c test_utils.c general_utils.c validate_utils.c draw.c
-OBJ_DIR = obj
-OBJ = $(SRC:%.c=$(OBJ_DIR)/%.o)
+SRC = fdf.c open_map.c data_assign.c token_utils.c general_utils.c validate_utils.c draw.c
 
-all: $(OBJ_DIR) $(NAME)
+OBJ = $(SRC:%.c=%.o)
 
-$(OBJ_DIR):
-	mkdir -p $(OBJ_DIR)
+
 
 $(NAME): $(OBJ) $(LIBFT) $(MLX_LIB)
 	$(CC) $(FLAGS) $(OBJ) $(LIBFT) $(MLX_LIB) -lglfw -lm -ldl -lpthread -o $(NAME)
 
-$(OBJ_DIR)/%.o: %.c
+%.o: %.c
 	$(CC) $(FLAGS) $(INCS) -c $< -o $@
 
 $(LIBFT):
