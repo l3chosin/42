@@ -90,7 +90,6 @@ void			put_pixel_safe(mlx_image_t *img, int x, int y, uint32_t color);
 void			draw_line(mlx_image_t *img, t_node *map_array,
 					t_extra *map_extras, int index);
 
-
 /* Funciones de prueba, borrar antes de entregar */
 void			print_map_array(t_node *map_array, int col, int row);
 

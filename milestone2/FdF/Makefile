@@ -1,5 +1,5 @@
 CC = gcc
-FLAGS = -g -fPIC
+FLAGS = -Wall -Wextra -Werror -g -fPIC
 NAME = FDF
 
 SRC_LIB = libft

@@ -15,7 +15,6 @@
 mlx_image_t	*draw_map(mlx_image_t *img, t_extra *map_extras, t_node *map_array)
 {
 	int	i;
-	int	scale;
 
 	ft_printf("Escala %d\nOffsetX %d\nOffsetY %d\n", map_extras->scale,
 		map_extras->offsetx, map_extras->offsety);

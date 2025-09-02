@@ -43,14 +43,15 @@ static void	draw_line_points(mlx_image_t *img, t_node p0,
 	b.err = b.dx + b.dy;
 	while (1)
 	{
-		put_pixel_safe(img, b.x0, b.y0, 0xFFFFFFFF);
+		put_pixel_safe(img, b.x0, b.y0, p0.color);
 		if (b.x0 == b.x1 && b.y0 == b.y1)
 			break ;
 		bresenham_step(&b);
 	}
 }
 
-void	draw_line(mlx_image_t *img, t_node *map_array, t_extra *map_extras, int index)
+void	draw_line(mlx_image_t *img, t_node *map_array,
+			t_extra *map_extras, int index)
 {
 	int		x;
 	int		y;
@@ -60,9 +61,9 @@ void	draw_line(mlx_image_t *img, t_node *map_array, t_extra *map_extras, int ind
 	x = index % map_extras->col;
 	y = index / map_extras->col;
 	if (x < map_extras->col - 1)
-		draw_line_points(img, map_array[index], map_array[index + 1], map_extras);
+		draw_line_points(img, map_array[index],
+			map_array[index + 1], map_extras);
 	if (y < map_extras->row - 1)
 		draw_line_points(img, map_array[index],
 			map_array[index + map_extras->col], map_extras);
-
 }

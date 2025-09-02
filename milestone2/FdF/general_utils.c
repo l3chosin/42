@@ -64,10 +64,9 @@ void	iso_converter(t_node *map_array, int total)
 		map_array[i].px = (map_array[i].x - map_array[i].y)
 			* cos(M_PI / 6);
 		map_array[i].py = (map_array[i].x + map_array[i].y) * sin(M_PI / 6)
-			- map_array[i].z * 0.15;
+			- map_array[i].z * 0.25;
 		i++;
 	}
-
 }
 
 uint32_t	ft_strtoul(const char *str)
