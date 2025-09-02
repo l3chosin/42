@@ -25,21 +25,34 @@ int	reset_fd(char *filename, int fd)
 	return (fd);
 }
 
-int	scale_calculator(int col, int row)
+int	scale_calculator(t_node *map_array, int total)
 {
 	double	scale_w;
 	double	scale_h;
-	double	scale_tmp;
 	int		scale;
+	t_node	start;
+	t_node	end;
 
-	scale_w = 1920.0 / col;
-	scale_h = 1080.0 / row;
+	start = map_array[0];
+	end = map_array[total - 1];
+	scale_w = 1920.0 / (end.px - start.px);
+	scale_h = 1080.0 / (end.py - start.py);
 	if (scale_w < scale_h)
-		scale_tmp = scale_w;
+		scale = scale_w + 0.5;
 	else
-		scale_tmp = scale_h;
-	scale = scale_tmp + 0.5;
+		scale = scale_h + 0.5;
 	return (scale);
+}
+
+void	calculate_offset(t_node *map_array, t_extra *map_extras)
+{
+	t_node	start;
+	t_node	end;
+
+	start = map_array[0];
+	end = map_array[map_extras->total - 1];
+	map_extras->offsetx = (1920 - (end.px - start.px) * map_extras->scale) / 2;
+	map_extras->offsety = (1080 - (end.py - start.py) * map_extras->scale) / 2;
 }
 
 void	iso_converter(t_node *map_array, int total)

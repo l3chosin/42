@@ -15,6 +15,7 @@
 int	main(int argc, char *argv[])
 {
 	t_node	*map;
+	t_extra	map_extras;
 	int		col;
 	int		row;
 
@@ -22,6 +23,13 @@ int	main(int argc, char *argv[])
 	row = read_map_create_array(argc, argv, &map, &col);
 	if (col == 0)
 		return (ft_printf("This shit ain't good\n"), 1);
-	open_window(col, row, map);
+	map_extras.map_array = map;
+	map_extras.col = col;
+	map_extras.row = row;
+	map_extras.total = col * row;
+	map_extras.scale = scale_calculator(map,
+			map_extras.total);
+	calculate_offset(map, &map_extras);
+	open_window(&map_extras, map);
 	return (0);
 }

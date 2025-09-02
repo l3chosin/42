@@ -31,6 +31,17 @@ typedef struct s_node
 	unsigned int	color;
 }	t_node;
 
+typedef struct s_extra
+{
+	int		offsetx;
+	int		offsety;
+	int		scale;
+	int		col;
+	int		row;
+	int		total;
+	t_node	*map_array;
+}	t_extra;
+
 unsigned int	hex_to_uint(const char *hex);
 void			fill_row_nodes(t_node *map_array,
 					char **tokens, int col, int y);
@@ -48,14 +59,21 @@ char			**token_tokenizer(char *token);
 int				token_calculator(char **tokens);
 
 int				reset_fd(char *filename, int fd);
-int				scale_calculator(int col, int row);
+int				scale_calculator(t_node *map_array, int total);
+void			calculate_offset(t_node *map_array, t_extra *map_extras);
 void			iso_converter(t_node *map_array, int total);
 
 int				validate_line(char *line, int expected_col, int row);
 int				validate_map(int fd, int *out_col, int *out_row);
 
-mlx_image_t		*draw_map(mlx_image_t *img, int col, int row, t_node *map_array);
-void			open_window(int col, int row, t_node *map_array);
+mlx_image_t		*draw_map(mlx_image_t *img, t_extra *map_extras,
+					t_node *map_array);
+void			open_window(t_extra *map_extras, t_node *map_array);
+
+void			put_pixel_safe(mlx_image_t *img, int x, int y, uint32_t color);
+
+void			draw_line(mlx_image_t *img, int i, int col, t_node *map_array);
+
 
 /* Funciones de prueba, borrar antes de entregar */
 void			print_map_array(t_node *map_array, int col, int row);
