@@ -10,7 +10,7 @@ MLX_LIB = $(SRC_MLX)/linux/libmlx42.a
 LIBS = -L$(SRC_LIB) -L$(SRC_MLX)/linux
 INCS = -I$(SRC_LIB) -I$(SRC_MLX) -I.
 
-SRC = fdf.c open_map.c data_assign.c token_utils.c draw_utils.c general_utils.c validate_utils.c draw.c
+SRC = fdf.c open_map.c data_assign.c token_utils.c draw_utils.c general_utils.c validate_utils.c draw.c draw_lines.c
 OBJ_DIR = obj
 OBJ = $(SRC:%.c=$(OBJ_DIR)/%.o)
 

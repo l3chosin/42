@@ -22,9 +22,7 @@ mlx_image_t	*draw_map(mlx_image_t *img, t_extra *map_extras, t_node *map_array)
 	i = 0;
 	while (i < map_extras->total)
 	{
-		put_pixel_safe(img, (map_array[i].px) * map_extras->scale + map_extras->offsetx,
-			(map_array[i].py) * map_extras->scale + map_extras->offsety,
-			map_array[i].color);
+		draw_line(img, map_array, map_extras, i);
 		i++;
 	}
 	return (img);

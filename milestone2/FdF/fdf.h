@@ -42,6 +42,20 @@ typedef struct s_extra
 	t_node	*map_array;
 }	t_extra;
 
+typedef struct s_bresenham
+{
+	int	x0;
+	int	y0;
+	int	x1;
+	int	y1;
+	int	dx;
+	int	dy;
+	int	sx;
+	int	sy;
+	int	err;
+	int	e2;
+}	t_bresenham;
+
 unsigned int	hex_to_uint(const char *hex);
 void			fill_row_nodes(t_node *map_array,
 					char **tokens, int col, int y);
@@ -62,6 +76,7 @@ int				reset_fd(char *filename, int fd);
 int				scale_calculator(t_node *map_array, int total);
 void			calculate_offset(t_node *map_array, t_extra *map_extras);
 void			iso_converter(t_node *map_array, int total);
+uint32_t		ft_strtoul(const char *str);
 
 int				validate_line(char *line, int expected_col, int row);
 int				validate_map(int fd, int *out_col, int *out_row);
@@ -72,7 +87,8 @@ void			open_window(t_extra *map_extras, t_node *map_array);
 
 void			put_pixel_safe(mlx_image_t *img, int x, int y, uint32_t color);
 
-void			draw_line(mlx_image_t *img, int i, int col, t_node *map_array);
+void			draw_line(mlx_image_t *img, t_node *map_array,
+					t_extra *map_extras, int index);
 
 
 /* Funciones de prueba, borrar antes de entregar */

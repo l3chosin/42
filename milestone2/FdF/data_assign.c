@@ -12,33 +12,18 @@
 
 #include "fdf.h"
 
-unsigned int	hex_to_uint(const char *hex)
+uint32_t	hex_to_uint(const char *hex)
 {
-	unsigned int	result;
-	int				i;
-	char			c;
+	uint32_t	color;
 
-	i = 0;
-	result = 0;
 	if (!hex)
-		return (0xFFFFFF);
+		return (0xFFFFFFFF);
 	if (hex[0] == '0' && (hex[1] == 'x' || hex[1] == 'X'))
-		i = 2;
-	c = hex[i];
-	while ((c >= '0' && c <= '9')
-		|| (c >= 'a' && c <= 'f') || (c >= 'A' && c <= 'F'))
-	{
-		result *= 16;
-		if (c >= '0' && c <= '9')
-			result += c - '0';
-		else if (c >= 'a' && c <= 'f')
-			result += c - 'a' + 10;
-		else if (c >= 'A' && c <= 'F')
-			result += c - 'A' + 10;
-		i++;
-		c = hex[i];
-	}
-	return (result);
+		hex += 2;
+	color = strtoul(hex, NULL, 16);
+	if (color <= 0xFFFFFF)
+		color |= 0xFF000000;
+	return (color);
 }
 
 void	fill_row_nodes(t_node *map_array, char **tokens, int col, int y)
@@ -60,10 +45,10 @@ void	fill_row_nodes(t_node *map_array, char **tokens, int col, int y)
 			if (color_str[0] == '0' && (color_str[1] == 'x'
 					|| color_str[1] == 'X'))
 				color_str += 2;
-			map_array[y * col + x].color = 0xFFFFFF;
+			map_array[y * col + x].color = hex_to_uint(color_str);
 		}
 		else
-			map_array[y * col + x].color = 0xFFFFFF;
+			map_array[y * col + x].color = 0xFFFFFFFF;
 		free_split(values);
 		x++;
 	}

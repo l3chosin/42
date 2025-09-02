@@ -64,8 +64,33 @@ void	iso_converter(t_node *map_array, int total)
 		map_array[i].px = (map_array[i].x - map_array[i].y)
 			* cos(M_PI / 6);
 		map_array[i].py = (map_array[i].x + map_array[i].y) * sin(M_PI / 6)
-			- map_array[i].z;
+			- map_array[i].z * 0.15;
 		i++;
 	}
 
+}
+
+uint32_t	ft_strtoul(const char *str)
+{
+	uint32_t	result;
+
+	result = 0;
+	if (!str)
+		return (0);
+	if (str[0] == '0' && (str[1] == 'x' || str[1] == 'X'))
+		str += 2;
+	while ((*str >= '0' && *str <= '9')
+		|| (*str >= 'a' && *str <= 'f')
+		|| (*str >= 'A' && *str <= 'F'))
+	{
+		result *= 16;
+		if (*str >= '0' && *str <= '9')
+			result += *str - '0';
+		else if (*str >= 'a' && *str <= 'f')
+			result += *str - 'a' + 10;
+		else
+			result += *str - 'A' + 10;
+		str++;
+	}
+	return (result);
 }
