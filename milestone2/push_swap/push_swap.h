@@ -15,13 +15,15 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <stdio.h>
-# include "./libft/libft.h"
+# include "libft/libft.h"
 
-struct stack
+struct s_stack
 {
 	int				data;
 	struct node*	next;
 	struct node*	previous;
 };
+
+void	ft_error(int error);
 
 #endif
