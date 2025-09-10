@@ -21,11 +21,12 @@
 typedef struct s_node
 {
 	int				number;
-	struct node*	next;
-	struct node*	previous;
+	struct s_node*	next;
 }					t_node;
 
 t_node	*create_node(int number);
+
+t_node	*array_to_list(int *array, int argc);
 
 void	ft_error(int error);
 int		ft_atoi_ok(const char *str,	int	*ok);

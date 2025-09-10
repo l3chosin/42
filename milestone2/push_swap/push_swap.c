@@ -11,24 +11,19 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "libft/libft.h"
 
 int	main(int argc, char *argv[])
 {
-	int	*stack_a;
-/*	int	i;
+	int	*stack_array;
+	t_node *stack;
+	int	i;
 
-	i = 0;*/
-	stack_a = arg_reader(argc, argv);
-	if (stack_a == NULL)
+	i = 0;
+	stack_array = arg_reader(argc, argv);
+	if (stack_array == NULL)
 		return (1);
-/*	if (stack_a != NULL)
-	{
-		while (i < argc - 1)
-		{
-			ft_printf("\n%d", stack_a[i]);
-			i++;
-		}
-		ft_printf("\n");
-		}*/
+	stack = array_to_list(stack_array, argc);
+	turkey_sorter(stack);
 	return (0);
 }

@@ -7,7 +7,7 @@ SRC_LIB = libft
 LIBFT = $(SRC_LIB)/libft.a
 INCS = -I$(SRC_LIB) -I$(SRC_MLX) -I.
 
-SRC = push_swap.c ft_atoi_checker.c arg_reader.c error_utils.c
+SRC = push_swap.c ft_atoi_checker.c arg_reader.c error_utils.c array_to_list.c utils.c
 OBJ_DIR = obj
 OBJ = $(SRC:%.c=$(OBJ_DIR)/%.o)
 
