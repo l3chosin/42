@@ -7,26 +7,33 @@ para poder ordenarlos. */
 
 #include "push_swap.h"
 
-static void	*arg_checker(char *number)
+static int arg_checker(char *number, int *ok)
 {
 	int	n;
 
-	n = ft_atoi(number);
-	
+	n = ft_atoi_ok(number, ok);
+	return (n);
 }
 
 int	*arg_reader(int argc, char *argv[])
 {
 	int	i;
+	int	j;
+	int	*stack;
+	int	ok;
 
-	i = 0;
+	i = 1;
+	j = 0;
 	if (argc < 2)
 		return (ft_error(1), NULL);
+	stack = malloc(sizeof(int) * (argc - 1));
 	while (i < argc)
 	{
-		if (arg_checker(argv[i]) == NULL)
-			return (ft_error(2), ft_printf("%d\n", i), NULL);
+		stack[j] = arg_checker(argv[i], &ok);
+		if (ok == 0)
+			return (ft_error(2), ft_printf("%d\n", i), free(stack), NULL);
 		i++;
+		j++;
 	}
-	return (0);
+	return (ft_printf("Los datos son validos!"), stack);
 }

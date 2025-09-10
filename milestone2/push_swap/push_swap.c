@@ -14,5 +14,17 @@
 
 int	main(int argc, char *argv[])
 {
+	int	*stack_a;
+	int	i;
 
+	i = 0;
+	stack_a = arg_reader(argc, argv);
+	if (stack_a == NULL)
+		return (1);
+	while (i < argc - 1)
+	{
+		ft_printf("\n%d", stack_a[i]);
+		i++;
+	}
+	return (0);
 }
