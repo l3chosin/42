@@ -15,16 +15,20 @@
 int	main(int argc, char *argv[])
 {
 	int	*stack_a;
-	int	i;
+/*	int	i;
 
-	i = 0;
+	i = 0;*/
 	stack_a = arg_reader(argc, argv);
 	if (stack_a == NULL)
 		return (1);
-	while (i < argc - 1)
+/*	if (stack_a != NULL)
 	{
-		ft_printf("\n%d", stack_a[i]);
-		i++;
-	}
+		while (i < argc - 1)
+		{
+			ft_printf("\n%d", stack_a[i]);
+			i++;
+		}
+		ft_printf("\n");
+		}*/
 	return (0);
 }

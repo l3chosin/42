@@ -1,33 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aluther- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/04 15:42:07 by aluther-          #+#    #+#             */
-/*   Updated: 2025/09/04 15:42:09 by aluther-         ###   ########.fr       */
+/*   Created: 2025/09/10 16:16:41 by aluther-          #+#    #+#             */
+/*   Updated: 2025/09/10 16:16:43 by aluther-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-# include <stdio.h>
-# include <stdlib.h>
-# include <stdio.h>
-# include <limits.h>
-# include "libft/libft.h"
+#include "push_swap.h"
 
-typedef struct s_node
+t_node	*create_node(int number)
 {
-	int				number;
-	struct node*	next;
-	struct node*	previous;
-}					t_node;
+	t_node	*new_node;
 
-t_node	*create_node(int number);
-
-void	ft_error(int error);
-int		ft_atoi_ok(const char *str,	int	*ok);
-int		*arg_reader(int argc, char *argv[]);
-#endif
+	new_node = (t_node *)malloc(sizeof(t_node));
+	new_node->number = number;
+	new_node->next = NULL;
+	return (new_node);
+}

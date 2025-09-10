@@ -7,7 +7,21 @@ para poder ordenarlos. */
 
 #include "push_swap.h"
 
-static int arg_checker(char *number, int *ok)
+static int	*already_number(int n, int *stack, int j_index)
+{
+	int	i;
+
+	i = 0;
+	while (i < j_index)
+	{
+		if (n == stack[i])
+			return (ft_error(3), NULL);
+		i++;
+	}
+	return (stack);
+}
+
+static int	arg_checker(char *number, int *ok)
 {
 	int	n;
 
@@ -31,7 +45,11 @@ int	*arg_reader(int argc, char *argv[])
 	{
 		stack[j] = arg_checker(argv[i], &ok);
 		if (ok == 0)
-			return (ft_error(2), ft_printf("%d\n", i), free(stack), NULL);
+			return (ft_error(2), ft_printf(" %d\n", i),
+				ft_error(4), free(stack), NULL);
+		stack = already_number(stack[j], stack, j);
+		if (stack == NULL)
+			return (ft_error(4), free(stack), NULL);
 		i++;
 		j++;
 	}
