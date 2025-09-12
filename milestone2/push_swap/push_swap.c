@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "libft/libft.h"
 
 int	main(int argc, char *argv[])
 {
@@ -24,6 +23,12 @@ int	main(int argc, char *argv[])
 	if (stack_array == NULL)
 		return (1);
 	stack = array_to_list(stack_array, argc);
-	turkey_sorter(stack);
+	free (stack_array);
+	while (stack->next != NULL)
+	{
+		ft_printf("Nodo %d, valor %d \n", i, stack->number);
+		stack = stack->next;
+		i++;
+	}
 	return (0);
 }
