@@ -15,7 +15,7 @@ static void	free_list(t_node *head)
 
 t_node	*array_to_list(int *array, int argc)
 {
-	int	i;
+	int		i;
 	t_node	*head;
 	t_node	*current;
 
@@ -24,6 +24,7 @@ t_node	*array_to_list(int *array, int argc)
 	head = create_node(array[0]);
 	if (!head)
 		return (NULL);
+	head->previous = NULL;
 	current = head;
 	i = 1;
 	while (i < argc)
@@ -34,6 +35,7 @@ t_node	*array_to_list(int *array, int argc)
 			free_list(head);
 			return (NULL);
 		}
+		current->next->previous = current;
 		current = current->next;
 		i++;
 	}

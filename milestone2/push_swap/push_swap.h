@@ -21,7 +21,8 @@
 typedef struct s_node
 {
 	int				number;
-	struct s_node*	next;
+	struct s_node	*next;
+	struct s_node	*previous;
 }					t_node;
 
 t_node	*create_node(int number);
