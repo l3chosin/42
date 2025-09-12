@@ -1,20 +1,21 @@
 CC = gcc
-FLAGS = -Wall -Wextra -Werror -g -fPIC
+FLAGS = -g -fPIC
 NAME = PUSH_SWAP
 
 SRC_LIB = libft
 
 LIBFT = $(SRC_LIB)/libft.a
-INCS = -I$(SRC_LIB) -I$(SRC_MLX) -I.
+INCS = -I$(SRC_LIB) -I.
 
-SRC = push_swap.c ft_atoi_checker.c arg_reader.c error_utils.c array_to_list.c utils.c
+SRC = push_swap.c ft_atoi_checker.c arg_reader.c error_utils.c array_to_list.c utils.c movements/push.c
 OBJ_DIR = obj
-OBJ = $(SRC:%.c=$(OBJ_DIR)/%.o)
+OBJ_SUBDIR = obj/movements
+OBJ = $(SRC:%.c=obj/%.o)
 
-all: $(OBJ_DIR) $(NAME)
+all: $(OBJ_DIR) $(OBJ_SUBDIR) $(NAME)
 
-$(OBJ_DIR):
-	mkdir -p $(OBJ_DIR)
+$(OBJ_DIR) $(OBJ_SUBDIR):
+	mkdir -p $@
 
 $(NAME): $(OBJ) $(LIBFT) $(MLX_LIB)
 	$(CC) $(FLAGS) $(OBJ) $(LIBFT)  -lglfw -lm -ldl -lpthread -o $(NAME)

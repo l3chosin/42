@@ -31,13 +31,12 @@ t_node	*array_to_list(int *array, int argc)
 	{
 		current->next = create_node(array[i]);
 		if (!current->next)
-		{
-			free_list(head);
-			return (NULL);
-		}
+			return (free_list(head), NULL);
 		current->next->previous = current;
 		current = current->next;
 		i++;
 	}
+	current->next = head;
+	head->previous = current;
 	return (head);
 }

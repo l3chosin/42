@@ -16,19 +16,17 @@ int	main(int argc, char *argv[])
 {
 	int		*stack_array;
 	t_node	*stack_a;
+	t_node	*stack_b;
 	int		i;
+	int		j;
 
 	i = 0;
+	j = 0;
 	stack_array = arg_reader(argc, argv);
 	if (stack_array == NULL)
 		return (1);
-	stack_a = array_to_list(stack_array, argc);
+	stack_a = array_to_list(stack_array, argc - 1);
 	free (stack_array);
-	while (stack_a->next != NULL)
-	{
-		ft_printf("Nodo %d, valor %d \n", i, stack_a->number);
-		stack_a = stack_a->next;
-		i++;
-	}
+	stack_b = NULL;
 	return (0);
 }

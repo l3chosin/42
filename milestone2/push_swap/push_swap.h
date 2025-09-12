@@ -25,6 +25,9 @@ typedef struct s_node
 	struct s_node	*previous;
 }					t_node;
 
+void	push_a(t_node **stack_a, t_node **stack_b);
+void	push_b(t_node **stack_a, t_node **stack_b);
+
 t_node	*create_node(int number);
 
 t_node	*array_to_list(int *array, int argc);
