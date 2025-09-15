@@ -1,7 +1,26 @@
-/*
-ra rotate a: Desplaza hacia arriba todos los elementos del stack a una posición,
-de forma que el primer elemento se convierte en el último.
-rb rotate b: Desplaza hacia arriba todos los elementos del stack b una posición,
-de forma que el primer elemento se convierte en el último.
-rr ra y rb al mismo tiempo.
- */
+
+#include "../push_swap.h"
+
+void static	rotate(t_node **stack)
+{
+	*stack = (*stack)->next;
+}
+
+void	rotate_a(t_node **stack_a)
+{
+	rotate(stack_a);
+	ft_printf("ra\n");
+}
+
+void	rotate_b(t_node **stack_b)
+{
+	rotate(stack_b);
+	ft_printf("rb\n");
+}
+
+void	rotate_rr(t_node **stack_a, t_node **stack_b)
+{
+	rotate(stack_b);
+	rotate(stack_a);
+	ft_printf("rr\n");
+}

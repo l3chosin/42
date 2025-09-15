@@ -10,47 +10,48 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-pa push a: Toma el primer elemento del stack b y lo pone el primero en el stack
-a. No hace nada si b está vacío.
-pb push b: Toma el primer elemento del stack a y lo pone el primero en el stack
-b. No hace nada si a está vacío.
- */
+#include "../push_swap.h"
 
- #include "../push_swap.h"
+void	insert_node_top(t_node **dest, t_node *source)
+{
+	source->next = *dest;
+	source->previous = (*dest)->previous;
+	((*dest)->previous)->next = source;
+	(*dest)->previous = source;
+	*dest = source;
+}
+
+void	push(t_node **dest, t_node **source, const char *msg)
+{
+	t_node	*tmp;
+
+	if (!*source)
+		return ;
+	tmp = *source;
+	if (tmp->next == tmp)
+		*source = NULL;
+	else
+	{
+		(tmp->previous)->next = tmp->next;
+		(tmp->next)->previous = tmp->previous;
+		*source = tmp->next;
+	}
+	if (!*dest)
+	{
+		*dest = tmp;
+		(*dest)->next = tmp;
+		(*dest)->previous = tmp;
+	}
+	else
+		insert_node_top(dest, tmp);
+}
 
 void	push_a(t_node **stack_a, t_node **stack_b)
 {
-	t_node	*tmp;
-
-	if (!stack_a || !stack_b || !*stack_b)
-		return ;
-	tmp = *stack_b;
-	*stack_b = tmp->next;
-	if (*stack_b)
-		(*stack_b)->previous = NULL;
-	tmp->next = *stack_a;
-	if (*stack_a)
-		(*stack_a)->previous = tmp;
-	tmp->previous = NULL;
-	*stack_a = tmp;
-	ft_printf("pa\n");
+	push(stack_a, stack_b, "pa");
 }
 
-void	push_b(t_node **stack_a, t_node **stack_b)
+void	push_b(t_node **stack_b, t_node **stack_a)
 {
-	t_node	*tmp;
-
-	if (!stack_a || !stack_b || !*stack_a)
-		return ;
-	tmp = *stack_a;
-	*stack_a = tmp->next;
-	if (*stack_a)
-		(*stack_a)->previous = NULL;
-	tmp->next = *stack_b;
-	if (*stack_b)
-		(*stack_b)->previous = tmp;
-	tmp->previous = NULL;
-	*stack_b = tmp;
-	ft_printf("pb\n");
+	push(stack_b, stack_a, "pb");
 }
