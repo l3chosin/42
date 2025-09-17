@@ -10,7 +10,7 @@ ss swap a y swap b a la vez.
 
 static void	swap(t_node **stack)
 {
-	int tmp;
+	int	tmp;
 
 	if ((*stack)->next == *stack || !*stack)
 		return ;
@@ -19,7 +19,7 @@ static void	swap(t_node **stack)
 		tmp = (*stack)->number;
 		(*stack)->number = ((*stack)->next)->number;
 		((*stack)->next)->number = tmp;
-	};
+	}
 }
 
 void	swap_a(t_node **stack_a)

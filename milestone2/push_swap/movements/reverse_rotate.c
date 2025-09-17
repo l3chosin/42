@@ -1,7 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   reverse_rotate.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aluther- <aluther-@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/09/17 10:41:05 by aluther-          #+#    #+#             */
+/*   Updated: 2025/09/17 10:43:10 by aluther-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void static reverse_rotate(t_node **stack)
+void static	reverse_rotate(t_node **stack)
 {
 	*stack = (*stack)->previous;
 }
