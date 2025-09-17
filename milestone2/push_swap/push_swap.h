@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aluther- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: aluther- <aluther-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 15:42:07 by aluther-          #+#    #+#             */
-/*   Updated: 2025/09/04 15:42:09 by aluther-         ###   ########.fr       */
+/*   Updated: 2025/09/17 13:21:14 by aluther-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	reverse_rotate_both(t_node **stack_a, t_node **stack_b);
 //rotate.c
 void	rotate_a(t_node **stack_a);
 void	rotate_b(t_node **stack_b);
-void	rotate_rr(t_node **stack_a, t_node **stack_b);
+void	rotate_both(t_node **stack_a, t_node **stack_b);
 
 //swap.c
 void	swap_a(t_node **stack_a);
@@ -51,7 +51,7 @@ void	swap_both(t_node **stack_a, t_node **stack_b);
 
 //*					UTILS.C				 *//
 t_node	*create_node(int number);
-
+void	print_list(t_node *stack);
 
 //*					ARRAY_TO_LIST.C		 *//
 t_node	*array_to_list(int *array, int argc);

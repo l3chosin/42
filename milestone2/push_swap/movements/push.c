@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aluther- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: aluther- <aluther-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 12:24:16 by aluther-          #+#    #+#             */
-/*   Updated: 2025/09/12 12:24:18 by aluther-         ###   ########.fr       */
+/*   Updated: 2025/09/17 13:00:52 by aluther-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ void	push(t_node **dest, t_node **source, const char *msg)
 	}
 	else
 		insert_node_top(dest, tmp);
+	ft_printf("%s\n", msg);
 }
 
 void	push_a(t_node **stack_a, t_node **stack_b)

@@ -6,7 +6,7 @@
 /*   By: aluther- <aluther-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 10:41:05 by aluther-          #+#    #+#             */
-/*   Updated: 2025/09/17 10:43:10 by aluther-         ###   ########.fr       */
+/*   Updated: 2025/09/17 13:17:21 by aluther-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void static	reverse_rotate(t_node **stack)
 {
+	if (!*stack)
+		return ;
 	*stack = (*stack)->previous;
 }
 
