@@ -1,9 +1,15 @@
-/* Esta parte del programa tiene como objetivo leer
-los argumentos introducidos al programa, comprobar
-si se trata de argumentos validos,
-crear nodos donde guardar los valores ordenados
-para tener el stack a con todos los valores necesarios
-para poder ordenarlos. */
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   arg_reader.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aluther- <aluther-@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/09/17 13:26:48 by aluther-          #+#    #+#             */
+/*   Updated: 2025/09/17 13:26:51 by aluther-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 
 #include "push_swap.h"
 
