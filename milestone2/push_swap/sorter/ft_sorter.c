@@ -1,32 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_sorter.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aluther- <aluther-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/04 15:41:38 by aluther-          #+#    #+#             */
-/*   Updated: 2025/09/19 13:26:33 by aluther-         ###   ########.fr       */
+/*   Created: 2025/09/18 11:55:14 by aluther-          #+#    #+#             */
+/*   Updated: 2025/09/19 13:25:51 by aluther-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-int	main(int argc, char *argv[])
+void	ft_sorter(t_node **stack_a, t_node **stack_b)
 {
-	int		*stack_array;
-	t_node	*stack_a;
-	t_node	*stack_b;
-	int		i;
-	int		j;
+	int	len;
 
-	i = 0;
-	j = 0;
-	stack_array = arg_reader(argc, argv);
-	if (stack_array == NULL)
-		return (1);
-	stack_a = array_to_list(stack_array, argc - 1);
-	free (stack_array);
-	stack_b = NULL;
-	return (0);
+	len = list_lenght(*stack_a);
+	if (len == 2)
+		two_case(stack_a);
+	if (len == 3)
+		three_case(stack_a);
 }

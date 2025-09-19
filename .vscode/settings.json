@@ -1,3 +1,6 @@
 {
-    "cmake.sourceDirectory": "/home/aluther-/Desktop/GitHub/milestone2/FdF/mlx42"
+    "cmake.sourceDirectory": "/home/aluther-/Desktop/GitHub/milestone2/FdF/mlx42",
+    "files.associations": {
+        "push_swap.h": "c"
+    }
 }

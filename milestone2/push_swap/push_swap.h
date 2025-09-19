@@ -6,7 +6,7 @@
 /*   By: aluther- <aluther-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 15:42:07 by aluther-          #+#    #+#             */
-/*   Updated: 2025/09/17 13:28:20 by aluther-         ###   ########.fr       */
+/*   Updated: 2025/09/19 13:26:14 by aluther-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 typedef struct s_node
 {
 	int				number;
+	int				cost;
+	int				index;
 	struct s_node	*next;
 	struct s_node	*previous;
 }					t_node;
@@ -48,10 +50,30 @@ void	swap_a(t_node **stack_a);
 void	swap_b(t_node **stack_b);
 void	swap_both(t_node **stack_a, t_node **stack_b);
 
+/*					SORTER				*/
+
+/* 	big_case. c*/
+
+/* 	big_case_utils.c*/
+int		calc_mid(t_node **stack_a);
+void	indexer(t_node **stack);
+
+/*  ft_sorter.c */
+void	ft_sorter(t_node **stack_a, t_node **stack_b);
+
+/*	sort_utils.c  */
+
+void	two_case(t_node **stack);
+
+/*	three_case.c */
+void	three_case(t_node **stack);
 
 //*					UTILS.C				 *//
 t_node	*create_node(int number);
 void	print_list(t_node *stack);
+int		list_lenght(t_node *stack);
+int		list_lowest(t_node *stack);
+int		list_next_lowest(t_node *stack, int ref);
 
 //*					ARRAY_TO_LIST.C		 *//
 t_node	*array_to_list(int *array, int argc);

@@ -7,9 +7,20 @@ SRC_LIB = libft
 LIBFT = $(SRC_LIB)/libft.a
 INCS = -I$(SRC_LIB) -I.
 
-SRC = push_swap.c ft_atoi_checker.c arg_reader.c error_utils.c array_to_list.c utils.c movements/push.c movements/reverse_rotate.c movements/rotate.c movements/swap.c
+SRC = push_swap.c \
+	ft_atoi_checker.c \
+	arg_reader.c error_utils.c \
+	array_to_list.c utils.c \
+	movements/push.c \
+	movements/reverse_rotate.c \
+	movements/rotate.c \
+	movements/swap.c \
+	sorter/ft_sorter.c \
+	sorter/sort_utils.c \
+	sorter/three_case.c \
+
 OBJ_DIR = obj
-OBJ_SUBDIR = obj/movements
+OBJ_SUBDIR = obj/movements obj/sorter
 OBJ = $(SRC:%.c=obj/%.o)
 
 all: $(OBJ_DIR) $(OBJ_SUBDIR) $(NAME)
