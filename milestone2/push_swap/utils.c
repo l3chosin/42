@@ -29,6 +29,7 @@ int	list_lenght(t_node *stack)
 	}
 	return (len);
 }
+
 t_node	*create_node(int number)
 {
 	t_node	*new_node;
@@ -42,7 +43,7 @@ t_node	*create_node(int number)
 
 int	list_lowest(t_node *stack)
 {
-	t_node *head;
+	t_node	*head;
 	int		lowest;
 
 	head = stack;
@@ -56,13 +57,15 @@ int	list_lowest(t_node *stack)
 	}
 	return (lowest);
 }
+
 int	list_next_lowest(t_node *stack, int ref)
 {
-	t_node *head;
-	int next_lowest;
-	int first = 1;
+	t_node	*head;
+	int		next_lowest;
+	int		first;
 
 	head = stack;
+	first = 1;
 	next_lowest = INT_MAX;
 	while (stack && (stack != head || first))
 	{
@@ -71,5 +74,5 @@ int	list_next_lowest(t_node *stack, int ref)
 		stack = stack->next;
 		first = 0;
 	}
-	return next_lowest;
+	return (next_lowest);
 }

@@ -24,6 +24,5 @@ int	main(int argc, char *argv[])
 	stack_a = array_to_list(stack_array, argc - 1);
 	free (stack_array);
 	stack_b = NULL;
-	indexer(&stack_a);
 	return (0);
 }

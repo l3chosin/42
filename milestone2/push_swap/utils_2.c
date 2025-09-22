@@ -29,33 +29,36 @@ int	calc_mid(t_node **stack_a)
 	}
 	return (len);
 }
-void    indexer(t_node **stack) 
-{
-    t_node *head;
-    t_node *aux;
-    int i;
-    int current;
-    int len;
 
-    head = *stack;
-    i = 0;
-    current = list_lowest(*stack);
-    len = list_lenght(*stack);
-    while (i < len)
-    {
-        aux = head;
-        while (aux->number != current || aux->index != 0)
-            aux = aux->next;
-        aux->index = i + 1;
-        i++;
-        current = list_next_lowest(head, current);
-    }
+void	indexer(t_node **stack)
+{
+	t_node	*head;
+	t_node	*aux;
+	int		i;
+	int		current;
+	int		len;
+
+	if (!*stack)
+		return ;
+	head = *stack;
+	i = 0;
+	current = list_lowest(*stack);
+	len = list_lenght(*stack);
+	while (i < len)
+	{
+		aux = head;
+		while (aux->number != current || aux->index != 0)
+			aux = aux->next;
+		aux->index = i + 1;
+		i++;
+		current = list_next_lowest(head, current);
+	}
 }
 
 void	print_list(t_node *stack)
 {
 	t_node *head;
-	
+
 	if (!stack)
 	{
 		ft_printf("Sorry, there is no stack avaliable :(\n");
@@ -70,9 +73,10 @@ void	print_list(t_node *stack)
 	ft_printf("%d\n", stack->number);
 	stack = stack->next;
 }
+
 void	print_all_nodes_info(t_node *stack)
 {
-	t_node *head;
+	t_node	*head;
 
 	if (!stack)
 	{

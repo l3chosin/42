@@ -12,8 +12,6 @@
 
 #include "../push_swap.h"
 
-
-
 void	two_case(t_node **stack)
 {
 	int	a;
