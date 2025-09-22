@@ -6,7 +6,7 @@
 /*   By: aluther- <aluther-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 15:42:07 by aluther-          #+#    #+#             */
-/*   Updated: 2025/09/19 13:26:14 by aluther-         ###   ########.fr       */
+/*   Updated: 2025/09/22 14:55:46 by aluther-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,7 @@ void	swap_both(t_node **stack_a, t_node **stack_b);
 /* 	big_case. c*/
 
 /* 	big_case_utils.c*/
-int		calc_mid(t_node **stack_a);
-void	indexer(t_node **stack);
+
 
 /*  ft_sorter.c */
 void	ft_sorter(t_node **stack_a, t_node **stack_b);
@@ -74,6 +73,11 @@ void	print_list(t_node *stack);
 int		list_lenght(t_node *stack);
 int		list_lowest(t_node *stack);
 int		list_next_lowest(t_node *stack, int ref);
+void	print_all_nodes_info(t_node *stack);
+
+/*  utils_2.c */
+int		calc_mid(t_node **stack_a);
+void	indexer(t_node **stack);
 
 //*					ARRAY_TO_LIST.C		 *//
 t_node	*array_to_list(int *array, int argc);

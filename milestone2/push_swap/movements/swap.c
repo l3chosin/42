@@ -6,7 +6,7 @@
 /*   By: aluther- <aluther-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 13:27:15 by aluther-          #+#    #+#             */
-/*   Updated: 2025/09/17 13:27:30 by aluther-         ###   ########.fr       */
+/*   Updated: 2025/09/22 12:10:01 by aluther-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,24 @@
 
 static void	swap(t_node **stack)
 {
-	int	tmp;
+    t_node *first;
+    t_node *second;
+    t_node *prev;
+    t_node *next;
 
-	if ((*stack)->next == *stack || !*stack)
-		return ;
-	else
-	{
-		tmp = (*stack)->number;
-		(*stack)->number = ((*stack)->next)->number;
-		((*stack)->next)->number = tmp;
-	}
+    if (!*stack || (*stack)->next == *stack)
+        return;
+    first = *stack;
+    second = first->next;
+    prev = first->previous;
+    next = second->next;
+    prev->next = second;
+    second->previous = prev;
+    second->next = first;
+    first->previous = second;
+    first->next = next;
+    next->previous = first;
+    *stack = second;
 }
 
 void	swap_a(t_node **stack_a)

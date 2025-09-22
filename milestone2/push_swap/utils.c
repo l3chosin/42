@@ -6,7 +6,7 @@
 /*   By: aluther- <aluther-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 16:16:41 by aluther-          #+#    #+#             */
-/*   Updated: 2025/09/19 12:59:33 by aluther-         ###   ########.fr       */
+/*   Updated: 2025/09/22 14:55:44 by aluther-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,18 @@ int	list_lenght(t_node *stack)
 	t_node	*head;
 	int		len;
 
-	len = 0;
 	if (!stack)
-		return (len);
+		return (0);
 	head = stack;
-	while (stack->next != head)
-	{
-		stack = stack->next;
-		len++;
-	}
-	len++;
+	len = 1;
 	stack = stack->next;
+	while (stack != head)
+	{
+		len++;
+		stack = stack->next;
+	}
 	return (len);
 }
-
 t_node	*create_node(int number)
 {
 	t_node	*new_node;
@@ -41,24 +39,7 @@ t_node	*create_node(int number)
 	new_node->previous = NULL;
 	return (new_node);
 }
-void	print_list(t_node *stack)
-{
-	t_node *head;
-	
-	if (!stack)
-	{
-		ft_printf("Sorry, there is no stack avaliable :(\n");
-		return ;
-	}
-	head = stack;
-	while (stack->next != head)
-	{
-		ft_printf("%d ", stack->number);
-		stack = stack->next;
-	}
-	ft_printf("%d\n", stack->number);
-	stack = stack->next;
-}
+
 int	list_lowest(t_node *stack)
 {
 	t_node *head;
@@ -78,16 +59,17 @@ int	list_lowest(t_node *stack)
 int	list_next_lowest(t_node *stack, int ref)
 {
 	t_node *head;
-	int		next_lowest;
+	int next_lowest;
+	int first = 1;
 
 	head = stack;
 	next_lowest = INT_MAX;
-	stack = stack->next;
-	while (stack != head)
+	while (stack && (stack != head || first))
 	{
-		if (stack->number > ref && stack->number < next_lowest) 
+		if (stack->number > ref && stack->number < next_lowest)
 			next_lowest = stack->number;
 		stack = stack->next;
+		first = 0;
 	}
-	return (next_lowest);
+	return next_lowest;
 }

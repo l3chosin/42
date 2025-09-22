@@ -9,8 +9,11 @@ INCS = -I$(SRC_LIB) -I.
 
 SRC = push_swap.c \
 	ft_atoi_checker.c \
-	arg_reader.c error_utils.c \
-	array_to_list.c utils.c \
+	arg_reader.c \
+	error_utils.c \
+	array_to_list.c \
+	utils.c \
+	utils_2.c \
 	movements/push.c \
 	movements/reverse_rotate.c \
 	movements/rotate.c \

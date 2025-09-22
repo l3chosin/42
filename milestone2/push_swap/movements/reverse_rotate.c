@@ -6,13 +6,13 @@
 /*   By: aluther- <aluther-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 10:41:05 by aluther-          #+#    #+#             */
-/*   Updated: 2025/09/17 13:24:53 by aluther-         ###   ########.fr       */
+/*   Updated: 2025/09/22 12:17:58 by aluther-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void static	reverse_rotate(t_node **stack)
+static void	reverse_rotate(t_node **stack)
 {
 	if (!*stack)
 		return ;
