@@ -33,26 +33,26 @@ int	calc_mid(t_node **stack_a)
 
 void	indexer(t_node **stack)
 {
-	t_node *head;
+	t_node	*head;
 	int		i;
 	int		current;
 	int		list_len;
 
-	list_len = list_lenght(stack);
+	list_len = list_lenght(*stack);
 	head = (*stack);
 	i = 0;
-	current = list_lowest(stack);
+	current = list_lowest(*stack);
 	while ((*stack)->number != current)
-		stack = (*stack)->next;
+		*stack = (*stack)->next;
 	(*stack)->index = i;
 	i++;
 	while (i < list_len)
 	{
 		*stack = head;
-		current = list_next_lowest(stack, current);
+		current = list_next_lowest(*stack, current);
 		while ((*stack)->number != current)
-			stack = (*stack)->next;
+			*stack = (*stack)->next;
 		(*stack)->index = i;
 		i++;
-	}	
+	}
 }

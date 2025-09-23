@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+#include <unistd.h>
 
 static void	first_push(t_node **stack_a, t_node **stack_b)
 {
@@ -21,8 +22,8 @@ static void	first_push(t_node **stack_a, t_node **stack_b)
 
 static void	position_assign(t_node **stack)
 {
-	t_node *head;
-	int	p;
+	t_node	*head;
+	int		p;
 
 	head = *stack;
 	p = 0;
@@ -39,28 +40,63 @@ static void	position_assign(t_node **stack)
 static void	add_possition_cost(t_node **stack, int mid)
 {
 	int		len;
-	int		i;
-	int		j;
-	t_node	*tmp;
+	t_node	*head;
 
-	if (!stack)
+	if (!stack || !(*stack))
 		return ;
 	len = list_lenght(*stack);
-	i = 0;
-	j = 0;
-	tmp = *stack;
-	while (tmp->position <= mid)
+	head = *stack;
+	while (*stack)
 	{
-		tmp->cost += i;
-		tmp = tmp->next;
-		i++;
+		if ((*stack)->position <= mid)
+		{
+			(*stack)->cost = (*stack)->position;
+			(*stack)->avobe = 1;
+		}
+		else
+		{
+			(*stack)->cost = len - (*stack)->position;
+			(*stack)->avobe = 0;
+		}
+		(*stack) = (*stack)->next;
+		if ((*stack) == head)
+			break ;
 	}
-	while (tmp->position > mid && tmp->position <= len)
+	*stack = head;
+}
+
+static void	objective_position(t_node	**stack_a, t_node **stack_b)
+{
+	int		ref;
+	t_node	*head_a;
+	t_node	*head_b;
+	t_node	*current_a;
+
+	head_a = *stack_a;
+	current_a = head_a;
+	while (current_a)
 	{
-		tmp->cost = i - j;
-		tmp = tmp->next;
-		j++;
+		head_b = *stack_b;
+		ref = current_a->index;
+		while (!(ref < (*stack_b)->index
+				&& ref > (*stack_b)->previous->index))
+		{
+			*stack_b = (*stack_b)->next;
+			if (*stack_b == head_b)
+				break ;
+		}
+		current_a->objective = (*stack_b)->position;
+		*stack_b = head_b;
+		current_a = current_a->next;
+		if (current_a == head_a)
+			break ;
 	}
+}
+
+static	void	total_cost_calculator(t_node **stack_a, t_node **stack_b,
+	int mid_a, int mid_b)
+{
+
 }
 
 static	void	cost_calc(t_node **stack_a, t_node **stack_b)
@@ -70,18 +106,17 @@ static	void	cost_calc(t_node **stack_a, t_node **stack_b)
 
 	mid_a = calc_mid(stack_a);
 	mid_b = calc_mid(stack_b);
+	position_assign(stack_a);
+	position_assign(stack_b);
 	add_possition_cost(stack_a, mid_a);
 	add_possition_cost(stack_b, mid_b);
+	objective_position(stack_a, stack_b);
+	total_cost_calculator(stack_a, stack_b, mid_a, mid_b);
 }
 
 void	big_case(t_node **stack_a, t_node **stack_b)
 {
-	int	mid_a;
-	int	mid_b;
-
-	mid_a = calc_mid(stack_a);
-	mid_b = calc_mid(stack_b);
 	first_push(stack_a, stack_b);
-	position_assign(stack_a);
-	position_assign(stack_b);
+	cost_calc(stack_a, stack_b);
+
 }
