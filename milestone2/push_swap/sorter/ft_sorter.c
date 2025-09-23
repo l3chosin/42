@@ -21,4 +21,6 @@ void	ft_sorter(t_node **stack_a, t_node **stack_b)
 		two_case(stack_a);
 	if (len == 3)
 		three_case(stack_a);
+	if (len >= 4)
+
 }
