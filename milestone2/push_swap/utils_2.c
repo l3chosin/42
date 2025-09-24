@@ -74,7 +74,7 @@ void	print_list(t_node *stack)
 	stack = stack->next;
 }
 
-/* TESTING FUNCTIONS */
+/* TESTING FUNCTIONS, descomentar para utilizarlas */
 void	print_all_nodes_info(t_node *stack)
 {
 	t_node	*head;
@@ -86,13 +86,13 @@ void	print_all_nodes_info(t_node *stack)
 	}
 	head = stack;
 	ft_printf("=== NODE INFO ===\n");
-	ft_printf("number: %d, cost: %d, index: %d, position: %d, objective: %d, above: %d, total_cost: %d\n",
+	ft_printf("number: %d, position_cost: %d, index: %d, position: %d, objective: %d, above: %d, total_cost: %d\n",
 		stack->number, stack->position_cost, stack->index,
 		stack->position, stack->objective, stack->avobe, stack->total_cost);
 	stack = stack->next;
 	while (stack != head)
 	{
-		ft_printf("number: %d, cost: %d, index: %d, position: %d, objective: %d, above: %d, total_cost: %d\n",
+		ft_printf("number: %d, position_cost: %d, index: %d, position: %d, objective: %d, above: %d, total_cost: %d\n",
 			stack->number, stack->position_cost, stack->index,
 			stack->position, stack->objective, stack->avobe, stack->total_cost);
 		stack = stack->next;

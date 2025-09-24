@@ -101,6 +101,30 @@ static	void	cost_calc(t_node **stack_a, t_node **stack_b)
 
 void	big_case(t_node **stack_a, t_node **stack_b)
 {
+	t_node	*lowest;
+	int		objective;
+	int		sorted;
+
 	first_push(stack_a, stack_b);
-	cost_calc(stack_a, stack_b);
+	sorted = 0;
+	while (sorted == 0)
+	{
+		cost_calc(stack_a, stack_b);
+		lowest = list_lowest_cost(*stack_a);
+		objective = lowest->objective;
+		sorted = 1;
+		while ((*stack_a) != lowest)
+		{
+			if (lowest->avobe == 1)
+				rotate_a(stack_a);
+			if (lowest->avobe == 0)
+				reverse_rotate_a(stack_a);
+		}
+		while ((*stack_b)->position != objective)
+		{
+			reverse_rotate_b(stack_b);
+		}
+		push_b(stack_b, stack_a);
+		sorted = is_sorted(*stack_a);
+	}
 }

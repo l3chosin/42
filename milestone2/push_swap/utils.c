@@ -64,22 +64,28 @@ int	list_lowest(t_node *stack)
 	return (lowest);
 }
 
-/* POR ACABAR */
-int	list_lowest_cost(t_node *stack)
+t_node	*list_lowest_cost(t_node *stack)
 {
 	t_node	*head;
+	t_node	*lowest_h;
 	int		lowest;
 
+	if (!stack)
+		return (NULL);
 	head = stack;
-	lowest = stack->number;
+	lowest_h = stack;
+	lowest = stack->total_cost;
 	stack = stack->next;
 	while (stack != head)
 	{
-		if (stack->number < lowest)
-			lowest = stack->number;
+		if (stack->total_cost < lowest)
+		{
+			lowest = stack->total_cost;
+			lowest_h = stack;
+		}
 		stack = stack->next;
 	}
-	return (lowest);
+	return (lowest_h);
 }
 
 int	list_next_lowest(t_node *stack, int ref)

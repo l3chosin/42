@@ -67,6 +67,7 @@ void	indexer(t_node **stack);
 /*  ft_sorter.c */
 void	ft_sorter(t_node **stack_a, t_node **stack_b);
 /*	sort_utils.c  */
+int		is_sorted(t_node *stack);
 void	two_case(t_node **stack);
 /*	three_case.c */
 void	three_case(t_node **stack);
@@ -76,6 +77,7 @@ void	print_list(t_node *stack);
 int		list_lenght(t_node *stack);
 int		list_lowest(t_node *stack);
 int		list_next_lowest(t_node *stack, int ref);
+t_node	*list_lowest_cost(t_node *stack);
 void	print_all_nodes_info(t_node *stack);
 /*  utils_2.c */
 int		calc_mid(t_node **stack_a);

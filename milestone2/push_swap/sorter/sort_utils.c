@@ -26,3 +26,21 @@ void	two_case(t_node **stack)
 	else
 		swap_a(stack);
 }
+
+int	is_sorted(t_node *stack)
+{
+	t_node	*tmp;
+
+	if (!stack || stack->next == stack)
+		return (1);
+	tmp = stack;
+	while (tmp->next != stack)
+	{
+		if (tmp->index > tmp->next->index)
+			return (0);
+		tmp = tmp->next;
+	}
+	if (tmp->index > stack->index)
+		return (0);
+	return (1);
+}
