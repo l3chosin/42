@@ -21,6 +21,8 @@ SRC = push_swap.c \
 	sorter/ft_sorter.c \
 	sorter/sort_utils.c \
 	sorter/three_case.c \
+	sorter/big_case.c \
+	sorter/big_case_utils.c\
 
 OBJ_DIR = obj
 OBJ_SUBDIR = obj/movements obj/sorter

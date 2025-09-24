@@ -17,6 +17,8 @@ void	two_case(t_node **stack)
 	int	a;
 	int	b;
 
+	if (!stack || !*stack)
+		return ;
 	a = (*stack)->number;
 	b = (*stack)->next->number;
 	if (a < b)

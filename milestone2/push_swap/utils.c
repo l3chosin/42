@@ -36,6 +36,12 @@ t_node	*create_node(int number)
 
 	new_node = (t_node *)malloc(sizeof(t_node));
 	new_node->number = number;
+	new_node->cost = 0;
+	new_node->index = 0;
+	new_node->position = 0;
+	new_node->objective = 0;
+	new_node->avobe = 0;
+	new_node->total_cost = 0;
 	new_node->next = NULL;
 	new_node->previous = NULL;
 	return (new_node);

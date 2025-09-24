@@ -12,47 +12,27 @@
 
 #include "../push_swap.h"
 
-int	calc_mid(t_node **stack_a)
+void	first_push(t_node **stack_a, t_node **stack_b)
 {
-	int	tmp;
-	int	len;
-	int	mid;
-
-	len = list_lenght(*stack_a);
-	tmp = len % 2;
-	if (tmp == 0)
-	{
-		len /= 2;
-	}
-	if (tmp == 1)
-	{
-		len = (len / 2) + 1;
-	}
-	return (len);
+	push_b(stack_b, stack_a);
+	push_b(stack_b, stack_a);
 }
 
-void	indexer(t_node **stack)
+void	position_assign(t_node **stack)
 {
 	t_node	*head;
-	int		i;
-	int		current;
-	int		list_len;
+	int		p;
 
-	list_len = list_lenght(*stack);
-	head = (*stack);
-	i = 0;
-	current = list_lowest(*stack);
-	while ((*stack)->number != current)
-		*stack = (*stack)->next;
-	(*stack)->index = i;
-	i++;
-	while (i < list_len)
+	head = *stack;
+	p = 0;
+	if (!head)
+		return ;
+	while (*stack)
 	{
-		*stack = head;
-		current = list_next_lowest(*stack, current);
-		while ((*stack)->number != current)
-			*stack = (*stack)->next;
-		(*stack)->index = i;
-		i++;
+		(*stack)->position = p;
+		*stack = (*stack)->next;
+		p++;
+		if (*stack == head)
+			break ;
 	}
 }

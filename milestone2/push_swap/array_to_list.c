@@ -35,7 +35,6 @@ t_node	*array_to_list(int *array, int argc)
 	head = create_node(array[0]);
 	if (!head)
 		return (NULL);
-	head->previous = NULL;
 	current = head;
 	i = 1;
 	while (i < argc)

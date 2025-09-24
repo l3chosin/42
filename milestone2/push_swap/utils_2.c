@@ -25,7 +25,7 @@ int	calc_mid(t_node **stack_a)
 	}
 	if (tmp == 1)
 	{
-		len = (len / 2) + 1;
+		len = (len / 2);
 	}
 	return (len);
 }
@@ -74,6 +74,7 @@ void	print_list(t_node *stack)
 	stack = stack->next;
 }
 
+/* TESTING FUNCTIONS */
 void	print_all_nodes_info(t_node *stack)
 {
 	t_node	*head;
@@ -83,12 +84,20 @@ void	print_all_nodes_info(t_node *stack)
 		ft_printf("Lista vacía\n");
 		return;
 	}
+
 	head = stack;
-	ft_printf("number: %d, cost: %d, index: %d\n", stack->number, stack->cost, stack->index);
+	ft_printf("=== NODE INFO ===\n");
+	ft_printf("number: %d, cost: %d, index: %d, position: %d, objective: %d, above: %d, total_cost: %d\n",
+			stack->number, stack->cost, stack->index,
+			stack->position, stack->objective, stack->avobe, stack->total_cost);
+
 	stack = stack->next;
 	while (stack != head)
 	{
-		ft_printf("number: %d, cost: %d, index: %d\n", stack->number, stack->cost, stack->index);
+		ft_printf("number: %d, cost: %d, index: %d, position: %d, objective: %d, above: %d, total_cost: %d\n",
+				stack->number, stack->cost, stack->index,
+				stack->position, stack->objective, stack->avobe, stack->total_cost);
 		stack = stack->next;
 	}
+	ft_printf("=== END ===\n");
 }

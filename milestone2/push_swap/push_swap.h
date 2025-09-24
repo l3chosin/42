@@ -26,6 +26,7 @@ typedef struct s_node
 	int				position;
 	int				objective;
 	int				avobe;
+	int				total_cost;
 	struct s_node	*next;
 	struct s_node	*previous;
 }					t_node;
@@ -56,10 +57,14 @@ void	swap_both(t_node **stack_a, t_node **stack_b);
 /*					SORTER				*/
 
 /* 	big_case. c*/
+void	big_case(t_node **stack_a, t_node **stack_b);
+
 
 /* 	big_case_utils.c*/
-
-
+int		calc_mid(t_node **stack_a);
+void	first_push(t_node **stack_a, t_node **stack_b);
+void	position_assign(t_node **stack);
+void	indexer(t_node **stack);
 /*  ft_sorter.c */
 void	ft_sorter(t_node **stack_a, t_node **stack_b);
 

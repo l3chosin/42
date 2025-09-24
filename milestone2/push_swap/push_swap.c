@@ -24,5 +24,9 @@ int	main(int argc, char *argv[])
 	stack_a = array_to_list(stack_array, argc - 1);
 	free (stack_array);
 	stack_b = NULL;
+	indexer(&stack_a);
+	ft_sorter(&stack_a, &stack_b);
+	print_all_nodes_info(stack_a);
+	print_all_nodes_info(stack_b);
 	return (0);
 }
