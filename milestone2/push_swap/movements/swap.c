@@ -14,24 +14,24 @@
 
 static void	swap(t_node **stack)
 {
-    t_node *first;
-    t_node *second;
-    t_node *prev;
-    t_node *next;
+	t_node	*first;
+	t_node	*second;
+	t_node	*prev;
+	t_node	*next;
 
-    if (!*stack || (*stack)->next == *stack)
-        return;
-    first = *stack;
-    second = first->next;
-    prev = first->previous;
-    next = second->next;
-    prev->next = second;
-    second->previous = prev;
-    second->next = first;
-    first->previous = second;
-    first->next = next;
-    next->previous = first;
-    *stack = second;
+	if (!*stack || (*stack)->next == *stack)
+		return ;
+	first = *stack;
+	second = first->next;
+	prev = first->previous;
+	next = second->next;
+	prev->next = second;
+	second->previous = prev;
+	second->next = first;
+	first->previous = second;
+	first->next = next;
+	next->previous = first;
+	*stack = second;
 }
 
 void	swap_a(t_node **stack_a)

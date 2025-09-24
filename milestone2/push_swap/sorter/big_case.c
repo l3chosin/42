@@ -27,12 +27,12 @@ static void	add_possition_cost(t_node **stack, int mid)
 	{
 		if (curr->position < mid)
 		{
-			curr->cost = curr->position;
+			curr->position_cost = curr->position;
 			curr->avobe = 1;
 		}
 		else
 		{
-			curr->cost = len - curr->position;
+			curr->position_cost = len - curr->position;
 			curr->avobe = 0;
 		}
 		curr = curr->next;
@@ -54,10 +54,9 @@ static void	objective_position(t_node	**stack_a, t_node **stack_b)
 	{
 		ref = current_a->index;
 		tmp_b = *stack_b;
-		while (!((ref > tmp_b->previous->index
-					|| tmp_b->previous->index > tmp_b->index)
-				&& (ref < tmp_b->index
-					|| tmp_b->index < tmp_b->previous->index)))
+		while (!((ref < tmp_b->previous->index && ref > tmp_b->index)
+				|| (tmp_b->previous->index < tmp_b->index
+					&& (ref > tmp_b->index || ref < tmp_b->previous->index))))
 		{
 			tmp_b = tmp_b->next;
 		}
@@ -77,7 +76,8 @@ static	void	total_cost_calculator(t_node **stack)
 	head = *stack;
 	while (*stack)
 	{
-		(*stack)->total_cost = (*stack)->cost + 1 + (*stack)->objective;
+		(*stack)->total_cost = (*stack)->position_cost
+			+ 1 + (*stack)->objective;
 		*stack = (*stack)->next;
 		if (*stack == head)
 			break ;

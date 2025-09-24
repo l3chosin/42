@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft.h"
 
 static char	*read_and_join(int fd, char *stash)
 {
@@ -26,7 +26,7 @@ static char	*read_and_join(int fd, char *stash)
 	{
 		bytes = read(fd, buffer, BUFFER_SIZE);
 		if (bytes < 0)
-			return(free(buffer), free(stash), NULL);
+			return (free(buffer), free(stash), NULL);
 		buffer[bytes] = '\0';
 		tmp = ft_strjoin(stash, buffer);
 		if (stash)

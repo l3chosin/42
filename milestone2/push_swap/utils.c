@@ -36,7 +36,7 @@ t_node	*create_node(int number)
 
 	new_node = (t_node *)malloc(sizeof(t_node));
 	new_node->number = number;
-	new_node->cost = 0;
+	new_node->position_cost = 0;
 	new_node->index = 0;
 	new_node->position = 0;
 	new_node->objective = 0;
@@ -48,6 +48,24 @@ t_node	*create_node(int number)
 }
 
 int	list_lowest(t_node *stack)
+{
+	t_node	*head;
+	int		lowest;
+
+	head = stack;
+	lowest = stack->number;
+	stack = stack->next;
+	while (stack != head)
+	{
+		if (stack->number < lowest)
+			lowest = stack->number;
+		stack = stack->next;
+	}
+	return (lowest);
+}
+
+/* POR ACABAR */
+int	list_lowest_cost(t_node *stack)
 {
 	t_node	*head;
 	int		lowest;

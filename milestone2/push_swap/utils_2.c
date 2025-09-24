@@ -57,7 +57,7 @@ void	indexer(t_node **stack)
 
 void	print_list(t_node *stack)
 {
-	t_node *head;
+	t_node	*head;
 
 	if (!stack)
 	{
@@ -82,21 +82,19 @@ void	print_all_nodes_info(t_node *stack)
 	if (!stack)
 	{
 		ft_printf("Lista vacía\n");
-		return;
+		return ;
 	}
-
 	head = stack;
 	ft_printf("=== NODE INFO ===\n");
 	ft_printf("number: %d, cost: %d, index: %d, position: %d, objective: %d, above: %d, total_cost: %d\n",
-			stack->number, stack->cost, stack->index,
-			stack->position, stack->objective, stack->avobe, stack->total_cost);
-
+		stack->number, stack->position_cost, stack->index,
+		stack->position, stack->objective, stack->avobe, stack->total_cost);
 	stack = stack->next;
 	while (stack != head)
 	{
 		ft_printf("number: %d, cost: %d, index: %d, position: %d, objective: %d, above: %d, total_cost: %d\n",
-				stack->number, stack->cost, stack->index,
-				stack->position, stack->objective, stack->avobe, stack->total_cost);
+			stack->number, stack->position_cost, stack->index,
+			stack->position, stack->objective, stack->avobe, stack->total_cost);
 		stack = stack->next;
 	}
 	ft_printf("=== END ===\n");

@@ -1,5 +1,5 @@
 CC = gcc
-FLAGS = -g -fPIC
+FLAGS = -Wall -Wextra -Werror -g -fPIC
 NAME = PUSH_SWAP
 
 SRC_LIB = libft

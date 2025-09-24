@@ -21,7 +21,7 @@
 typedef struct s_node
 {
 	int				number;
-	int				cost;
+	int				position_cost;
 	int				index;
 	int				position;
 	int				objective;
@@ -59,7 +59,6 @@ void	swap_both(t_node **stack_a, t_node **stack_b);
 /* 	big_case. c*/
 void	big_case(t_node **stack_a, t_node **stack_b);
 
-
 /* 	big_case_utils.c*/
 int		calc_mid(t_node **stack_a);
 void	first_push(t_node **stack_a, t_node **stack_b);
@@ -67,14 +66,10 @@ void	position_assign(t_node **stack);
 void	indexer(t_node **stack);
 /*  ft_sorter.c */
 void	ft_sorter(t_node **stack_a, t_node **stack_b);
-
 /*	sort_utils.c  */
-
 void	two_case(t_node **stack);
-
 /*	three_case.c */
 void	three_case(t_node **stack);
-
 //*					UTILS.C				 *//
 t_node	*create_node(int number);
 void	print_list(t_node *stack);
@@ -82,22 +77,17 @@ int		list_lenght(t_node *stack);
 int		list_lowest(t_node *stack);
 int		list_next_lowest(t_node *stack, int ref);
 void	print_all_nodes_info(t_node *stack);
-
 /*  utils_2.c */
 int		calc_mid(t_node **stack_a);
 void	indexer(t_node **stack);
-
 //*					ARRAY_TO_LIST.C		 *//
 t_node	*array_to_list(int *array, int argc);
-
 
 /*					ERROR_UTILS.C			 */
 void	ft_error(int error);
 
-
 /*					FT_ATOI_CHECKER.C		 */
 int		ft_atoi_ok(const char *str,	int	*ok);
-
 
 /*					ARG_READER.C			 */
 int		*arg_reader(int argc, char *argv[]);
