@@ -58,5 +58,5 @@ int	*arg_reader(int argc, char *argv[])
 		i++;
 		j++;
 	}
-	return (ft_printf("Los datos son validos!\n"), stack);
+	return (stack);
 }

@@ -36,3 +36,13 @@ void	position_assign(t_node **stack)
 			break ;
 	}
 }
+
+t_node	*objective_node(int obj, t_node *stack)
+{
+	t_node	*tmp;
+
+	tmp = stack;
+	while (tmp->position != obj)
+		tmp = tmp->next;
+	return (tmp);
+}

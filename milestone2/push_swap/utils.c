@@ -40,6 +40,7 @@ t_node	*create_node(int number)
 	new_node->index = 0;
 	new_node->position = 0;
 	new_node->objective = 0;
+	new_node->objective_above = 0;
 	new_node->avobe = 0;
 	new_node->total_cost = 0;
 	new_node->next = NULL;

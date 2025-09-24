@@ -61,6 +61,7 @@ static void	objective_position(t_node	**stack_a, t_node **stack_b)
 			tmp_b = tmp_b->next;
 		}
 		current_a->objective = tmp_b->position;
+		current_a->objective_above = tmp_b->avobe;
 		current_a = current_a->next;
 		if (current_a == head_a)
 			break ;
@@ -102,17 +103,29 @@ static	void	cost_calc(t_node **stack_a, t_node **stack_b)
 void	big_case(t_node **stack_a, t_node **stack_b)
 {
 	t_node	*lowest;
-	int		objective;
+	t_node	*objective;
 	int		sorted;
+	int		len_a;
 
 	first_push(stack_a, stack_b);
 	sorted = 0;
-	while (sorted == 0)
+	len_a = list_lenght(*stack_a);
+	while (len_a >= 3)
 	{
 		cost_calc(stack_a, stack_b);
 		lowest = list_lowest_cost(*stack_a);
-		objective = lowest->objective;
+		objective = objective_node(lowest->objective, *stack_b);
 		sorted = 1;
+		if (lowest->avobe == 1 && objective->avobe == 1)
+		{
+			while (lowest != (*stack_a) && objective != *stack_b)
+				rotate_both(stack_a, stack_b);
+		}
+		if (lowest->avobe == 0 && objective->avobe == 0)
+		{
+			while (lowest->next != (*stack_a) && objective->next != *stack_b)
+				reverse_rotate_both(stack_a, stack_b);
+		}
 		while ((*stack_a) != lowest)
 		{
 			if (lowest->avobe == 1)
@@ -120,11 +133,20 @@ void	big_case(t_node **stack_a, t_node **stack_b)
 			if (lowest->avobe == 0)
 				reverse_rotate_a(stack_a);
 		}
-		while ((*stack_b)->position != objective)
+		while (*stack_b != objective)
 		{
-			reverse_rotate_b(stack_b);
+			if (objective->avobe == 1)
+				rotate_b(stack_b);
+			if (objective->avobe == 0)
+				reverse_rotate_b(stack_b);
 		}
 		push_b(stack_b, stack_a);
 		sorted = is_sorted(*stack_a);
+		len_a = list_lenght(*stack_a);
+	}
+	if (stack_a && sorted == 0)
+	{
+		three_case(stack_a);
+		objective_position(stack_a, stack_b);
 	}
 }

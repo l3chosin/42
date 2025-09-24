@@ -25,6 +25,7 @@ typedef struct s_node
 	int				index;
 	int				position;
 	int				objective;
+	int				objective_above;
 	int				avobe;
 	int				total_cost;
 	struct s_node	*next;
@@ -63,6 +64,7 @@ void	big_case(t_node **stack_a, t_node **stack_b);
 int		calc_mid(t_node **stack_a);
 void	first_push(t_node **stack_a, t_node **stack_b);
 void	position_assign(t_node **stack);
+t_node	*objective_node(int obj, t_node *stack);
 void	indexer(t_node **stack);
 /*  ft_sorter.c */
 void	ft_sorter(t_node **stack_a, t_node **stack_b);
