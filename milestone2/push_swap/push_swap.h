@@ -66,6 +66,7 @@ void	first_push(t_node **stack_a, t_node **stack_b);
 void	position_assign(t_node **stack);
 t_node	*objective_node(int obj, t_node *stack);
 void	indexer(t_node **stack);
+t_node	*find_first(t_node *stack);
 /*  ft_sorter.c */
 void	ft_sorter(t_node **stack_a, t_node **stack_b);
 /*	sort_utils.c  */

@@ -37,6 +37,16 @@ void	position_assign(t_node **stack)
 	}
 }
 
+t_node	*find_first(t_node *stack)
+{
+	t_node	*tmp;
+
+	tmp = stack;
+	while (tmp->index != 1)
+		tmp = tmp->next;
+	return (tmp);
+}
+
 t_node	*objective_node(int obj, t_node *stack)
 {
 	t_node	*tmp;

@@ -100,22 +100,41 @@ static	void	cost_calc(t_node **stack_a, t_node **stack_b)
 	total_cost_calculator(stack_a);
 }
 
+static	void	semifinal(t_node **stack_b)
+{
+	int		mid_b;
+	t_node	*first_node;
+
+	mid_b = calc_mid(stack_b);
+	position_assign(stack_b);
+	add_possition_cost(stack_b, mid_b);
+	first_node = find_first(*stack_b);
+	if (first_node->avobe == 1)
+	{
+		while (*stack_b != first_node)
+			rotate_b(stack_b);
+	}
+	if (first_node->avobe == 0)
+	{
+		while (*stack_b != first_node)
+			reverse_rotate_b(stack_b);
+	}
+}
+
 void	big_case(t_node **stack_a, t_node **stack_b)
 {
 	t_node	*lowest;
 	t_node	*objective;
-	int		sorted;
 	int		len_a;
+	int		len_b;
 
 	first_push(stack_a, stack_b);
-	sorted = 0;
 	len_a = list_lenght(*stack_a);
-	while (len_a >= 3)
+	while (len_a > 0)
 	{
 		cost_calc(stack_a, stack_b);
 		lowest = list_lowest_cost(*stack_a);
 		objective = objective_node(lowest->objective, *stack_b);
-		sorted = 1;
 		if (lowest->avobe == 1 && objective->avobe == 1)
 		{
 			while (lowest != (*stack_a) && objective != *stack_b)
@@ -141,12 +160,13 @@ void	big_case(t_node **stack_a, t_node **stack_b)
 				reverse_rotate_b(stack_b);
 		}
 		push_b(stack_b, stack_a);
-		sorted = is_sorted(*stack_a);
 		len_a = list_lenght(*stack_a);
 	}
-	if (stack_a && sorted == 0)
+	semifinal(stack_b);
+	len_b = list_lenght(*stack_b);
+	while (len_b != 0)
 	{
-		three_case(stack_a);
-		objective_position(stack_a, stack_b);
+		push_a(stack_a, stack_b);
+		len_b = list_lenght(*stack_b);
 	}
 }

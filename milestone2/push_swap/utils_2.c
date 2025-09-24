@@ -75,7 +75,7 @@ void	print_list(t_node *stack)
 }
 
 /* TESTING FUNCTIONS, descomentar para utilizarlas */
-void	print_all_nodes_info(t_node *stack)
+/*void	print_all_nodes_info(t_node *stack)
 {
 	t_node	*head;
 
@@ -98,4 +98,4 @@ void	print_all_nodes_info(t_node *stack)
 		stack = stack->next;
 	}
 	ft_printf("=== END ===\n");
-}
+	}*/
