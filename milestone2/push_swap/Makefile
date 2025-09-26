@@ -21,7 +21,6 @@ SRC = push_swap.c \
 	movements/swap.c \
 	sorter/ft_sorter.c \
 	sorter/sort_utils.c \
-	sorter/three_case.c \
 	sorter/big_case.c \
 	sorter/big_case_utils.c\
 	sorter/first_push.c \

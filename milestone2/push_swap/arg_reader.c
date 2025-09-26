@@ -20,7 +20,7 @@ static int	*already_number(int n, int *stack, int j_index)
 	while (i < j_index)
 	{
 		if (n == stack[i])
-			return (ft_error(3), NULL);
+			return (ft_error(1), NULL);
 		i++;
 	}
 	return (stack);
@@ -40,6 +40,7 @@ int	*arg_reader(int argc, char *argv[])
 	int	j;
 	int	*stack;
 	int	ok;
+	int	*tmp;
 
 	i = 1;
 	j = 0;
@@ -50,11 +51,11 @@ int	*arg_reader(int argc, char *argv[])
 	{
 		stack[j] = arg_checker(argv[i], &ok);
 		if (ok == 0)
-			return (ft_error(2), ft_printf(" %d\n", i),
-				ft_error(4), free(stack), NULL);
-		stack = already_number(stack[j], stack, j);
-		if (stack == NULL)
-			return (ft_error(4), free(stack), NULL);
+			return (free(stack), ft_error(1), NULL);
+		tmp = already_number(stack[j], stack, j);
+		if (tmp == NULL)
+			return (free(stack), ft_error(1), NULL);
+		stack = tmp;
 		i++;
 		j++;
 	}

@@ -76,10 +76,13 @@ void	semifinal(t_node **stack_b);
 
 /*  ft_sorter.c */
 void	ft_sorter(t_node **stack_a, t_node **stack_b);
+t_node	*lowest_node(t_node *stack);
 /*	sort_utils.c  */
 int		is_sorted(t_node *stack);
 void	two_case(t_node **stack);
 void	final_check(t_node **stack);
+void	four_case(t_node **stack_a, t_node **stack_b);
+void	five_case(t_node **stack_a, t_node **stack_b);
 /*	three_case.c */
 void	three_case(t_node **stack);
 //*					UTILS.C				 *//

@@ -27,6 +27,72 @@ void	two_case(t_node **stack)
 		swap_a(stack);
 }
 
+void	three_case(t_node **stack)
+{
+	int	a;
+	int	b;
+	int	c;
+
+	a = (*stack)->number;
+	b = (*stack)->next->number;
+	c = (*stack)->previous->number;
+	if (a > b && b > c)
+	{
+		swap_a(stack);
+		reverse_rotate_a(stack);
+	}
+	else if (a > c && c > b)
+		rotate_a(stack);
+	else if (b > a && a > c)
+		reverse_rotate_a(stack);
+	else if (a > b && b < c && a < c)
+		swap_a(stack);
+	else if (a < b && b > c && a < c)
+	{
+		swap_a(stack);
+		rotate_a(stack);
+	}
+}
+
+void	four_case(t_node **stack_a, t_node **stack_b)
+{
+	t_node	*min;
+
+	min = lowest_node(*stack_a);
+	while ((*stack_a)->number != min->number)
+		rotate_a(stack_a);
+	push_b(stack_b, stack_a);
+	three_case(stack_a);
+	push_a(stack_a, stack_b);
+}
+
+void	five_case(t_node **stack_a, t_node **stack_b)
+{
+	int		i;
+	t_node	*min;
+
+	i = 0;
+	while (i < 2)
+	{
+		position_assign(stack_a);
+		min = lowest_node(*stack_a);
+		while ((*stack_a)->number != min->number)
+		{
+			if (min->position <= list_lenght(*stack_a) / 2)
+				rotate_a(stack_a);
+			else
+				reverse_rotate_a(stack_a);
+			position_assign(stack_a);
+		}
+		push_b(stack_b, stack_a);
+		i++;
+	}
+	three_case(stack_a);
+	push_a(stack_a, stack_b);
+	push_a(stack_a, stack_b);
+	final_check(stack_a);
+}
+
 int	is_sorted(t_node *stack)
 {
 	t_node	*tmp;

@@ -14,19 +14,21 @@
 
 void	position_assign(t_node **stack)
 {
+	t_node	*tmp;
 	t_node	*head;
 	int		p;
 
-	head = *stack;
-	p = 0;
-	if (!head)
+	if (!stack || !*stack)
 		return ;
-	while (*stack)
+	head = *stack;
+	tmp = *stack;
+	p = 0;
+	while (tmp)
 	{
-		(*stack)->position = p;
-		*stack = (*stack)->next;
+		tmp->position = p;
+		tmp = tmp->next;
 		p++;
-		if (*stack == head)
+		if (tmp == head)
 			break ;
 	}
 }
@@ -36,7 +38,7 @@ t_node	*objective_node(int obj, t_node *stack)
 	t_node	*tmp;
 
 	tmp = stack;
-	while (tmp->position != obj)
+	while (tmp && tmp->position != obj)
 		tmp = tmp->next;
 	return (tmp);
 }
