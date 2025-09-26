@@ -12,18 +12,6 @@
 
 #include "push_swap.h"
 
-static void	free_list(t_node *head)
-{
-	t_node	*tmp;
-
-	while (head)
-	{
-		tmp = head->next;
-		free(head);
-		head = tmp;
-	}
-}
-
 t_node	*array_to_list(int *array, int argc)
 {
 	int		i;

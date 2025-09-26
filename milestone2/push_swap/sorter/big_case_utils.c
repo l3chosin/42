@@ -19,7 +19,7 @@ void	first_push(t_node **stack_a, t_node **stack_b)
 	int	rotations;
 	int	mid_low;
 	int	mid_high;
-	
+
 	len = list_lenght(*stack_a);
 	pushed = 0;
 	rotations = 0;
@@ -39,11 +39,10 @@ void	first_push(t_node **stack_a, t_node **stack_b)
 			rotations++;
 		}
 	}
-	while (pushed < 2 && len > 0)
+	while (pushed < 2 && len-- > 0)
 	{
 		push_b(stack_b, stack_a);
 		pushed++;
-		len--;
 	}
 }
 

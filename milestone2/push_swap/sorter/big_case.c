@@ -68,7 +68,7 @@ static void	objective_position(t_node	**stack_a, t_node **stack_b)
 	}
 }
 
-static	void	total_cost_calculator(t_node **stack_a, t_node **stack_b)
+static void total_cost_calculator(t_node **stack_a, t_node **stack_b)
 {
 	t_node	*head;
 	t_node	*current;
@@ -82,22 +82,18 @@ static	void	total_cost_calculator(t_node **stack_a, t_node **stack_b)
 	while (current)
 	{
 		objective = objective_node(current->objective, *stack_b);
-		
-		// Calcular si las rotaciones se pueden combinar
 		if ((current->avobe == 1 && objective->avobe == 1) ||
 			(current->avobe == 0 && objective->avobe == 0))
 		{
-			// Cuando ambos van en la misma dirección, el costo es el máximo de los dos
-			combined_cost = (current->position_cost > objective->position_cost) 
-							? current->position_cost : objective->position_cost;
+			if (current->position_cost > objective->position_cost)
+				combined_cost = current->position_cost;
+			else
+				combined_cost = objective->position_cost;
 		}
 		else
 		{
-			// Cuando van en direcciones opuestas, sumar ambos costos
 			combined_cost = current->position_cost + objective->position_cost;
 		}
-		
-		// Costo total: rotaciones + push
 		current->total_cost = combined_cost + 1;
 		current = current->next;
 		if (current == head)
@@ -129,8 +125,6 @@ static	void	semifinal(t_node **stack_b)
 	position_assign(stack_b);
 	add_possition_cost(stack_b, mid_b);
 	first_node = find_first(*stack_b);
-	
-	// Usar la dirección más eficiente calculada por add_possition_cost
 	if (first_node->avobe == 1)
 	{
 		while (*stack_b != first_node)
@@ -157,7 +151,6 @@ void	big_case(t_node **stack_a, t_node **stack_b)
 		cost_calc(stack_a, stack_b);
 		lowest = list_lowest_cost(*stack_a);
 		objective = objective_node(lowest->objective, *stack_b);
-		// Usar rotaciones combinadas solo si ambos elementos están en la misma dirección eficiente
 		if (lowest->avobe == 1 && objective->avobe == 1)
 		{
 			while (lowest != (*stack_a) && objective != *stack_b)
@@ -168,7 +161,6 @@ void	big_case(t_node **stack_a, t_node **stack_b)
 			while (lowest != (*stack_a) && objective != *stack_b)
 				reverse_rotate_both(stack_a, stack_b);
 		}
-		// Posicionar elemento en stack A usando el camino más eficiente
 		while ((*stack_a) != lowest)
 		{
 			if (lowest->avobe == 1)
@@ -176,7 +168,6 @@ void	big_case(t_node **stack_a, t_node **stack_b)
 			else
 				reverse_rotate_a(stack_a);
 		}
-		// Posicionar elemento en stack B usando el camino más eficiente
 		while (*stack_b != objective)
 		{
 			if (objective->avobe == 1)

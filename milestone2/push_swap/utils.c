@@ -107,22 +107,3 @@ int	list_next_lowest(t_node *stack, int ref)
 	}
 	return (next_lowest);
 }
-
-void	free_list(t_node *stack)
-{
-	t_node	*head;
-	t_node	*current;
-	t_node	*next;
-
-	if (!stack)
-		return ;
-	
-	head = stack;
-	current = stack;
-	
-	do {
-		next = current->next;
-		free(current);
-		current = next;
-	} while (current != head);
-}

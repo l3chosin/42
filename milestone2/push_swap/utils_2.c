@@ -74,28 +74,23 @@ void	print_list(t_node *stack)
 	stack = stack->next;
 }
 
-/* TESTING FUNCTIONS, descomentar para utilizarlas */
-/*void	print_all_nodes_info(t_node *stack)
+void	free_list(t_node *stack)
 {
 	t_node	*head;
+	t_node	*current;
+	t_node	*next;
 
 	if (!stack)
-	{
-		ft_printf("Lista vacía\n");
 		return ;
-	}
+
 	head = stack;
-	ft_printf("=== NODE INFO ===\n");
-	ft_printf("number: %d, position_cost: %d, index: %d, position: %d, objective: %d, above: %d, total_cost: %d\n",
-		stack->number, stack->position_cost, stack->index,
-		stack->position, stack->objective, stack->avobe, stack->total_cost);
-	stack = stack->next;
-	while (stack != head)
+	current = stack;
+	while (current)
 	{
-		ft_printf("number: %d, position_cost: %d, index: %d, position: %d, objective: %d, above: %d, total_cost: %d\n",
-			stack->number, stack->position_cost, stack->index,
-			stack->position, stack->objective, stack->avobe, stack->total_cost);
-		stack = stack->next;
+		next = current->next;
+		free(current);
+		if (next == head)
+			break ;
+		current = next;
 	}
-	ft_printf("=== END ===\n");
-	}*/
+}
