@@ -6,7 +6,7 @@
 /*   By: aluther- <aluther-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 15:42:07 by aluther-          #+#    #+#             */
-/*   Updated: 2025/09/22 14:55:46 by aluther-         ###   ########.fr       */
+/*   Updated: 2025/09/26 14:57:07 by aluther-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ int		list_lowest(t_node *stack);
 int		list_next_lowest(t_node *stack, int ref);
 t_node	*list_lowest_cost(t_node *stack);
 void	print_all_nodes_info(t_node *stack);
+void	free_list(t_node *stack);
 /*  utils_2.c */
 int		calc_mid(t_node **stack_a);
 void	indexer(t_node **stack);

@@ -6,7 +6,7 @@
 /*   By: aluther- <aluther-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 16:16:41 by aluther-          #+#    #+#             */
-/*   Updated: 2025/09/22 14:55:44 by aluther-         ###   ########.fr       */
+/*   Updated: 2025/09/26 14:57:10 by aluther-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,4 +106,23 @@ int	list_next_lowest(t_node *stack, int ref)
 		first = 0;
 	}
 	return (next_lowest);
+}
+
+void	free_list(t_node *stack)
+{
+	t_node	*head;
+	t_node	*current;
+	t_node	*next;
+
+	if (!stack)
+		return ;
+	
+	head = stack;
+	current = stack;
+	
+	do {
+		next = current->next;
+		free(current);
+		current = next;
+	} while (current != head);
 }

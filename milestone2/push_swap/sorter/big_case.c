@@ -6,7 +6,7 @@
 /*   By: aluther- <aluther-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/18 15:16:46 by aluther-          #+#    #+#             */
-/*   Updated: 2025/09/19 12:59:12 by aluther-         ###   ########.fr       */
+/*   Updated: 2025/09/26 15:01:01 by aluther-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,19 +68,39 @@ static void	objective_position(t_node	**stack_a, t_node **stack_b)
 	}
 }
 
-static	void	total_cost_calculator(t_node **stack)
+static	void	total_cost_calculator(t_node **stack_a, t_node **stack_b)
 {
 	t_node	*head;
+	t_node	*current;
+	t_node	*objective;
+	int		combined_cost;
 
-	if (!stack || !*stack)
+	if (!stack_a || !*stack_a)
 		return ;
-	head = *stack;
-	while (*stack)
+	head = *stack_a;
+	current = *stack_a;
+	while (current)
 	{
-		(*stack)->total_cost = (*stack)->position_cost
-			+ 1 + (*stack)->objective;
-		*stack = (*stack)->next;
-		if (*stack == head)
+		objective = objective_node(current->objective, *stack_b);
+		
+		// Calcular si las rotaciones se pueden combinar
+		if ((current->avobe == 1 && objective->avobe == 1) ||
+			(current->avobe == 0 && objective->avobe == 0))
+		{
+			// Cuando ambos van en la misma dirección, el costo es el máximo de los dos
+			combined_cost = (current->position_cost > objective->position_cost) 
+							? current->position_cost : objective->position_cost;
+		}
+		else
+		{
+			// Cuando van en direcciones opuestas, sumar ambos costos
+			combined_cost = current->position_cost + objective->position_cost;
+		}
+		
+		// Costo total: rotaciones + push
+		current->total_cost = combined_cost + 1;
+		current = current->next;
+		if (current == head)
 			break ;
 	}
 }
@@ -97,7 +117,7 @@ static	void	cost_calc(t_node **stack_a, t_node **stack_b)
 	add_possition_cost(stack_a, mid_a);
 	add_possition_cost(stack_b, mid_b);
 	objective_position(stack_a, stack_b);
-	total_cost_calculator(stack_a);
+	total_cost_calculator(stack_a, stack_b);
 }
 
 static	void	semifinal(t_node **stack_b)
@@ -109,12 +129,14 @@ static	void	semifinal(t_node **stack_b)
 	position_assign(stack_b);
 	add_possition_cost(stack_b, mid_b);
 	first_node = find_first(*stack_b);
+	
+	// Usar la dirección más eficiente calculada por add_possition_cost
 	if (first_node->avobe == 1)
 	{
 		while (*stack_b != first_node)
 			rotate_b(stack_b);
 	}
-	if (first_node->avobe == 0)
+	else
 	{
 		while (*stack_b != first_node)
 			reverse_rotate_b(stack_b);
@@ -135,28 +157,31 @@ void	big_case(t_node **stack_a, t_node **stack_b)
 		cost_calc(stack_a, stack_b);
 		lowest = list_lowest_cost(*stack_a);
 		objective = objective_node(lowest->objective, *stack_b);
+		// Usar rotaciones combinadas solo si ambos elementos están en la misma dirección eficiente
 		if (lowest->avobe == 1 && objective->avobe == 1)
 		{
 			while (lowest != (*stack_a) && objective != *stack_b)
 				rotate_both(stack_a, stack_b);
 		}
-		if (lowest->avobe == 0 && objective->avobe == 0)
+		else if (lowest->avobe == 0 && objective->avobe == 0)
 		{
-			while (lowest->next != (*stack_a) && objective->next != *stack_b)
+			while (lowest != (*stack_a) && objective != *stack_b)
 				reverse_rotate_both(stack_a, stack_b);
 		}
+		// Posicionar elemento en stack A usando el camino más eficiente
 		while ((*stack_a) != lowest)
 		{
 			if (lowest->avobe == 1)
 				rotate_a(stack_a);
-			if (lowest->avobe == 0)
+			else
 				reverse_rotate_a(stack_a);
 		}
+		// Posicionar elemento en stack B usando el camino más eficiente
 		while (*stack_b != objective)
 		{
 			if (objective->avobe == 1)
 				rotate_b(stack_b);
-			if (objective->avobe == 0)
+			else
 				reverse_rotate_b(stack_b);
 		}
 		push_b(stack_b, stack_a);
