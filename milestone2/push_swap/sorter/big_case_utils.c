@@ -12,75 +12,90 @@
 
 #include "../push_swap.h"
 
-void	first_push(t_node **stack_a, t_node **stack_b)
+void	add_possition_cost(t_node **stack, int mid)
 {
-	int	len;
-	int	pushed;
-	int	rotations;
-	int	mid_low;
-	int	mid_high;
+	int		len;
+	t_node	*curr;
+	t_node	*head;
 
-	len = list_lenght(*stack_a);
-	pushed = 0;
-	rotations = 0;
-	mid_low = len / 3;
-	mid_high = (2 * len) / 3;
-	while (pushed < 2 && rotations < len && len > 3)
+	if (!stack || !(*stack))
+		return ;
+	len = list_lenght(*stack);
+	head = *stack;
+	curr = *stack;
+	while (1)
 	{
-		if ((*stack_a)->index > mid_low && (*stack_a)->index < mid_high)
+		if (curr->position < mid)
 		{
-			push_b(stack_b, stack_a);
-			pushed++;
-			len--;
+			curr->position_cost = curr->position;
+			curr->avobe = 1;
 		}
 		else
 		{
-			rotate_a(stack_a);
-			rotations++;
+			curr->position_cost = len - curr->position;
+			curr->avobe = 0;
 		}
-	}
-	while (pushed < 2 && len-- > 0)
-	{
-		push_b(stack_b, stack_a);
-		pushed++;
-	}
-}
-
-void	position_assign(t_node **stack)
-{
-	t_node	*head;
-	int		p;
-
-	head = *stack;
-	p = 0;
-	if (!head)
-		return ;
-	while (*stack)
-	{
-		(*stack)->position = p;
-		*stack = (*stack)->next;
-		p++;
-		if (*stack == head)
+		curr = curr->next;
+		if (curr == head)
 			break ;
 	}
 }
 
-t_node	*find_first(t_node *stack)
+void	objective_position(t_node	**stack_a, t_node **stack_b)
 {
-	t_node	*tmp;
+	t_node	*head_a;
+	t_node	*current_a;
+	t_node	*tmp_b;
+	int		ref;
 
-	tmp = stack;
-	while (tmp->index != 1)
-		tmp = tmp->next;
-	return (tmp);
+	head_a = *stack_a;
+	current_a = head_a;
+	while (current_a)
+	{
+		ref = current_a->index;
+		tmp_b = *stack_b;
+		while (!((ref < tmp_b->previous->index && ref > tmp_b->index)
+				|| (tmp_b->previous->index < tmp_b->index
+					&& (ref > tmp_b->index || ref < tmp_b->previous->index))))
+		{
+			tmp_b = tmp_b->next;
+		}
+		current_a->objective = tmp_b->position;
+		current_a->objective_above = tmp_b->avobe;
+		current_a = current_a->next;
+		if (current_a == head_a)
+			break ;
+	}
 }
 
-t_node	*objective_node(int obj, t_node *stack)
+int	calc_combined_cost(t_node *current, t_node *objective)
 {
-	t_node	*tmp;
+	if ((current->avobe == 1 && objective->avobe == 1)
+		|| (current->avobe == 0 && objective->avobe == 0))
+	{
+		if (current->position_cost > objective->position_cost)
+			return (current->position_cost);
+		return (objective->position_cost);
+	}
+	return (current->position_cost + objective->position_cost);
+}
 
-	tmp = stack;
-	while (tmp->position != obj)
-		tmp = tmp->next;
-	return (tmp);
+void	total_cost_calculator(t_node **stack_a, t_node **stack_b)
+{
+	t_node	*head;
+	t_node	*current;
+	t_node	*objective;
+
+	if (!stack_a || !*stack_a)
+		return ;
+	head = *stack_a;
+	current = *stack_a;
+	while (current)
+	{
+		objective = objective_node(current->objective, *stack_b);
+		current->total_cost = calc_combined_cost(current, objective) + 1;
+		current = current->next;
+		if (current == head)
+			break ;
+	}
 }

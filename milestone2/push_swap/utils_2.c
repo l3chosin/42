@@ -82,7 +82,6 @@ void	free_list(t_node *stack)
 
 	if (!stack)
 		return ;
-
 	head = stack;
 	current = stack;
 	while (current)
@@ -93,4 +92,14 @@ void	free_list(t_node *stack)
 			break ;
 		current = next;
 	}
+}
+
+t_node	*find_first(t_node *stack)
+{
+	t_node	*tmp;
+
+	tmp = stack;
+	while (tmp->index != 1)
+		tmp = tmp->next;
+	return (tmp);
 }

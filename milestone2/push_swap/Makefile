@@ -1,6 +1,6 @@
 CC = gcc
 FLAGS = -Wall -Wextra -Werror -g -fPIC
-NAME = PUSH_SWAP
+NAME = push_swap
 
 SRC_LIB = libft
 
@@ -14,6 +14,7 @@ SRC = push_swap.c \
 	array_to_list.c \
 	utils.c \
 	utils_2.c \
+	utils_3.c \
 	movements/push.c \
 	movements/reverse_rotate.c \
 	movements/rotate.c \
@@ -23,6 +24,7 @@ SRC = push_swap.c \
 	sorter/three_case.c \
 	sorter/big_case.c \
 	sorter/big_case_utils.c\
+	sorter/first_push.c \
 
 OBJ_DIR = obj
 OBJ_SUBDIR = obj/movements obj/sorter

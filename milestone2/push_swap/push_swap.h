@@ -67,11 +67,19 @@ void	position_assign(t_node **stack);
 t_node	*objective_node(int obj, t_node *stack);
 void	indexer(t_node **stack);
 t_node	*find_first(t_node *stack);
+
+void	add_possition_cost(t_node **stack, int mid);
+void	objective_position(t_node	**stack_a, t_node **stack_b);
+void	total_cost_calculator(t_node **stack_a, t_node **stack_b);
+void	cost_calc(t_node **stack_a, t_node **stack_b);
+void	semifinal(t_node **stack_b);
+
 /*  ft_sorter.c */
 void	ft_sorter(t_node **stack_a, t_node **stack_b);
 /*	sort_utils.c  */
 int		is_sorted(t_node *stack);
 void	two_case(t_node **stack);
+void	final_check(t_node **stack);
 /*	three_case.c */
 void	three_case(t_node **stack);
 //*					UTILS.C				 *//
