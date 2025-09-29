@@ -57,22 +57,19 @@ void	indexer(t_node **stack)
 
 void	free_list(t_node *stack)
 {
-	t_node	*head;
 	t_node	*current;
 	t_node	*next;
 
 	if (!stack)
 		return ;
-	head = stack;
-	current = stack;
-	while (current)
+	current = stack->next;
+	while (current && current != stack)
 	{
 		next = current->next;
 		free(current);
-		if (next == head)
-			break ;
 		current = next;
 	}
+	free(stack);
 }
 
 t_node	*find_first(t_node *stack)

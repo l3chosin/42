@@ -12,6 +12,16 @@
 
 #include "../push_swap.h"
 
+static void	swap_two_case(t_node **stack, t_node *first, t_node *second)
+{
+	first->next = second;
+	first->previous = second;
+	second->next = first;
+	second->previous = first;
+	*stack = second;
+	return ;
+}
+
 static void	swap(t_node **stack)
 {
 	t_node	*first;
@@ -23,6 +33,11 @@ static void	swap(t_node **stack)
 		return ;
 	first = *stack;
 	second = first->next;
+	if (second->next == first)
+	{
+		swap_two_case(stack, first, second);
+		return ;
+	}
 	prev = first->previous;
 	next = second->next;
 	prev->next = second;
@@ -33,6 +48,7 @@ static void	swap(t_node **stack)
 	next->previous = first;
 	*stack = second;
 }
+
 
 void	swap_a(t_node **stack_a)
 {
