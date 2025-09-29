@@ -6,7 +6,7 @@
 /*   By: aluther- <aluther-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 13:26:48 by aluther-          #+#    #+#             */
-/*   Updated: 2025/09/17 13:26:51 by aluther-         ###   ########.fr       */
+/*   Updated: 2025/09/29 12:54:54 by aluther-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int	*already_number(int n, int *stack, int j_index)
 	while (i < j_index)
 	{
 		if (n == stack[i])
-			return (ft_error(1), NULL);
+			return (NULL);
 		i++;
 	}
 	return (stack);

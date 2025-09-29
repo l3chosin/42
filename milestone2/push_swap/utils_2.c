@@ -6,7 +6,7 @@
 /*   By: aluther- <aluther-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/22 11:06:05 by aluther-          #+#    #+#             */
-/*   Updated: 2025/09/22 14:55:42 by aluther-         ###   ########.fr       */
+/*   Updated: 2025/09/29 12:51:24 by aluther-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,25 +53,6 @@ void	indexer(t_node **stack)
 		i++;
 		current = list_next_lowest(head, current);
 	}
-}
-
-void	print_list(t_node *stack)
-{
-	t_node	*head;
-
-	if (!stack)
-	{
-		ft_printf("Sorry, there is no stack avaliable :(\n");
-		return ;
-	}
-	head = stack;
-	while (stack->next != head)
-	{
-		ft_printf("%d ", stack->number);
-		stack = stack->next;
-	}
-	ft_printf("%d\n", stack->number);
-	stack = stack->next;
 }
 
 void	free_list(t_node *stack)
