@@ -15,5 +15,5 @@
 void	ft_error(int error)
 {
 	if (error == 1)
-		ft_printf("Error!\n");
+		ft_printf("Error\n");
 }

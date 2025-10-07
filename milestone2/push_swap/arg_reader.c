@@ -45,7 +45,7 @@ int	*arg_reader(int argc, char *argv[])
 	i = 1;
 	j = 0;
 	if (argc < 2)
-		return (ft_error(1), NULL);
+		return (NULL);
 	stack = malloc(sizeof(int) * (argc - 1));
 	while (i < argc)
 	{
