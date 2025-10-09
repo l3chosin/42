@@ -1,23 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   client.c                                           :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aluther- <aluther-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aluther- <aluther-@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/09 15:44:50 by aluther-          #+#    #+#             */
-/*   Updated: 2025/10/09 15:45:45 by aluther-         ###   ########.fr       */
+/*   Created: 2025/05/13 11:49:10 by aluther-          #+#    #+#             */
+/*   Updated: 2025/05/13 16:05:06 by aluther-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk.h"
+#include "libft.h"
 
-int	main(int ac, char *av[])
+int	ft_isalnum(int c)
 {
-	if (ac != 3)
-	{
-		ft_printf("Error! Use the client as following\n");
-		ft_printf("./client PID \"YourMessageHere\"\n");
-	}
+	if (ft_isalpha(c) == 1 || ft_isdigit(c) == 1)
+		return (1);
 	return (0);
 }
+
+/*#include <stdio.h>
+int main ()
+{
+    int r;
+    int c;
+
+    c = '*';
+    r = ft_isalnum(c);
+
+    printf("Result is: %d", r);
+    return (0);
+}*/

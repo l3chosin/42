@@ -1,13 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aluther- <aluther-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aluther- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/09 15:49:15 by aluther-          #+#    #+#             */
-/*   Updated: 2025/10/09 15:49:20 by aluther-         ###   ########.fr       */
+/*   Created: 2025/05/27 20:36:36 by aluther-          #+#    #+#             */
+/*   Updated: 2025/05/27 20:36:38 by aluther-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_final/libft.h"
+#include "libft.h"
+#include <unistd.h>
+
+void	ft_putendl_fd(char *s, int fd)
+{
+	ft_putstr_fd(s, fd);
+	write(fd, "\n", 1);
+}
