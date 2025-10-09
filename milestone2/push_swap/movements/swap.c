@@ -49,7 +49,6 @@ static void	swap(t_node **stack)
 	*stack = second;
 }
 
-
 void	swap_a(t_node **stack_a)
 {
 	swap(stack_a);
