@@ -18,6 +18,6 @@ int	main(int ac, char *av[])
 	{
 		ft_printf("Error! Use the client as following\n");
 		ft_printf("./client PID \"YourMessageHere\"\n");
+		return (0);
 	}
-	return (0);
 }
