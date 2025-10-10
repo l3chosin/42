@@ -12,7 +12,11 @@
 
 #include "minitalk.h"
 
-int	main()
+int	main(void)
 {
-	
+	int pid;
+
+	pid = getpid();
+	ft_printf("PID = %d\n", pid);
+	return (0);
 }
