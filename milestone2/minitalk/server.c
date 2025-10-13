@@ -11,7 +11,9 @@
 /* ************************************************************************** */
 
 #include "minitalk.h"
-
+/* Falta hacer la funcion Handler. Creo que el problema esta justo en esta funcion
+ * puede que sea sincronizacion o algo, lo desconozco aun
+ */
 int	main(void)
 {
 	struct sigaction	sa;
