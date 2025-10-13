@@ -24,16 +24,30 @@ static void	send_str(char *av[], int pid)
 	{
 		c = av[1][i];
 		j = 0;
-		while (j <= 7)
+		while (j < 8)
 		{
 			bit = (c >> j) & 1;
 			if (bit == 0)
+			{
 				kill(pid, SIGUSR1);
+				usleep(100);
+			}
 			else if (bit == 1)
+			{
 				kill(pid, SIGUSR2);
+				usleep(100);
+			}
 			j++;
 		}
 		i++;
+	}
+	j = 0;
+	c = '\0';
+	while (j < 8)
+	{
+		kill(pid, SIGUSR1);
+		usleep(100);
+		j++;
 	}
 }
 
