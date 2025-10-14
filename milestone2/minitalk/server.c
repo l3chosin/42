@@ -6,12 +6,11 @@
 /*   By: aluther- <aluther-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/09 15:49:21 by aluther-          #+#    #+#             */
-/*   Updated: 2025/10/09 15:49:23 by aluther-         ###   ########.fr       */
+/*   Updated: 2025/10/14 12:06:18 by aluther-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
-#include <unistd.h>
 
 static int	bit_selector(int signal)
 {
