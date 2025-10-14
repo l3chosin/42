@@ -12,7 +12,7 @@
 
 #include "minitalk.h"
 
-static void	send_str(char *av[], int pid)
+static void	send_str(char *msg, int pid)
 {
 	int		i;
 	int		j;
@@ -20,34 +20,23 @@ static void	send_str(char *av[], int pid)
 	char	c;
 
 	i = 0;
-	while (av[1][i] != '\0')
+	while (1)
 	{
-		c = av[1][i];
-		j = 0;
-		while (j < 8)
+		c = msg[i];
+		j = 7;
+		while (j >= 0)
 		{
-			bit = (c >> j) & 1;
+			bit = (msg[i] >> j) & 1;
 			if (bit == 0)
-			{
 				kill(pid, SIGUSR1);
-				usleep(100);
-			}
-			else if (bit == 1)
-			{
+			else
 				kill(pid, SIGUSR2);
-				usleep(100);
-			}
-			j++;
+			usleep(100);
+			j--;
 		}
+		if (c == '\0')
+			break ;
 		i++;
-	}
-	j = 0;
-	c = '\0';
-	while (j < 8)
-	{
-		kill(pid, SIGUSR1);
-		usleep(100);
-		j++;
 	}
 }
 
@@ -62,6 +51,6 @@ int	main(int ac, char *av[])
 		return (0);
 	}
 	pid = ft_atoi(av[1]);
-	send_str(av, pid);
+	send_str(av[2], pid);
 	return (0);
 }
