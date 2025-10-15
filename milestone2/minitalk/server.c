@@ -11,6 +11,9 @@
 /* ************************************************************************** */
 
 #include "minitalk.h"
+#include <stdio.h>
+
+static pid_t	g_active_client = 0;
 
 static int	bit_selector(int signal)
 {
@@ -25,25 +28,40 @@ static int	bit_selector(int signal)
 	return (-1);
 }
 
-static void	do_things(int signal)
+static void	do_things(int signal, siginfo_t *info, void *context)
 {
 	static char	c = 0;
 	static int	i = 0;
 	int			bit;
+	pid_t		client_pid;
 
+	(void)context;
+	client_pid = info->si_pid;
+	if (g_active_client == 0)
+		g_active_client = client_pid;
+	if (client_pid != g_active_client)
+		return ;
 	bit = bit_selector(signal);
 	if (bit == -1)
-	{
-		write(1, "La comunicacion ha fallado", 27);
 		return ;
-	}
 	c = (c << 1) | bit;
 	i++;
+	kill(client_pid, SIGUSR2);
+
 	if (i == 8)
 	{
-		write (1, &c, 1);
+		write(1, &c, 1);
+		if (c == '\0')
+			g_active_client = 0;
 		c = 0;
 		i = 0;
+	}
+	if (i > 8)
+	{
+		i = 0;
+		c = 0;
+		g_active_client = 0;
+		write(1, "Desfase de bits detectado\n", 26);
 	}
 }
 
@@ -53,7 +71,8 @@ int	main(void)
 	int					pid;
 
 	pid = getpid();
-	sa.sa_handler = do_things;
+	sa.sa_sigaction = do_things;
+	sa.sa_flags = SA_SIGINFO;
 	sigemptyset(&sa.sa_mask);
 	ft_printf("PID = %d\n", pid);
 	sigaction(SIGUSR1, &sa, NULL);

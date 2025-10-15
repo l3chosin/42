@@ -12,6 +12,11 @@
 
 #include "minitalk.h"
 
+void	ok_handler(int sign)
+{
+	(void)sign;
+}
+
 static void	send_str(char *msg, int pid)
 {
 	int		i;
@@ -33,7 +38,8 @@ static void	send_str(char *msg, int pid)
 				kill(pid, SIGUSR1);
 			else
 				kill(pid, SIGUSR2);
-			usleep(1000);
+			pause();
+			usleep(5000);
 			j--;
 		}
 		if (c == '\0')
@@ -44,7 +50,8 @@ static void	send_str(char *msg, int pid)
 
 int	main(int ac, char *av[])
 {
-	int	pid;
+	int					pid;
+	struct sigaction	ok;
 
 	if (ac != 3)
 	{
@@ -53,6 +60,10 @@ int	main(int ac, char *av[])
 		return (0);
 	}
 	pid = ft_atoi(av[1]);
+	ok.sa_handler = ok_handler;
+	sigemptyset(&ok.sa_mask);
+	ok.sa_flags = 0;
+	sigaction(SIGUSR2, &ok, NULL);
 	send_str(av[2], pid);
 	return (0);
 }
