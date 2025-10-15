@@ -6,15 +6,19 @@
 /*   By: aluther- <aluther-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/09 15:44:50 by aluther-          #+#    #+#             */
-/*   Updated: 2025/10/14 12:06:09 by aluther-         ###   ########.fr       */
+/*   Updated: 2025/10/15 17:20:02 by aluther-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
+#include <unistd.h>
+
+volatile sig_atomic_t	g_ack = 0;
 
 void	ok_handler(int sign)
 {
 	(void)sign;
+	g_ack = 1;
 }
 
 static void	send_str(char *msg, int pid)
@@ -34,12 +38,13 @@ static void	send_str(char *msg, int pid)
 		while (j >= 0)
 		{
 			bit = (tmp[i] >> j) & 1;
+			g_ack = 0;
 			if (bit == 0)
 				kill(pid, SIGUSR1);
 			else
 				kill(pid, SIGUSR2);
-			pause();
-			usleep(5000);
+			while (!g_ack)
+				pause();
 			j--;
 		}
 		if (c == '\0')

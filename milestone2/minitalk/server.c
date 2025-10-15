@@ -6,12 +6,13 @@
 /*   By: aluther- <aluther-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/09 15:49:21 by aluther-          #+#    #+#             */
-/*   Updated: 2025/10/14 12:06:18 by aluther-         ###   ########.fr       */
+/*   Updated: 2025/10/15 17:19:59 by aluther-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 #include <stdio.h>
+#include <unistd.h>
 
 static pid_t	g_active_client = 0;
 
@@ -47,12 +48,14 @@ static void	do_things(int signal, siginfo_t *info, void *context)
 	c = (c << 1) | bit;
 	i++;
 	kill(client_pid, SIGUSR2);
-
 	if (i == 8)
 	{
 		write(1, &c, 1);
 		if (c == '\0')
+		{
 			g_active_client = 0;
+			write(1, "\n", 1);
+		}
 		c = 0;
 		i = 0;
 	}
