@@ -18,20 +18,22 @@ static void	send_str(char *msg, int pid)
 	int		j;
 	int		bit;
 	char	c;
+	char	*tmp;
 
 	i = 0;
 	while (1)
 	{
-		c = msg[i];
+		tmp = msg;
+		c = tmp[i];
 		j = 7;
 		while (j >= 0)
 		{
-			bit = (msg[i] >> j) & 1;
+			bit = (tmp[i] >> j) & 1;
 			if (bit == 0)
 				kill(pid, SIGUSR1);
 			else
 				kill(pid, SIGUSR2);
-			usleep(100);
+			usleep(1000);
 			j--;
 		}
 		if (c == '\0')
