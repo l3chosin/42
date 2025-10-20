@@ -6,11 +6,13 @@
 /*   By: aluther- <aluther-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/09 15:44:50 by aluther-          #+#    #+#             */
-/*   Updated: 2025/10/20 14:12:05 by aluther-         ###   ########.fr       */
+/*   Updated: 2025/10/20 10:31:31 by aluther-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
+#include <signal.h>
+#include <unistd.h>
 
 volatile sig_atomic_t	g_ack = 0;
 
@@ -45,8 +47,14 @@ static void	send_str(char *msg, int pid)
 		}
 		if (c == '\0')
 		{
+			g_ack = 0;
+			while (g_ack != SIGUSR2 && g_ack != SIGUSR1)
+				pause();
+			if (g_ack == SIGUSR1)
+				break ;
+			g_ack = 0;
 			while (g_ack != SIGUSR1)
-				pause ();
+				pause();
 			break ;
 		}
 		i++;
@@ -71,5 +79,5 @@ int	main(int ac, char *av[])
 	sigaction(SIGUSR2, &ok, NULL);
 	sigaction(SIGUSR1, &ok, NULL);
 	send_str(av[2], pid);
-	return (0);
+	exit (0);
 }
