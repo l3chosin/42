@@ -58,7 +58,7 @@ static void	do_things(int signal, siginfo_t *info, void *context)
 			c = 0;
 			i = 0;
 			kill(client_pid, SIGUSR2);
-			usleep(1000);
+			usleep(100);
 			kill(client_pid, SIGUSR1);
 			return ;
 		}
