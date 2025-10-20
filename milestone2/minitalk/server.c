@@ -11,6 +11,8 @@
 /* ************************************************************************** */
 
 #include "minitalk.h"
+#include <signal.h>
+#include <unistd.h>
 
 static pid_t	g_active_client = 0;
 
@@ -45,25 +47,26 @@ static void	do_things(int signal, siginfo_t *info, void *context)
 		return ;
 	c = (c << 1) | bit;
 	i++;
-	kill(client_pid, SIGUSR2);
 	if (i == 8)
 	{
 		write(1, &c, 1);
+		kill(client_pid, SIGUSR2);
 		if (c == '\0')
 		{
+			kill(client_pid, SIGUSR1);
 			g_active_client = 0;
 			write(1, "\n", 1);
+			c = 0;
+			i = 0;
+			return ;
 		}
 		c = 0;
 		i = 0;
+		return ;
 	}
-	if (i > 8)
-	{
-		i = 0;
-		c = 0;
-		g_active_client = 0;
-	}
+	kill(client_pid, SIGUSR2);
 }
+
 
 int	main(void)
 {

@@ -11,14 +11,14 @@
 /* ************************************************************************** */
 
 #include "minitalk.h"
+#include <signal.h>
 #include <unistd.h>
 
 volatile sig_atomic_t	g_ack = 0;
 
 void	ok_handler(int sign)
 {
-	(void)sign;
-	g_ack = 1;
+	g_ack = sign;
 }
 
 static void	send_str(char *msg, int pid)
@@ -27,29 +27,36 @@ static void	send_str(char *msg, int pid)
 	int		j;
 	int		bit;
 	char	c;
-	char	*tmp;
 
 	i = 0;
 	while (1)
 	{
-		tmp = msg;
-		c = tmp[i];
+		c = msg[i];
 		j = 7;
 		while (j >= 0)
 		{
-			bit = (tmp[i] >> j) & 1;
 			g_ack = 0;
+			bit = (c >> j) & 1;
 			if (bit == 0)
 				kill(pid, SIGUSR1);
 			else
 				kill(pid, SIGUSR2);
-			while (!g_ack)
+			while (g_ack != SIGUSR2)
 				pause();
-			usleep(100);
 			j--;
 		}
 		if (c == '\0')
+		{
+			g_ack = 0;
+			while (g_ack != SIGUSR2 && g_ack != SIGUSR1)
+				pause();
+			if (g_ack == SIGUSR1)
+				break ;
+			g_ack = 0;
+			while (g_ack != SIGUSR1)
+				pause();
 			break ;
+		}
 		i++;
 	}
 }
@@ -62,7 +69,7 @@ int	main(int ac, char *av[])
 	if (ac != 3)
 	{
 		ft_printf("Error! Use the client as following\n");
-		ft_printf("./client PID \"YourMessageHere\"\n");
+		ft_printf("./client PID \"Your Message Here\"\n");
 		return (0);
 	}
 	pid = ft_atoi(av[1]);
@@ -70,6 +77,7 @@ int	main(int ac, char *av[])
 	sigemptyset(&ok.sa_mask);
 	ok.sa_flags = 0;
 	sigaction(SIGUSR2, &ok, NULL);
+	sigaction(SIGUSR1, &ok, NULL);
 	send_str(av[2], pid);
-	return (0);
+	exit (0);
 }
