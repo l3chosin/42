@@ -6,7 +6,7 @@
 /*   By: aluther- <aluther-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/09 15:44:50 by aluther-          #+#    #+#             */
-/*   Updated: 2025/10/15 17:20:02 by aluther-         ###   ########.fr       */
+/*   Updated: 2025/10/20 10:31:31 by aluther-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ static void	send_str(char *msg, int pid)
 				kill(pid, SIGUSR2);
 			while (!g_ack)
 				pause();
+			usleep(100);
 			j--;
 		}
 		if (c == '\0')
