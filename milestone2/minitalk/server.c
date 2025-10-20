@@ -6,26 +6,20 @@
 /*   By: aluther- <aluther-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/09 15:49:21 by aluther-          #+#    #+#             */
-/*   Updated: 2025/10/20 10:35:19 by aluther-         ###   ########.fr       */
+/*   Updated: 2025/10/20 14:06:41 by aluther-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
-#include <signal.h>
-#include <unistd.h>
 
 static pid_t	g_active_client = 0;
 
 static int	bit_selector(int signal)
 {
 	if (signal == SIGUSR1)
-	{
 		return (0);
-	}
 	else if (signal == SIGUSR2)
-	{
 		return (1);
-	}
 	return (-1);
 }
 
@@ -50,7 +44,6 @@ static void	do_things(int signal, siginfo_t *info, void *context)
 	if (i == 8)
 	{
 		write(1, &c, 1);
-		kill(client_pid, SIGUSR2);
 		if (c == '\0')
 		{
 			kill(client_pid, SIGUSR1);
@@ -60,6 +53,7 @@ static void	do_things(int signal, siginfo_t *info, void *context)
 			i = 0;
 			return ;
 		}
+		kill(client_pid, SIGUSR2);
 		c = 0;
 		i = 0;
 		return ;
