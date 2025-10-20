@@ -48,11 +48,6 @@ static void	send_str(char *msg, int pid)
 		if (c == '\0')
 		{
 			g_ack = 0;
-			while (g_ack != SIGUSR2 && g_ack != SIGUSR1)
-				pause();
-			if (g_ack == SIGUSR1)
-				break ;
-			g_ack = 0;
 			while (g_ack != SIGUSR1)
 				pause();
 			break ;

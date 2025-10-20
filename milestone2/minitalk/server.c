@@ -50,19 +50,20 @@ static void	do_things(int signal, siginfo_t *info, void *context)
 	if (i == 8)
 	{
 		write(1, &c, 1);
-		kill(client_pid, SIGUSR2);
 		if (c == '\0')
 		{
-			kill(client_pid, SIGUSR1);
 			g_active_client = 0;
+			write(1, &c, 1);
 			write(1, "\n", 1);
 			c = 0;
 			i = 0;
+			kill(client_pid, SIGUSR2);
+			usleep(1000);
+			kill(client_pid, SIGUSR1);
 			return ;
 		}
 		c = 0;
 		i = 0;
-		return ;
 	}
 	kill(client_pid, SIGUSR2);
 }
