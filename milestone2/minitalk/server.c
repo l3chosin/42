@@ -10,8 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk.h"
-#include <sys/types.h>
+#include "libft/libft.h"
+#include <signal.h>
+#include <unistd.h>
 
 static pid_t	g_active_client = 0;
 

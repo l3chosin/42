@@ -10,7 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk.h"
+#include "libft/libft.h"
+#include <signal.h>
+#include <unistd.h>
 
 volatile sig_atomic_t	g_ack = 0;
 
