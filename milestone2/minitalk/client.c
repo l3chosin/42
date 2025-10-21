@@ -11,8 +11,6 @@
 /* ************************************************************************** */
 
 #include "minitalk.h"
-#include <signal.h>
-#include <unistd.h>
 
 volatile sig_atomic_t	g_ack = 0;
 
