@@ -42,7 +42,7 @@ static void	send_str(char *msg, int pid)
 			else
 				kill(pid, SIGUSR2);
 			while (g_ack != SIGUSR2)
-				pause();
+				usleep(42);
 			j--;
 		}
 		if (c == '\0')
