@@ -11,8 +11,6 @@
 /* ************************************************************************** */
 
 #include "minitalk.h"
-#include <signal.h>
-#include <unistd.h>
 
 static pid_t	g_active_client = 0;
 
