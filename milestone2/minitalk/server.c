@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "minitalk.h"
+#include <sys/types.h>
 
 static pid_t	g_active_client = 0;
 
@@ -25,6 +26,18 @@ static int	bit_selector(int signal)
 		return (1);
 	}
 	return (-1);
+}
+
+void	last_send(pid_t client_pid, char c, int *i)
+{
+	g_active_client = 0;
+	write(1, &c, 1);
+	write(1, "\n", 1);
+	c = 0;
+	*i = 0;
+	kill(client_pid, SIGUSR2);
+	usleep(100);
+	kill(client_pid, SIGUSR1);
 }
 
 static void	do_things(int signal, siginfo_t *info, void *context)
@@ -49,17 +62,7 @@ static void	do_things(int signal, siginfo_t *info, void *context)
 	{
 		write(1, &c, 1);
 		if (c == '\0')
-		{
-			g_active_client = 0;
-			write(1, &c, 1);
-			write(1, "\n", 1);
-			c = 0;
-			i = 0;
-			kill(client_pid, SIGUSR2);
-			usleep(100);
-			kill(client_pid, SIGUSR1);
-			return ;
-		}
+			return (last_send(client_pid, c, &i));
 		c = 0;
 		i = 0;
 	}

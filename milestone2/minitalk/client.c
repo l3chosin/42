@@ -14,35 +14,41 @@
 
 volatile sig_atomic_t	g_ack = 0;
 
-void	ok_handler(int sign)
+static void	ok_handler(int sign)
 {
 	g_ack = sign;
+}
+
+static void	send_char(char c, int pid)
+{
+	int	j;
+	int	bit;
+
+	j = 7;
+	while (j >= 0)
+	{
+		g_ack = 0;
+		bit = (c >> j) & 1;
+		if (bit == 0)
+			kill(pid, SIGUSR1);
+		else
+			kill(pid, SIGUSR2);
+		while (g_ack != SIGUSR2)
+			usleep(42);
+		j--;
+	}
 }
 
 static void	send_str(char *msg, int pid)
 {
 	int		i;
-	int		j;
-	int		bit;
 	char	c;
 
 	i = 0;
 	while (1)
 	{
 		c = msg[i];
-		j = 7;
-		while (j >= 0)
-		{
-			g_ack = 0;
-			bit = (c >> j) & 1;
-			if (bit == 0)
-				kill(pid, SIGUSR1);
-			else
-				kill(pid, SIGUSR2);
-			while (g_ack != SIGUSR2)
-				usleep(42);
-			j--;
-		}
+		send_char(c, pid);
 		if (c == '\0')
 		{
 			g_ack = 0;
