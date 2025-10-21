@@ -66,7 +66,6 @@ static void	do_things(int signal, siginfo_t *info, void *context)
 	kill(client_pid, SIGUSR2);
 }
 
-
 int	main(void)
 {
 	struct sigaction	sa;
