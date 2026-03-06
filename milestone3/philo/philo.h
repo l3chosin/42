@@ -32,7 +32,7 @@ typedef struct s_sim
 	int		time_to_eat;
 	int		time_to_die;
 	int		time_to_think;
-	int     time_to_sleep;
+	int		time_to_sleep;
 	int		must_eat;
 	t_table	table;
 }				t_sim;

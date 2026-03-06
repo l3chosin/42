@@ -54,6 +54,18 @@ t_sim	prepare_emulation(char **av)
 	return (simulation);
 }
 
+void	print_test(t_sim sim, char **av)
+{
+	printf("Forks = %i\n", sim.forks);
+	printf("N of philosophers = %i\n", sim.table.n_philos);
+	printf("Time to die = %i\n", sim.time_to_die);
+	printf("Time to eat = %i\n", sim.time_to_eat);
+	printf("Time to sleep = %i\n", sim.time_to_sleep);
+	printf("Time to think = %i\n", sim.time_to_think);
+	if (av[6])
+		printf("Times philo must eat = %i\n", sim.must_eat);
+}
+
 int	main(int ac, char **av)
 {
 	t_sim	sim;
@@ -61,21 +73,11 @@ int	main(int ac, char **av)
 	if (ac == 6 || ac == 7)
 	{
 		if (argument_validator(av) == -1)
-		{
-			printf("Error en los argumentos\n");
-			return (0);
-		}
+			return (printf("Error en los argumentos\n"), 0);
 		else
 		{
 			sim = prepare_emulation(av);
-			printf("Forks = %i\n", sim.forks);
-			printf("N of philosophers = %i\n", sim.table.n_philos);
-			printf("Time to die = %i\n", sim.time_to_die);
-			printf("Time to eat = %i\n", sim.time_to_eat);
-			printf("Time to sleep = %i\n", sim.time_to_sleep);
-			printf("Time to think = %i\n", sim.time_to_think);
-			if (av[6])
-				printf("Times philo must eat = %i\n", sim.must_eat);
+			print_test(sim, av);
 		}
 	}
 	else
