@@ -15,27 +15,27 @@
 
 typedef struct s_philo
 {
-	int	n_philo;
+	int	id;
 	int	times_eaten;
 
 }				t_philo;
 
 typedef struct s_table
 {
-	t_philo	philosopher;
-	t_philo	*l_philo;
-	t_philo	*r_philo;
+	int		n_philos;
+	t_philo	*philosopher;
 }				t_table;
 
 typedef struct s_sim
 {
-	int	forks;
-	int	time_to_eat;
-	int	time_to_die;
-	int	time_to_think;
-	int	must_eat;
+	int		forks;
+	int		time_to_eat;
+	int		time_to_die;
+	int		time_to_think;
+	int		must_eat;
+	t_table	table;
 }				t_sim;
 
-
+int	ft_atoi_ok(const char *str,	int	*ok);
 
 #endif
