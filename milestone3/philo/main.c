@@ -35,17 +35,25 @@ int	argument_validator(char **av)
 	return (0);
 }
 
+t_table	save_basic_data(t_table sim, char **av)
+{
+	int	dummy;
+
+	sim.n_philos = ft_atoi_ok(av[1], &dummy);
+	sim.time_to_die = ft_atoi_ok(av[2], &dummy);
+	sim.time_to_eat = ft_atoi_ok(av[3], &dummy);
+	sim.time_to_sleep = ft_atoi_ok(av[4], &dummy);
+	sim.time_to_think = ft_atoi_ok(av[5], &dummy);
+	sim.must_eat = -1;
+	return (sim);
+}
+
 t_table	prepare_emulation(char **av)
 {
 	t_table	simulation;
 	int		dummy;
 
-	simulation.n_philos = ft_atoi_ok(av[1], &dummy);
-	simulation.time_to_die = ft_atoi_ok(av[2], &dummy);
-	simulation.time_to_eat = ft_atoi_ok(av[3], &dummy);
-	simulation.time_to_sleep = ft_atoi_ok(av[4], &dummy);
-	simulation.time_to_think = ft_atoi_ok(av[5], &dummy);
-	simulation.must_eat = -1;
+	simulation = save_basic_data(simulation, av);
 	if (av[6])
 		simulation.must_eat = ft_atoi_ok(av[6], &dummy);
 	simulation.philosopher = malloc((sizeof(t_philo)
@@ -55,7 +63,6 @@ t_table	prepare_emulation(char **av)
 		simulation.philosopher = NULL;
 		simulation.forks = NULL;
 		return (simulation);
-
 	}
 	simulation.forks = malloc(sizeof(int) * simulation.n_philos);
 	if (!simulation.forks)
@@ -65,18 +72,6 @@ t_table	prepare_emulation(char **av)
 		return (simulation);
 	}
 	return (simulation);
-}
-
-void	print_test(t_table sim)
-{
-	printf("Forks = %i\n", sim.n_philos);
-	printf("N of philosophers = %i\n", sim.n_philos);
-	printf("Time to die = %i\n", sim.time_to_die);
-	printf("Time to eat = %i\n", sim.time_to_eat);
-	printf("Time to sleep = %i\n", sim.time_to_sleep);
-	printf("Time to think = %i\n", sim.time_to_think);
-	if (sim.must_eat >= 0)
-		printf("Times philo must eat = %i\n", sim.must_eat);
 }
 
 void	cleanup(t_table *table)

@@ -1,7 +1,7 @@
 CC		= gcc
 FLAGS	= -Wall -Wextra -Werror -g
 NAME	= philo
-SRC		= main.c ft_atoi_checker.c actions.c
+SRC		= main.c test_functions.c ft_atoi_checker.c actions.c
 OBJ		= $(SRC:.c=.o)
 
 all: $(NAME)

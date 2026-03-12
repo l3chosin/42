@@ -37,4 +37,7 @@ void	philo_sleep(int sleep_time);
 void	philo_eat(int eat_time);
 void	pilo_think(int think_time);
 void	philo_die(int death_time);
+
+/* TEST FUNCTIONS */
+void	print_test(t_table sim);
 #endif
