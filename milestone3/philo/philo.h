@@ -24,19 +24,17 @@ typedef struct s_table
 {
 	int		n_philos;
 	t_philo	*philosopher;
-}				t_table;
-
-typedef struct s_sim
-{
-	int		forks;
+	int		*forks;
 	int		time_to_eat;
 	int		time_to_die;
 	int		time_to_think;
 	int		time_to_sleep;
 	int		must_eat;
-	t_table	table;
-}				t_sim;
+}				t_table;
 
-int	ft_atoi_ok(const char *str,	int	*ok);
-
+int		ft_atoi_ok(const char *str,	int	*ok);
+void	philo_sleep(int sleep_time);
+void	philo_eat(int eat_time);
+void	pilo_think(int think_time);
+void	philo_die(int death_time);
 #endif

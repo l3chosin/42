@@ -35,13 +35,12 @@ int	argument_validator(char **av)
 	return (0);
 }
 
-t_sim	prepare_emulation(char **av)
+t_table	prepare_emulation(char **av)
 {
-	t_sim	simulation;
+	t_table	simulation;
 	int		dummy;
 
-	simulation.table.n_philos = ft_atoi_ok(av[1], &dummy);
-	simulation.forks = ft_atoi_ok(av[1], &dummy);
+	simulation.n_philos = ft_atoi_ok(av[1], &dummy);
 	simulation.time_to_die = ft_atoi_ok(av[2], &dummy);
 	simulation.time_to_eat = ft_atoi_ok(av[3], &dummy);
 	simulation.time_to_sleep = ft_atoi_ok(av[4], &dummy);
@@ -49,26 +48,48 @@ t_sim	prepare_emulation(char **av)
 	simulation.must_eat = -1;
 	if (av[6])
 		simulation.must_eat = ft_atoi_ok(av[6], &dummy);
-	simulation.table.philosopher = malloc((sizeof(t_philo)
-				* simulation.table.n_philos));
+	simulation.philosopher = malloc((sizeof(t_philo)
+				* simulation.n_philos));
+	if (!simulation.philosopher)
+	{
+		simulation.philosopher = NULL;
+		simulation.forks = NULL;
+		return (simulation);
+
+	}
+	simulation.forks = malloc(sizeof(int) * simulation.n_philos);
+	if (!simulation.forks)
+	{
+		free(simulation.philosopher);
+		simulation.philosopher = NULL;
+		return (simulation);
+	}
 	return (simulation);
 }
 
-void	print_test(t_sim sim, char **av)
+void	print_test(t_table sim)
 {
-	printf("Forks = %i\n", sim.forks);
-	printf("N of philosophers = %i\n", sim.table.n_philos);
+	printf("Forks = %i\n", sim.n_philos);
+	printf("N of philosophers = %i\n", sim.n_philos);
 	printf("Time to die = %i\n", sim.time_to_die);
 	printf("Time to eat = %i\n", sim.time_to_eat);
 	printf("Time to sleep = %i\n", sim.time_to_sleep);
 	printf("Time to think = %i\n", sim.time_to_think);
-	if (av[6])
+	if (sim.must_eat >= 0)
 		printf("Times philo must eat = %i\n", sim.must_eat);
+}
+
+void	cleanup(t_table *table)
+{
+	free(table->philosopher);
+	free(table->forks);
+	table->philosopher = NULL;
+	table->forks = NULL;
 }
 
 int	main(int ac, char **av)
 {
-	t_sim	sim;
+	t_table	sim;
 
 	if (ac == 6 || ac == 7)
 	{
@@ -77,9 +98,12 @@ int	main(int ac, char **av)
 		else
 		{
 			sim = prepare_emulation(av);
-			print_test(sim, av);
+			if (!sim.philosopher || !sim.forks)
+				return (free(sim.philosopher), free(sim.forks), 1);
+			print_test(sim);
+			cleanup(&sim);
 		}
 	}
 	else
-		printf("Datos incorrectos >:(\n");
+		printf("Faltan datos o hay demasiados\n");
 }
