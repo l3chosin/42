@@ -13,18 +13,27 @@
 #ifndef PHILO_H
 # define PHILO_H
 
+#include <bits/pthreadtypes.h>
+
+typedef struct s_table t_table;
+
 typedef struct s_philo
 {
 	int	id;
 	int	times_eaten;
-
+	long    last_meal_time;
+	pthread_t   thread;
+	pthread_mutex_t *fork_left;
+	pthread_mutex_t *fork_right;
+	t_table *table;
 }				t_philo;
 
 typedef struct s_table
 {
 	int		n_philos;
 	t_philo	*philosopher;
-	int		*forks;
+	pthread_mutex_t write_lock;
+	pthread_mutex_t		*forks;
 	int		time_to_eat;
 	int		time_to_die;
 	int		time_to_think;
@@ -40,4 +49,13 @@ void	philo_die(int death_time);
 
 /* TEST FUNCTIONS */
 void	print_test(t_table sim);
+
+/*  PRE SIMULATION FUNCTIONS */
+int	argument_validator(char **av);
+t_table	save_basic_data(t_table sim, char **av);
+t_table	prepare_emulation(char **av);
+
+/*  EMULATION */
+void start_emulation(t_table sim);
+
 #endif
