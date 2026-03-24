@@ -1,9 +1,17 @@
 #include "philo.h"
 #include <pthread.h>
+#include <stdio.h>
+#include <string.h>
 
-void *philo_born(void *arg)
+void *philo_routine(void *arg)
 {
+    t_philo *philo;
 
+    philo = (t_philo *)arg;
+
+    /* Aqui me falta ya hacer las acciones de los filosofos :D */
+    printf("Creando hilo del filosofo %i\n", philo->id);
+    return (NULL);
 }
 
 void start_emulation(t_table sim)
@@ -13,5 +21,13 @@ void start_emulation(t_table sim)
     i = 0;
     while (i < sim.n_philos)
     {
+        pthread_create(&sim.philosopher[i].philo_thread, NULL, philo_routine, &sim.philosopher[i]);
+        i++;
+    }
+    i = 0;
+    while (i < sim.n_philos)
+    {
+        pthread_join(sim.philosopher[i].philo_thread, NULL);
+        i++;
     }
 }

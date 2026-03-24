@@ -13,7 +13,7 @@
 #ifndef PHILO_H
 # define PHILO_H
 
-#include <bits/pthreadtypes.h>
+# include <pthread.h>
 
 typedef struct s_table t_table;
 
@@ -22,7 +22,7 @@ typedef struct s_philo
 	int	id;
 	int	times_eaten;
 	long    last_meal_time;
-	pthread_t   thread;
+	pthread_t   philo_thread;
 	pthread_mutex_t *fork_left;
 	pthread_mutex_t *fork_right;
 	t_table *table;
@@ -52,7 +52,7 @@ void	print_test(t_table sim);
 
 /*  PRE SIMULATION FUNCTIONS */
 int	argument_validator(char **av);
-t_table	save_basic_data(t_table sim, char **av);
+void	save_basic_data(t_table *sim, char **av);
 t_table	prepare_emulation(char **av);
 
 /*  EMULATION */
