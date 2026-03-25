@@ -30,6 +30,7 @@ typedef struct s_philo
 
 typedef struct s_table
 {
+    pthread_t   reaper;
 	int		n_philos;
 	t_philo	*philosopher;
 	pthread_mutex_t write_lock;

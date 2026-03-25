@@ -1,6 +1,7 @@
 #include "philo.h"
 #include <pthread.h>
 #include <stdio.h>
+#include <string.h>
 #include <unistd.h>
 
 void *philo_routine(void *arg)
@@ -21,6 +22,21 @@ void *philo_routine(void *arg)
     return (NULL);
 }
 
+void *reaper_routine(void *arg)
+{
+    t_table *sim;
+
+    sim = (t_table *)arg;
+    /* Tengo que hacer la rutina del reaper que comprueba si algun filosofo se ha muerto.
+     * Para ello necesito que los filosofos impriman el momento en el que han comido por
+     * ultima vez y así poder hacer la resta. Si la resta es más grande que el tiempo de
+     * muerte, entonces el reaper ha de cambiar una variable de encendido en la table que hará
+     * que se pare la simulacion cuando alguien muere. He de hacer que los filosofos comprueben en cada
+     * acción este swithc. Y también he de hacer que el usleep lo haga, por lo que deberia hacer
+     * uno custom que cada poco compruebe el estado de la variable en la simulacion.      */
+
+}
+
 void start_emulation(t_table sim)
 {
     int i;
@@ -31,6 +47,7 @@ void start_emulation(t_table sim)
         pthread_create(&sim.philosopher[i].philo_thread, NULL, philo_routine, &sim.philosopher[i]);
         i++;
     }
+    pthread_create(&sim.reaper, NULL, reaper_routine, &sim);
     i = 0;
     while (i < sim.n_philos)
     {
