@@ -1,7 +1,7 @@
 #include "philo.h"
 #include <pthread.h>
 #include <stdio.h>
-#include <string.h>
+#include <unistd.h>
 
 void *philo_routine(void *arg)
 {
@@ -10,7 +10,9 @@ void *philo_routine(void *arg)
     philo = (t_philo *)arg;
 
     /* Aqui me falta ya hacer las acciones de los filosofos :D */
-    printf("Creando hilo del filosofo %i\n", philo->id);
+    printf("El filosofo %i ha nacido!\n", philo->id);
+    philo_sleep(philo);
+    printf("El filosofo %i ha muerto!\n", philo->id);
     return (NULL);
 }
 

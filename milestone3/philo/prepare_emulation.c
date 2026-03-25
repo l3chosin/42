@@ -53,9 +53,10 @@ void    init_extra_data(t_table *sim)
     i = 0;
    	while (i < sim->n_philos)
 	{
+	       sim->philosopher[i].table = sim;
            sim->philosopher[i].fork_left = &sim->forks[i];
            sim->philosopher[i].fork_right = &sim->forks[(i + 1) % sim->n_philos];
-           sim->philosopher[i].id = i;
+           sim->philosopher[i].id = i + 1;
            sim->philosopher[i].times_eaten = 0;
            i++;
 	}

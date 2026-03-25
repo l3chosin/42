@@ -11,11 +11,14 @@
 /* ************************************************************************** */
 
 #include "philo.h"
+#include <stdio.h>
 #include <unistd.h>
 
-void	philo_sleep(int sleep_time)
+void	philo_sleep(t_philo *philo)
 {
-	usleep(sleep_time * 1000);
+    printf("Filosofo %i se acuesta a dormir\n", philo->id);
+	usleep(philo->table->time_to_sleep * 1000);
+	printf("Filosofo %i se ha despertado\n", philo->id);
 }
 
 void	philo_eat(int eat_time)
