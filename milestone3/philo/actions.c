@@ -21,14 +21,27 @@ void	philo_sleep(t_philo *philo)
 	printf("Filosofo %i se ha despertado\n", philo->id);
 }
 
-void	philo_eat(int eat_time)
+void	philo_eat(t_philo *philo)
 {
-	usleep(eat_time * 1000);
+    pthread_mutex_lock(philo->fork_left);
+    printf("Filosofo %i ha cogido el tenedor de su izquierda\n", philo->id);
+    pthread_mutex_lock(philo->fork_right);
+    printf("Filosofo %i ha cogido el tenedor de su derecha\n", philo->id);
+    usleep(philo->table->time_to_eat * 1000);
+    philo->times_eaten += 1;
+    printf("Filosofo %i ha acabado de comer\n", philo->id);
+    pthread_mutex_unlock(philo->fork_right);
+    printf("Filosofo %i ha soltado el tenedor de su derecha\n", philo->id);
+    pthread_mutex_unlock(philo->fork_left);
+    printf("Filosofo %i ha soltado el tenedor de su izquierda\n", philo->id);
 }
 
-void	pilo_think(int think_time)
+void	philo_think(t_philo *philo)
 {
-	usleep(think_time * 1000);
+    printf("Filosofo %i empeza a pensar \n", philo->id);
+	usleep(philo->table->time_to_think * 1000);
+    printf("Filosofo %i ha acabado de pensar \n", philo->id);
+
 }
 
 void	philo_die(int death_time)

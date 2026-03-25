@@ -42,8 +42,9 @@ typedef struct s_table
 }				t_table;
 
 int		ft_atoi_ok(const char *str,	int	*ok);
+void	philo_eat(t_philo *philo);
 void	philo_sleep(t_philo *philo);
-void	pilo_think(int think_time);
+void	philo_think(t_philo *philo);
 void	philo_die(int death_time);
 
 /* TEST FUNCTIONS */

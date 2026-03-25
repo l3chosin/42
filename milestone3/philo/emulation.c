@@ -11,7 +11,12 @@ void *philo_routine(void *arg)
 
     /* Aqui me falta ya hacer las acciones de los filosofos :D */
     printf("El filosofo %i ha nacido!\n", philo->id);
-    philo_sleep(philo);
+    while(1)
+    {
+        philo_eat(philo);
+        philo_sleep(philo);
+        philo_think(philo);
+    }
     printf("El filosofo %i ha muerto!\n", philo->id);
     return (NULL);
 }
