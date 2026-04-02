@@ -1,7 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   emulation.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aluther- <aluther-@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/02 20:21:27 by aluther-          #+#    #+#             */
+/*   Updated: 2026/04/02 20:46:43 by aluther-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philo.h"
 #include <pthread.h>
 #include <stdio.h>
-#include <string.h>
 #include <unistd.h>
 
 void *philo_routine(void *arg)

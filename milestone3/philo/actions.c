@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   actions.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aluther- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: aluther- <aluther-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/06 21:51:28 by aluther-          #+#    #+#             */
-/*   Updated: 2026/03/06 21:51:30 by aluther-         ###   ########.fr       */
+/*   Updated: 2026/04/02 20:57:31 by aluther-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 #include <stdio.h>
-#include <string.h>
 #include <unistd.h>
 
 void	philo_sleep(t_philo *philo)
