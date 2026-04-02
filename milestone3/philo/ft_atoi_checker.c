@@ -35,6 +35,8 @@ static int	sign_assign(const char *str, int *i, int *sign, int *ok)
 
 static int	int_validator(const char *str, long long result, int *i, int *ok)
 {
+	while (str[*i] == ' ' || (str[*i] >= 9 && str[*i] <= 13))
+		(*i)++;
 	if (str[*i] != '\0')
 		return (*ok = 0, 0);
 	if (result < INT_MIN || INT_MAX < result)

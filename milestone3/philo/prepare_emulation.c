@@ -25,11 +25,11 @@ void	save_basic_data(t_table *sim, char **av)
 	sim->must_eat = -1;
 }
 
-void    save_arrays(t_table *sim, char **av)
+void	save_arrays(t_table *sim, char **av)
 {
-    int dummy;
+	int	dummy;
 
-   	if (av[6])
+	if (av[6])
 		sim->must_eat = ft_atoi_ok(av[6], &dummy);
 	sim->philosopher = malloc((sizeof(t_philo)
 				* sim->n_philos));
@@ -46,42 +46,39 @@ void    save_arrays(t_table *sim, char **av)
 	}
 }
 
-void    init_mutex(t_table *sim)
+void	init_mutex(t_table *sim)
 {
-    int i;
+	int	i;
 
-   	i = 0;
+	i = 0;
 	while (i < sim->n_philos)
 	{
-	    pthread_mutex_init(&sim->forks[i], NULL);
+		pthread_mutex_init(&sim->forks[i], NULL);
+		i++;
+	}
+	pthread_mutex_init(&sim->write_lock, NULL);
+}
+
+void	init_extra_data(t_table *sim)
+{
+	int	i;
+
+	i = 0;
+	while (i < sim->n_philos)
+	{
+		sim->philosopher[i].table = sim;
+		sim->philosopher[i].fork_left = &sim->forks[i];
+		sim->philosopher[i].fork_right = &sim->forks[(i + 1) % sim->n_philos];
+		sim->philosopher[i].id = i + 1;
+		sim->philosopher[i].times_eaten = 0;
 		i++;
 	}
 }
 
-void    init_extra_data(t_table *sim)
+void	prepare_emulation(t_table *simulation, char **av)
 {
-    int i;
-
-    i = 0;
-   	while (i < sim->n_philos)
-	{
-	       sim->philosopher[i].table = sim;
-           sim->philosopher[i].fork_left = &sim->forks[i];
-           sim->philosopher[i].fork_right = &sim->forks[(i + 1) % sim->n_philos];
-           sim->philosopher[i].id = i + 1;
-           sim->philosopher[i].times_eaten = 0;
-           i++;
-	}
-}
-
-t_table	prepare_emulation(char **av)
-{
-	t_table	simulation;
-
-	save_basic_data(&simulation, av);
-	save_arrays(&simulation, av);
-	init_mutex(&simulation);
-	init_extra_data(&simulation);
-
-	return (simulation);
+	save_basic_data(simulation, av);
+	save_arrays(simulation, av);
+	init_mutex(simulation);
+	init_extra_data(simulation);
 }

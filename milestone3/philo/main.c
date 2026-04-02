@@ -30,16 +30,13 @@ int	main(int ac, char **av)
 	{
 		if (argument_validator(av) == -1)
 			return (printf("Error en los argumentos\n"), 0);
-		else
-		{
-			sim = prepare_emulation(av);
-			if (!sim.philosopher || !sim.forks)
-				return (free(sim.philosopher), free(sim.forks), 1);
-			print_test(sim);
-			start_emulation(sim);
-			cleanup(&sim);
-		}
+
+		prepare_emulation(&sim, av);
+		if (!sim.philosopher || !sim.forks)
+			return (1);
+		printf("DEBUG: Eat: %d, Die: %d, Sleep: %d\n", sim.time_to_eat, sim.time_to_die, sim.time_to_sleep);
+		start_emulation(&sim);
+		cleanup(&sim);
 	}
-	else
-		printf("Faltan datos o hay demasiados\n");
+	return (0);
 }

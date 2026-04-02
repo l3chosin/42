@@ -31,35 +31,37 @@ typedef struct s_philo
 
 typedef struct s_table
 {
-    pthread_t   reaper;
-   	t_philo	*philosopher;
-	pthread_mutex_t write_lock;
-	pthread_mutex_t		*forks;
-	int		n_philos;
-	int		time_to_eat;
-	int		time_to_die;
-	int		time_to_think;
-	int		time_to_sleep;
-	int		must_eat;
+	pthread_t		reaper;
+	t_philo			*philosopher;
+	pthread_mutex_t	write_lock;
+	pthread_mutex_t	*forks;
+	int				n_philos;
+	int				time_to_eat;
+	int				time_to_die;
+	int				time_to_think;
+	int				time_to_sleep;
+	int				must_eat;
 }				t_table;
 
-int		ft_atoi_ok(const char *str,	int	*ok);
-void	philo_eat(t_philo *philo);
-void	philo_sleep(t_philo *philo);
-void	philo_think(t_philo *philo);
-void	philo_die(int death_time);
+int			ft_atoi_ok(const char *str,	int	*ok);
+void		philo_eat(t_philo *philo);
+void		philo_sleep(t_philo *philo);
+void		philo_think(t_philo *philo);
+void		philo_die(int death_time);
 
 /* TEST FUNCTIONS */
-void	print_test(t_table sim);
+void		print_test(t_table sim);
 
 /*  PRE SIMULATION FUNCTIONS */
-int	argument_validator(char **av);
-void	save_basic_data(t_table *sim, char **av);
-t_table	prepare_emulation(char **av);
+int			argument_validator(char **av);
+void		save_basic_data(t_table *sim, char **av);
+void		prepare_emulation(t_table *simulation, char **av);
 
 /*  EMULATION */
-void start_emulation(t_table sim);
+void		start_emulation(t_table *sim);
 
 /*  TOOLS  */
-long long get_timestamp_ms(void);
+long long	get_timestamp_ms(void);
+void		smart_sleep(int time_in_ms);
+void		print_action(t_philo *philo, char *msg);
 #endif

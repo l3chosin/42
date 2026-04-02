@@ -15,22 +15,22 @@
 #include <stdio.h>
 #include <unistd.h>
 
-void *philo_routine(void *arg)
+void	*philo_routine(void *arg)
 {
-    t_philo *philo;
+	t_philo	*philo;
 
-    philo = (t_philo *)arg;
+	philo = (t_philo *)arg;
 
-    pthread_mutex_lock(&philo->table->write_lock);
-    printf("%lld %i has born\n",get_timestamp_ms(), philo->id);
-    pthread_mutex_unlock(&philo->table->write_lock);
-    while(1)
-    {
-        philo_eat(philo);
-        philo_sleep(philo);
-        philo_think(philo);
-    }
-    return (NULL);
+	pthread_mutex_lock(&philo->table->write_lock);
+	printf("%lld %i has born\n", get_timestamp_ms(), philo->id);
+	pthread_mutex_unlock(&philo->table->write_lock);
+	while (1)
+	{
+		philo_eat(philo);
+		philo_sleep(philo);
+		philo_think(philo);
+	}
+	return (NULL);
 }
 
 /* void *reaper_routine(void *arg)
@@ -48,22 +48,23 @@ void *philo_routine(void *arg)
 //}
 
 
-void start_emulation(t_table sim)
+void	start_emulation(t_table *sim)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while (i < sim.n_philos)
-    {
-        pthread_create(&sim.philosopher[i].philo_thread, NULL, philo_routine, &sim.philosopher[i]);
-        i++;
-    }
-    //pthread_create(&sim.reaper, NULL, reaper_routine, &sim);
-    i = 0;
-    while (i < sim.n_philos)
-    {
-        pthread_join(sim.philosopher[i].philo_thread, NULL);
-        i++;
-    }
-    //pthread_join(sim.reaper, NULL);
+	i = 0;
+	while (i < sim->n_philos)
+	{
+		pthread_create(&sim->philosopher[i].philo_thread, NULL, philo_routine,
+			&sim->philosopher[i]);
+		i++;
+	}
+	//pthread_create(&sim.reaper, NULL, reaper_routine, &sim);
+	i = 0;
+	while (i < sim->n_philos)
+	{
+		pthread_join(sim->philosopher[i].philo_thread, NULL);
+		i++;
+	}
+	//pthread_join(sim.reaper, NULL);
 }
