@@ -45,8 +45,14 @@ int	main(int ac, char **av)
 		prepare_emulation(&sim, av);
 		if (!sim.philosopher || !sim.forks)
 			return (1);
+		if (sim.n_philos == 0 || sim.time_to_die == 0
+			|| sim.time_to_eat == 0 || sim.time_to_sleep == 0
+			|| sim.must_eat == 0)
+			return (cleanup(&sim), 0);
 		start_emulation(&sim);
 		cleanup(&sim);
 	}
+	else
+		printf("Faltan o sobran argumentos \n");
 	return (0);
 }
