@@ -20,3 +20,10 @@ int	argument_validator(char **av)
 	}
 	return (0);
 }
+
+long long get_timestamp_ms(void)
+{
+    struct timeval tv;
+    gettimeofday(&tv, NULL);
+    return (long long)tv.tv_sec * 1000 + tv.tv_usec / 1000;
+}

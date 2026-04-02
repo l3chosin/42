@@ -12,39 +12,54 @@
 
 #include "philo.h"
 #include <stdio.h>
+#include <string.h>
 #include <unistd.h>
 
 void	philo_sleep(t_philo *philo)
 {
-    printf("Filosofo %i se acuesta a dormir\n", philo->id);
+    pthread_mutex_lock(&philo->table->write_lock);
+    printf("%lld %i is sleeping\n", get_timestamp_ms(), philo->id);
+    pthread_mutex_unlock(&philo->table->write_lock);
 	usleep(philo->table->time_to_sleep * 1000);
-	printf("Filosofo %i se ha despertado\n", philo->id);
+    pthread_mutex_lock(&philo->table->write_lock);
+	printf("%lld %i has woken up\n", get_timestamp_ms(), philo->id);
+    pthread_mutex_unlock(&philo->table->write_lock);
 }
 
 void	philo_eat(t_philo *philo)
 {
     pthread_mutex_lock(philo->fork_left);
-    printf("Filosofo %i ha cogido el tenedor de su izquierda\n", philo->id);
+    pthread_mutex_lock(&philo->table->write_lock);
+    printf("%lld %i has taken the left fork\n", get_timestamp_ms(), philo->id);
+    pthread_mutex_unlock(&philo->table->write_lock);
     pthread_mutex_lock(philo->fork_right);
-    printf("Filosofo %i ha cogido el tenedor de su derecha\n", philo->id);
+    pthread_mutex_lock(&philo->table->write_lock);
+    printf("%lld %i has taken the right fork\n", get_timestamp_ms(), philo->id);
+    printf("%lld %i is eating\n", get_timestamp_ms(), philo->id);
+    pthread_mutex_unlock(&philo->table->write_lock);
     usleep(philo->table->time_to_eat * 1000);
     philo->times_eaten += 1;
-    printf("Filosofo %i ha acabado de comer\n", philo->id);
+    philo->last_meal_time = get_timestamp_ms();
+    pthread_mutex_lock(&philo->table->write_lock);
+    printf("%lld %i finished eating\n", get_timestamp_ms(), philo->id);
+    pthread_mutex_unlock(&philo->table->write_lock);
     pthread_mutex_unlock(philo->fork_right);
-    printf("Filosofo %i ha soltado el tenedor de su derecha\n", philo->id);
+    pthread_mutex_lock(&philo->table->write_lock);
+    printf("%lld %i has released the right fork\n", get_timestamp_ms(), philo->id);
+    pthread_mutex_unlock(&philo->table->write_lock);
     pthread_mutex_unlock(philo->fork_left);
-    printf("Filosofo %i ha soltado el tenedor de su izquierda\n", philo->id);
+    pthread_mutex_lock(&philo->table->write_lock);
+    printf("%lld %i has released the left fork\n", get_timestamp_ms(), philo->id);
+    pthread_mutex_unlock(&philo->table->write_lock);
 }
 
 void	philo_think(t_philo *philo)
 {
-    printf("Filosofo %i empeza a pensar \n", philo->id);
+    pthread_mutex_lock(&philo->table->write_lock);
+    printf("%lld %i is thinking\n", get_timestamp_ms(), philo->id);
+    pthread_mutex_unlock(&philo->table->write_lock);
 	usleep(philo->table->time_to_think * 1000);
-    printf("Filosofo %i ha acabado de pensar \n", philo->id);
-
-}
-
-void	philo_die(int death_time)
-{
-	usleep(death_time * 1000);
+    pthread_mutex_lock(&philo->table->write_lock);
+	printf("%lld %i stopped thinking\n", get_timestamp_ms(), philo->id);
+    pthread_mutex_unlock(&philo->table->write_lock);
 }

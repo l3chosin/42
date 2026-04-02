@@ -10,32 +10,32 @@ void *philo_routine(void *arg)
 
     philo = (t_philo *)arg;
 
-    /* Aqui me falta ya hacer las acciones de los filosofos :D */
-    printf("El filosofo %i ha nacido!\n", philo->id);
+    pthread_mutex_lock(&philo->table->write_lock);
+    printf("%lld %i has born\n",get_timestamp_ms(), philo->id);
+    pthread_mutex_unlock(&philo->table->write_lock);
     while(1)
     {
         philo_eat(philo);
         philo_sleep(philo);
         philo_think(philo);
     }
-    printf("El filosofo %i ha muerto!\n", philo->id);
     return (NULL);
 }
 
-void *reaper_routine(void *arg)
+/* void *reaper_routine(void *arg)
 {
     t_table *sim;
 
     sim = (t_table *)arg;
-    /* Tengo que hacer la rutina del reaper que comprueba si algun filosofo se ha muerto.
+    Tengo que hacer la rutina del reaper que comprueba si algun filosofo se ha muerto.
      * Para ello necesito que los filosofos impriman el momento en el que han comido por
      * ultima vez y así poder hacer la resta. Si la resta es más grande que el tiempo de
      * muerte, entonces el reaper ha de cambiar una variable de encendido en la table que hará
      * que se pare la simulacion cuando alguien muere. He de hacer que los filosofos comprueben en cada
      * acción este swithc. Y también he de hacer que el usleep lo haga, por lo que deberia hacer
      * uno custom que cada poco compruebe el estado de la variable en la simulacion.      */
+//}
 
-}
 
 void start_emulation(t_table sim)
 {
@@ -47,11 +47,12 @@ void start_emulation(t_table sim)
         pthread_create(&sim.philosopher[i].philo_thread, NULL, philo_routine, &sim.philosopher[i]);
         i++;
     }
-    pthread_create(&sim.reaper, NULL, reaper_routine, &sim);
+    //pthread_create(&sim.reaper, NULL, reaper_routine, &sim);
     i = 0;
     while (i < sim.n_philos)
     {
         pthread_join(sim.philosopher[i].philo_thread, NULL);
         i++;
     }
+    //pthread_join(sim.reaper, NULL);
 }

@@ -14,6 +14,7 @@
 # define PHILO_H
 
 # include <pthread.h>
+# include <sys/time.h>
 
 typedef struct s_table t_table;
 
@@ -21,7 +22,7 @@ typedef struct s_philo
 {
 	int	id;
 	int	times_eaten;
-	long    last_meal_time;
+	long long last_meal_time;
 	pthread_t   philo_thread;
 	pthread_mutex_t *fork_left;
 	pthread_mutex_t *fork_right;
@@ -31,10 +32,10 @@ typedef struct s_philo
 typedef struct s_table
 {
     pthread_t   reaper;
-	int		n_philos;
-	t_philo	*philosopher;
+   	t_philo	*philosopher;
 	pthread_mutex_t write_lock;
 	pthread_mutex_t		*forks;
+	int		n_philos;
 	int		time_to_eat;
 	int		time_to_die;
 	int		time_to_think;
@@ -59,4 +60,6 @@ t_table	prepare_emulation(char **av);
 /*  EMULATION */
 void start_emulation(t_table sim);
 
+/*  TOOLS  */
+long long get_timestamp_ms(void);
 #endif
