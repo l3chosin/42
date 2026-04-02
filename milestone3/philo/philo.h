@@ -16,17 +16,17 @@
 # include <pthread.h>
 # include <sys/time.h>
 
-typedef struct s_table t_table;
+typedef struct s_table	t_table;
 
 typedef struct s_philo
 {
-	int	id;
-	int	times_eaten;
-	long long last_meal_time;
-	pthread_t   philo_thread;
-	pthread_mutex_t *fork_left;
-	pthread_mutex_t *fork_right;
-	t_table *table;
+	int				id;
+	int				times_eaten;
+	long long		last_meal_time;
+	pthread_t		philo_thread;
+	pthread_mutex_t	*fork_left;
+	pthread_mutex_t	*fork_right;
+	t_table			*table;
 }				t_philo;
 
 typedef struct s_table
@@ -34,13 +34,16 @@ typedef struct s_table
 	pthread_t		reaper;
 	t_philo			*philosopher;
 	pthread_mutex_t	write_lock;
+	pthread_mutex_t	stop_lock;
+	pthread_mutex_t	meal_lock;
 	pthread_mutex_t	*forks;
+	long long		start_time;
 	int				n_philos;
-	int				time_to_eat;
 	int				time_to_die;
-	int				time_to_think;
+	int				time_to_eat;
 	int				time_to_sleep;
 	int				must_eat;
+	int				sim_stop;
 }				t_table;
 
 int			ft_atoi_ok(const char *str,	int	*ok);
@@ -62,6 +65,10 @@ void		start_emulation(t_table *sim);
 
 /*  TOOLS  */
 long long	get_timestamp_ms(void);
-void		smart_sleep(int time_in_ms);
+void		smart_sleep(int time_in_ms, t_table *table);
 void		print_action(t_philo *philo, char *msg);
+int			check_sim_stop(t_table *sim);
+
+void		*reaper_routine(void *arg);
+
 #endif

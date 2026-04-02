@@ -13,6 +13,7 @@
 #include "philo.h"
 #include <unistd.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <bits/types/struct_timeval.h>
 
 int	argument_validator(char **av)
@@ -44,18 +45,38 @@ long long	get_timestamp_ms(void)
 	return ((long long)tv.tv_sec * 1000 + tv.tv_usec / 1000);
 }
 
-void	smart_sleep(int time_in_ms)
+void	smart_sleep(int time_in_ms, t_table *table)
 {
 	long long	start_time;
 
 	start_time = get_timestamp_ms();
 	while ((get_timestamp_ms() - start_time) < (long long)time_in_ms)
+	{
+		if (check_sim_stop(table) == 1)
+			break ;
 		usleep(500);
+	}
 }
 
 void	print_action(t_philo *philo, char *msg)
 {
+	long long	current_time;
+	long long	time_passed;
+
 	pthread_mutex_lock(&philo->table->write_lock);
-	printf("%lld %i %s\n", get_timestamp_ms(), philo->id, msg);
+	current_time = get_timestamp_ms();
+	time_passed = current_time - philo->table->start_time;
+	if (check_sim_stop(philo->table) == 0 || msg[0] == 'd')
+		printf("%lld %i %s\n", time_passed, philo->id, msg);
 	pthread_mutex_unlock(&philo->table->write_lock);
+}
+
+int	check_sim_stop(t_table *sim)
+{
+	int	stop_flag;
+
+	pthread_mutex_lock(&sim->stop_lock);
+	stop_flag = sim->sim_stop;
+	pthread_mutex_unlock(&sim->stop_lock);
+	return (stop_flag);
 }
