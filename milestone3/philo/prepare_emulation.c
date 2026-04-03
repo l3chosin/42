@@ -36,15 +36,13 @@ void	save_arrays(t_table *sim, char **av)
 	sim->philosopher = malloc((sizeof(t_philo)
 				* sim->n_philos));
 	if (!sim->philosopher)
-	{
-		sim->philosopher = NULL;
-		sim->forks = NULL;
-	}
+		return ;
 	sim->forks = malloc(sizeof(pthread_mutex_t) * sim->n_philos);
 	if (!sim->forks)
 	{
 		free(sim->philosopher);
 		sim->philosopher = NULL;
+		return ;
 	}
 }
 
@@ -90,10 +88,13 @@ void	init_extra_data(t_table *sim)
 	}
 }
 
-void	prepare_emulation(t_table *simulation, char **av)
+int	prepare_emulation(t_table *simulation, char **av)
 {
 	save_basic_data(simulation, av);
 	save_arrays(simulation, av);
+	if (!simulation->philosopher || !simulation->forks)
+		return (1);
 	init_mutex(simulation);
 	init_extra_data(simulation);
+	return (0);
 }

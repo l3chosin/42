@@ -20,18 +20,24 @@ void	cleanup(t_table *table)
 	int	i;
 
 	i = 0;
-	while (i < table->n_philos)
+	if (table->forks)
 	{
-		pthread_mutex_destroy(&table->forks[i]);
-		i++;
+		while (i < table->n_philos)
+		{
+			pthread_mutex_destroy(&table->forks[i]);
+			i++;
+		}
+		free(table->forks);
+		table->forks = NULL;
 	}
 	pthread_mutex_destroy(&table->meal_lock);
 	pthread_mutex_destroy(&table->stop_lock);
 	pthread_mutex_destroy(&table->write_lock);
-	free(table->philosopher);
-	free(table->forks);
-	table->philosopher = NULL;
-	table->forks = NULL;
+	if (table->philosopher)
+	{
+		free(table->philosopher);
+		table->philosopher = NULL;
+	}
 }
 
 int	main(int ac, char **av)
@@ -41,18 +47,20 @@ int	main(int ac, char **av)
 	if (ac == 5 || ac == 6)
 	{
 		if (argument_validator(av) == -1)
-			return (printf("Error en los argumentos\n"), 0);
-		prepare_emulation(&sim, av);
-		if (!sim.philosopher || !sim.forks)
+			return (printf("Error en los argumentos\n"), 1);
+		if (prepare_emulation(&sim, av) == 1)
 			return (1);
 		if (sim.n_philos == 0 || sim.time_to_die == 0
 			|| sim.time_to_eat == 0 || sim.time_to_sleep == 0
 			|| sim.must_eat == 0)
-			return (cleanup(&sim), 0);
+		{
+			cleanup(&sim);
+			return (0);
+		}
 		start_emulation(&sim);
 		cleanup(&sim);
 	}
 	else
-		printf("Faltan o sobran argumentos \n");
+		return (printf("Faltan o sobran argumentos \n"), 1);
 	return (0);
 }

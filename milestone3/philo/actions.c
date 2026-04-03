@@ -46,7 +46,15 @@ void	philo_eat(t_philo *philo)
 
 void	philo_think(t_philo *philo)
 {
+	int	t_think;
+
 	if (check_sim_stop(philo->table) == 1)
 		return ;
 	print_action(philo, "is thinking");
+	if (philo->table->n_philos % 2 != 0)
+	{
+		t_think = (philo->table->time_to_eat * 2) - philo->table->time_to_sleep;
+		if (t_think > 0)
+			smart_sleep(t_think * 0.42, philo->table);
+	}
 }

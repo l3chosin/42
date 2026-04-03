@@ -58,7 +58,7 @@ void		print_test(t_table sim);
 /*  PRE SIMULATION FUNCTIONS */
 int			argument_validator(char **av);
 void		save_basic_data(t_table *sim, char **av);
-void		prepare_emulation(t_table *simulation, char **av);
+int			prepare_emulation(t_table *simulation, char **av);
 
 /*  EMULATION */
 void		start_emulation(t_table *sim);
