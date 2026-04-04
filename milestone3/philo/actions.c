@@ -50,5 +50,5 @@ void	philo_think(t_philo *philo)
 		return ;
 	print_action(philo, "is thinking");
 	if (philo->table->n_philos % 2 != 0)
-		smart_sleep(philo->table->n_philos / 2, philo->table);
+		smart_sleep(philo->table->time_to_eat / 2, philo->table);
 }
